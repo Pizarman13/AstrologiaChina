@@ -32,7 +32,7 @@ function handleSubmit(event) {
 
     var trigramaNacimiento = getTrigramaNacimiento(fechaNa)
 
-    var trigramaVital = getTrigramaVital(fechaNa) //UN
+    var trigramaVital = getTrigramaVital(fechaNa, genero) 
 
     //var hexagramaVital = getHexagramaVital(fechaNa) //UN
 
@@ -101,8 +101,33 @@ function getTrigramaNacimiento(fechaNa) {
 
     return code
 }
-function getTrigramaViatl(fechaNa, genero) {
-     return null 
+function getTrigramaVital(fechaNa, genero) {
+     
+    var anoNa = fechaNa.split('-')[0]
+    var fechaActual = new Date()
+    var anoActual = fechaActual.getFullYear()
+
+    var edad = anoActual - anoNa
+
+    var periodo = 0
+
+    //calcular periodo
+    if (genero === 'hombre') {
+        periodo = 8
+    } 
+    else if (genero === 'mujer'){
+        periodo = 7
+    }
+
+    var numPeriodo = edad / periodo
+    var numero = parseInt(numPeriodo)
+
+    if (numero > periodo) {
+        numero -= periodo
+    }
+
+    return numero
+  
 }
 function getHexagramaVital() { return null }
 function getHexagramaNacimiento() { return null }

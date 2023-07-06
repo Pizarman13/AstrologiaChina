@@ -34,9 +34,10 @@ function handleSubmit(event) {
 
     var trigramaVital = getTrigramaVital(fechaNa, genero) 
 
-    //var hexagramaVital = getHexagramaVital(fechaNa) //UN
+    var hexagramaVital = getHexagramaVital(fechaNa)
 
-    //var hexagramaNacimiento = getHexagramaNacimiento(fechaNa) //UN
+    var hexagramaNacimiento = getHexagramaNacimiento(fechaNa) 
+    alert (getHexagramaNacimiento())
 
 
     //Representacion datos
@@ -72,6 +73,7 @@ function getAnimal(fechaNa) {
 
 function getTronco(fechaNa) { return null }
 function getCiclo() { return null }
+
 function getTrigramaNacimiento(fechaNa) {
     var fechasplit = fechaNa.split('-')
 
@@ -101,6 +103,7 @@ function getTrigramaNacimiento(fechaNa) {
 
     return code
 }
+
 function getTrigramaVital(fechaNa, genero) {
      
     var anoNa = fechaNa.split('-')[0]
@@ -129,5 +132,30 @@ function getTrigramaVital(fechaNa, genero) {
     return numero
   
 }
-function getHexagramaVital() { return null }
-function getHexagramaNacimiento() { return null }
+
+function getHexagramaVital() { 
+    
+    var idHexa = getTrigramaNacimiento(fechaNa) + '/' + getTrigramaVital(fechaNa, genero)
+
+    return idHexa
+
+ }
+function getHexagramaNacimiento(fechaNa) { 
+    
+    var fechasplit = fechaNa.split('-')
+    var sum = 0
+    var dia = parseInt(fechasplit[2])
+    var mes = parseInt(fechasplit[1])   
+    var ano = 0
+
+    var digitos = fechasplit[0].toString().split('')
+
+    for (let i = 0; i < digitos.length; i++) {
+        ano += parseInt(digitos[i])     
+    }
+    
+    sum = dia + mes + ano
+  
+    return sum
+    
+}

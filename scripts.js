@@ -141,7 +141,8 @@ function getHexagramaVital() {
 
     return idHexa
 
- }
+}
+
 function getHexagramaNacimiento(fechaNa) { 
     
     var fechasplit = fechaNa.split('-')

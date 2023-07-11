@@ -34,15 +34,17 @@ function handleSubmit(event) {
 
     var trigramaVital = getTrigramaVital(fechaNa, genero) 
 
-    var hexagramaVital = getHexagramaVital(fechaNa)
+   // var hexagramaVital = getHexagramaVital(fechaNa)
 
     var hexagramaNacimiento = getHexagramaNacimiento(fechaNa) 
-    alert (getHexagramaNacimiento())
+    
 
 
     //Representacion datos
 
-    //alert('img/triagramas/' + trigramaNacimiento + '.png')
+    alert('Su animal de nacimiento es el ' + animal)
+    alert('img/trigramasNacimiento/' + trigramaNacimiento + '.png')
+    alert('img/trigramasVital/' + trigramaVital + '.png')
 
     alert('Handler Finished')
 
@@ -139,7 +141,8 @@ function getHexagramaVital() {
 
     return idHexa
 
- }
+}
+
 function getHexagramaNacimiento(fechaNa) { 
     
     var fechasplit = fechaNa.split('-')

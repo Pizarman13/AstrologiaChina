@@ -8,4 +8,3 @@ function calculateHexagram(birthdate, genre) {
 
     return null
 }
-

@@ -68,7 +68,7 @@ function getTrigramaNacimiento(fechaNa) {
     for (let x = 0; x < fechasplit.length; x++) {
         if (fechasplit[x] == 11 || fechasplit[x] == 10) {
             var tmp = fechasplit[x]
-        }
+        } 
         else {
             var tmp = 0
 

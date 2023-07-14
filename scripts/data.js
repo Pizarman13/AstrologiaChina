@@ -148,6 +148,26 @@ const infoHexagramasVital = {
     '010.1': '比 Bĭ La solidaridad La comunión',
     '100.1': '剝 Bō La desintegración, el deterioro La duda',
     '000.1': '坤 Kūn Lo receptivo La obediencia',
-
-    
 } 
+
+var infoTrigramasNacimiento = {
+    '2': 'CHIEN – TAE MO 41VB',
+    '3': 'TUI – YANG OE 5SJ',
+    '4': 'LI – YANG KEO 62V',
+    '5': 'CHEN – TOU MAE 3ID',
+    '6': 'SUN – REN MAE 7P',
+    '7': 'KAN – YIN KEO 6R',
+    '0': 'KEN – YIN OE 6MC',
+    '1': 'KUN – CHONG MAI 4B'
+}
+
+var infoTrigramasVital ={
+    '111': 'CHIEN – TAE MO 41VB',
+    '011': 'TUI – YANG OE 5SJ',
+    '101': 'LI – YANG KEO 62V',
+    '001': 'CHEN – TOU MAE 3ID',
+    '110': 'SUN – REN MAE 7P',
+    '010': 'KAN – YIN KEO 6R',
+    '100': 'KEN – YIN OE 6MC',
+    '000': 'KUN – CHONG MAI 4B'
+}

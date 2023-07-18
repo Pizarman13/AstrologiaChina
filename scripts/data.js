@@ -238,3 +238,16 @@ var infoTrigramasVital ={
     '100': 'KEN – YIN OE 6MC',
     '000': 'KUN – CHONG MAI 4B'
 }
+
+var unidadAno = {
+    0: 15,
+    1: 27,
+    2: 39,
+    3: 51,
+    4: 3,
+    5: 15,
+    6: 27,
+    7: 39,
+    8: 51,
+    9: 3
+}

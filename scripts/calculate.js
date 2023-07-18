@@ -142,3 +142,24 @@ function getHexagramaNacimiento(fechaNa) {
     return sum
     
 }
+
+function segundoNum (fechaNa) {
+    
+    var anoNa = fechaNa.split('-')[0]
+    var numUnidad = anoNa % 10
+    var mesNa = fechaNa.split('-')[1]
+
+    var primerNum = unidadAno[numUnidad]
+    var mes = 0
+    var resultado = 0
+
+    if (getAnoNuevo(fechaNa) < anoNa) {
+        mes = 12
+    } else {
+        mes = mesNa
+    }
+
+    resultado = primerNum + mes
+
+    return resultado
+}

@@ -1,17 +1,17 @@
 const animales = [
     'Null', // -1
-    'Bufalo', // 2
-    'Tigre', // 3
-    'Liebre', // 4
-    'Dragón', // 5
-    'Serpiente', // 6
-    'Caballo', // 7
-    'Cabra', // 8
-    'Mono', // 9
-    'Gallo', // 10
-    'Perro', // 11
-    'Cerdo', // 12
-    'Rata' // 1
+    'Buey 牛', // 2
+    'Tigre 虎 ', // 3
+    'Liebre 兔 ', // 4
+    'Dragón 龍', // 5
+    'Serpiente 蛇', // 6
+    'Caballo 馬', // 7
+    'Cabra 羊', // 8
+    'Mono 猴', // 9
+    'Gallo 雞', // 10
+    'Perro 狗 ', // 11
+    'Cerdo 豬 ', // 12
+    'Rata 鼠' // 1
 ]
 
 const anoChino = {1924: '1924/2/5', 1925: '1925/1/24/', 1926: '1926/2/13', 1927: '1927/2/2', 1928: '1928/1/23', 1929: '1929/2/10', 1930: '1930/1/30', 1931: '1931/2/17', 1932: '1932/2/6', 1933: '1933/1/26', 1934: '1934/2/14', 1935: '1935/2/14', 1936: '1936/1/24', 1937: '1937/2/11', 1938: '1938/1/31', 1939: '1939/2/19', 1940: '1940/2/8', 1941: '1941/1/27', 1942: '1942/2/15', 1943: '1943/2/5', 1944: '1944/1/25', 1945: '1945/2/13', 1946: '1946/2/2', 1947: '1947/1/22', 1948: '1948/2/10', 1949: '1949/1/29', 1950: '1950/2/17', 1951: '1951/2/6', 1952: '1952/1/27', 1953: '1953/2/14', 1954: '1954/2/3', 1955: '1955/1/24', 1956: '1956/2/12', 1957: '1957/1/30', 1958: '1958/2/18', 1959: '1959/2/8', 1960: '1960/1/28', 1961: '1961/2/15', 1962: '1962/2/5', 1963: '1963/1/25', 1964: '1964/2/13', 1965: '1965/2/2', 1966: '1966/1/21', 1967: '1967/2/9', 1968: '1968/1/30', 1969: '1969/2/17', 1970: '1970/2/6', 1971: '1971/1/27', 1972: '1972/2/15', 1973: '1973/2/3', 1974: '1974/1/23', 1975: '1975/2/11', 1976: '1976/1/31', 1977: '1977/2/18', 1978: '1978/2/7', 1979: '1979/1/28', 1980: '1980/2/16', 1981: '1981/2/5', 1982: '1982/1/25', 1983: '1983/2/13', 1984: '1984/2/2', 1985: '1985/2/20', 1986: '1986/2/9', 1987: '1987/1/29', 1988: '1988/2/17', 1989: '1989/2/6', 1990: '1990/1/27', 1991: '1991/2/14', 1992: '1992/2/4', 1993: '1993/1/23', 1994: '1994/2/10', 1995: '1995/1/31', 1996: '1996/2/19', 1997: '1997/2/7', 1998: '1998/1/28', 1999: '1999/2/16', 2000: '2000/2/5', 2001: '2001/1/24', 2002: '2002/2/12', 2003: '2003/2/1', 2004: '2004/1/22', 2005: '2005/2/9', 2006: '2006/1/29', 2007: '2007/2/18', 2008: '2008/2/7', 2009: '2009/1/26', 2010: '2010/2/14', 2011: '2011/2/3', 2012: '2012/1/23', 2013: '2013/2/10', 2014: '2014/1/31', 2015: '2015/2/19', 2016: '2016/2/8', 2017: '2017/1/28', 2018: '2018/2/16', 2019: '2019/2/5', 2020: '2019/2/25', 2021: '2021/2/12', 2022: '2022/2/1', 2023: '2023/1/22', 2024: '2024/2/10', 2025: '2025/1/29', 2026: '2026/2/17', 2027: '2027/2/6', 2028: '2028/1/26', 2029: '2029/2/13', 2030: '2030/2/3', 2031: '2031/1/23', 2032: '2032/2/11', 2033: '2033/1/31', 2034: '2034/2/19', 2035: '2035/2/8', 2036: '2036/1/28', 2037: '2037/2/15', 2038: '2038/2/4', 2039: '2039/1/24', 2040: '2040/2/12'}
@@ -251,3 +251,109 @@ var unidadAno = {
     8: 51,
     9: 3
 }
+
+var rama = [ 
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'RI':'RI 子Zǐ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'RII':'RII 丑Chǒu'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'RIII':'RIII  寅 Yín'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Md(-)', 'RIV':'RIV 卯Mǎo'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'RV':'RV  辰Chén'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'F(-)', 'RVI':'RVI 巳Sì'},
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'F(+)', 'RVII':'RVII 午Ǔ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'RVIII':'RVIII 未Wèi'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Me(+)', 'RIX':'RIX 申Shēn'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Me(-)', 'RX':'RX  酉Yǒu'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'RXI':'RXI 戌Xū'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'A(-)', 'RXII':'RXII 亥Hài'}
+]
+
+var tronco = [
+    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'TI':'TI 甲Jiǎ'},
+    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'TII':'TII 乙Yǐ'},
+    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'TIII':'TIII 丙Bǐng'},
+    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Fuego Corazon', 'TIV':'TIV 丁Dīng'},
+    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Tierra Estomago', 'TV':'TV 戊Wù'},
+    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Tierra Brazo', 'TVI':'TVI 己Jǐ'},
+    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Metal I.Grueso', 'TVII':'TVII 庚Gēng'},
+    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Metal Pulmon', 'TVIII':'TVIII 辛Xīn'},
+    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Agua Vejiga', 'TIX':'TIX 壬Rén'},
+    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Agua Riñon', 'TX':'TX  癸Guǐ'}
+]
+
+var animalEnblematico = [
+    {'Animal':'Rata', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
+    {'Animal':'Buey', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
+    {'Animal':'Tigre', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},
+    {'Animal':'Liebre', 'Horas':'05-07', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'IG6', 'Mes Lunar': '2'},
+    {'Animal':'Dragon', 'Horas':'07-09', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'E40', 'Mes Lunar': '3'},
+    {'Animal':'Serpiente', 'Horas':'09-11', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'B4', 'Mes Lunar': '4'},
+    {'Animal':'Caballo', 'Horas':'11-13', 'Canal Unitario':'C-R', 'Energia Celeste':'Calor', 'Punto Estatico':'C4', 'Mes Lunar': '5'},
+    {'Animal':'Cabra', 'Horas':'13-15', 'Canal Unitario':'P-B', 'Energia Celeste':'Humedad', 'Punto Estatico':'ID12', 'Mes Lunar': '6'},
+    {'Animal':'Mono', 'Horas':'15-17', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'V60', 'Mes Lunar': '7'},
+    {'Animal':'Gallo', 'Horas':'17-19', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'R23', 'Mes Lunar': '8'},
+    {'Animal':'Perro', 'Horas':'19-21', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'MC8', 'Mes Lunar': '9'},
+    {'Animal':'Cerdo', 'Horas':'21-23', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'TR10', 'Mes Lunar': '10'}
+]
+
+var tabla = {
+    1:  [0, 0, 0],
+    2:  [1, 1, 1],
+    3:  [2, 2, 2],
+    4:  [3, 3, 3],
+    5:  [4, 4, 4],
+    6:  [5, 5, 5],
+    7:  [6, 6, 6],
+    8:  [7, 7, 7],
+    9:  [8, 8, 8],
+    10: [9, 9, 9],
+    11: [10, 0, 10],
+    12: [11, 1, 11],
+    13: [0, 2, 0],
+    14: [1, 3, 1],
+    15: [2, 4, 2],
+    16: [3, 5, 3],
+    17: [4, 6, 4],
+    18: [5, 7, 5],
+    19: [6, 8, 6],
+    20: [7, 9, 7],
+    21: [8, 0, 8],
+    22: [9, 1, 9],
+    23: [10, 2, 10],
+    24: [11, 3, 11],
+    25: [0, 4, 0],
+    26: [1, 5, 1],
+    27: [2, 6, 2],
+    28: [3, 7, 3],
+    29: [4, 8, 4],
+    30: [5, 9, 5],
+    31: [6, 0, 6],
+    32: [7, 1, 7],
+    33: [8, 2, 8],
+    34: [9, 3, 9],
+    35: [10, 4, 10],
+    36: [11, 5, 11],
+    37: [0, 6, 0],
+    38: [1, 7, 1],
+    39: [2, 8, 2],
+    40: [3, 9, 3],
+    41: [4, 0, 4],
+    42: [5, 1, 5],
+    43: [6, 2, 6],
+    44: [7, 3, 7],
+    45: [8, 4, 8],
+    46: [9, 5, 9],
+    47: [10, 6, 10],
+    48: [11, 7, 11],
+    49: [0, 8, 0],
+    50: [1, 9, 1],
+    51: [2, 0, 2],
+    52: [3, 1, 3],
+    53: [4, 2, 4],
+    54: [5, 3, 5],
+    55: [6, 4, 6],
+    56: [7, 5, 7],
+    57: [8, 6, 8],
+    58: [9, 7, 9],
+    59: [10, 8, 10],
+    60: [11, 9, 11]
+}   

@@ -163,3 +163,8 @@ function segundoNum (fechaNa) {
 
     return resultado
 }
+
+function tercerNum (fechaNa) {
+
+    
+}

@@ -172,7 +172,7 @@ const infoHexagramasNacimientoIChing = {
     '30': 'Li / Lo Adherente, El Fuego EL DICTAMEN Lo Adherente. Es propicia la perseverancia, pues aporta el éxito. Dedicarse al cuidado de la vaca trae ventura. LA IMAGEN La claridad se eleva dos veces: la imagen del Fuego. Así el gran hombre alumbra, perpetuando esta claridad, las cuatro regiones cardinales del mundo.',
     '55': 'Feng / La Plenitud EL DICTAMEN La plenitud tiene éxito. El rey la alcanza. No estés triste; debes ser como el sol al mediodía. LA IMAGEN Trueno y rayo llegan ambos: La imagen de la plenitud. Así el noble decide los procesos judiciales y ejecuta los castigos.',
     '37': 'Chia Jen EL DICTAMEN El clan. Es propicia la perseverancia de la mujer. LA IMAGEN El viento surge del fuego: la imagen del clan. Así el noble tiene en sus palabras lo real, y en su conducta la duración,',
-    '64': 'La Permanencia en la Cumbre. El orgasmo mantenido. EL DICTAMEN Éxito en lo pequeño. Es propicia la perseverancia. Al principio ventura, al cabo confusiones. LA IMAGEN El agua está por encima del fuego: La imagen del estado Después de la Consumación. Así el noble reflexiona sobre la desgracia y por anticipado se arma contra ella. ',
+    '63': 'La Permanencia en la Cumbre. El orgasmo mantenido. EL DICTAMEN Éxito en lo pequeño. Es propicia la perseverancia. Al principio ventura, al cabo confusiones. LA IMAGEN El agua está por encima del fuego: La imagen del estado Después de la Consumación. Así el noble reflexiona sobre la desgracia y por anticipado se arma contra ella. ',
     '22': 'Pi EL DICTAMEN La Gracia tiene éxito. En lo pequeño es propicio emprender algo. LA IMAGEN Abajo, al pie de la montaña, está el fuego: la imagen de La Gracia. Así procede el noble al aclarar asuntos corrientes, mas no osa decidir de este modo los asuntos conflictuales.',
     '36': 'Ming I / El Oscurecimiento de la Luz EL DICTAMEN El Oscurecimiento de la luz. Es propicio ser perseverante en la emergencia. LA IMAGEN La luz se ha sumergido en la tierra: la imagen del Oscurecimiento de la luz. Así el noble convive con la gran muchedumbre; oculta su resplandor y permanece lúcido sin embargo.',
     '25': 'Wu Wang EL DICTAMEN La Inocencia. Elevado éxito. Es propicia la perseverancia. Si alguien no es recto tendrá desdicha, y no será propicio emprender algo. LA IMAGEN Bajo el cielo va el trueno: Todas las cosas alcanzan el estado natural de la inocencia. Así, ricos en virtud y en correspondencia con el tiempo, cultivaban y alimentaban los antiguos reyes a todos los seres.',
@@ -191,9 +191,9 @@ const infoHexagramasNacimientoIChing = {
     '48': 'Ching / El Pozo de Agua EL DICTAMEN El Pozo. Puede cambiarse de ciudad, mas no puede cambiarse de pozo. Éste no disminuye y no aumenta. Ellos vienen y van y recogen del pozo. Cuando casi se ha alcanzado el agua del pozo pero todavía no se llegó abajo con la cuerda o se rompe el cántaro, eso trae desventura. LA IMAGEN Sobre la madera está el agua: la imagen del pozo. Así el noble alienta al pueblo durante el trabajo y lo exhorta a ayudarse mutuamente.',
     '18': 'Ku /El Trabajo en lo Echado a Perder EL DICTAMEN El Trabajo en lo Echado a Perder tiene elevado éxito. Es propicio atravesar las grandes aguas. Antes del punto inicial tres días, después del punto inicial tres días. LA IMAGEN Al borde de la montaña sopla el viento: la imagen del echarse a perder. Así el noble sacude a las gentes y fortalece su espíritu.',
     '46': 'Sheng / La Subida  (El empuje hacia arriba) EL DICTAMEN La subida tiene elevado éxito. Hay que ver al gran hombre. ¡No temas! La partida hacia el Sur trae ventura. LA IMAGEN En medio de la tierra crece la madera: la imagen de la subida. Así el noble, con gran dedicación, acumula lo pequeño para lograr lo elevado y lo grande.',
-    '6': 'Sung EL DICTAMEN El conflicto: eres veraz y te frenan. Detenerse con cautela a mitad de camino trae ventura. Ir hasta el fin trae desventura. Es propicio ver al gran hombre. No es propicio atravesar las grandes aguas. LA IMAGEN Cielo y agua se mueven en sentido contrario: La imagen del conflicto. Así el noble, en todos los negocios que realiza, reflexiona debidamente sobre su comienzo.',
+    '64': 'Sung EL DICTAMEN El conflicto: eres veraz y te frenan. Detenerse con cautela a mitad de camino trae ventura. Ir hasta el fin trae desventura. Es propicio ver al gran hombre. No es propicio atravesar las grandes aguas. LA IMAGEN Cielo y agua se mueven en sentido contrario: La imagen del conflicto. Así el noble, en todos los negocios que realiza, reflexiona debidamente sobre su comienzo. ',
     '47': 'K’un / La Desazón  (La Opresión. El Agotamiento) EL DICTAMEN La desazón. Logro. Perseverancia. El gran hombre obra ventura. Ningún defecto. Si uno tiene algo que decir, no se le cree. LA IMAGEN En el lago no hay agua: la imagen del agotamiento. Así el noble empeña su vida con el fin de seguir su voluntad.',
-    '63': 'La comunión de los amantes El orgasmo sostenido EL DICTAMEN Antes de la Consumación. Logro. Pero si al pequeño zorro, cuando casi ha consumado la travesía, se le hunde la cola en el agua, no hay nada que sea propicio. LA IMAGEN El fuego está por encima del agua: La imagen del estado anterior a la transición. Así el noble es cauteloso en la discriminación de las cosas, a fin de que cada una llegue a ocupar su lugar.',
+    '64': 'La comunión de los amantes El orgasmo sostenido EL DICTAMEN Antes de la Consumación. Logro. Pero si al pequeño zorro, cuando casi ha consumado la travesía, se le hunde la cola en el agua, no hay nada que sea propicio. LA IMAGEN El fuego está por encima del agua: La imagen del estado anterior a la transición. Así el noble es cauteloso en la discriminación de las cosas, a fin de que cada una llegue a ocupar su lugar.',
     '40': 'Hsieh EL DICTAMEN La Liberación. Es propicio el Sudoeste. Si ya no queda nada a donde uno debiera ir, es venturoso el regreso. Si todavía hay algo a donde uno debiera ir, entonces es venturosa la prontitud. LA IMAGEN Trueno y lluvia se levantan: la imagen de la Liberación. Así el noble perdona las faltas y exime de culpa.',
     '59': 'Huan EL DICTAMEN La Disolución. Éxito. El rey se acerca a su templo. Es propicio cruzar las grandes aguas. Es propicia la perseverancia. LA IMAGEN El viento planea sobre el agua: la imagen de la disolución. Así los antiguos reyes ofrecían sacrificios al Señor y erigían templos.',
     '29': 'K’an EL DICTAMEN Lo Abismal repetido. Si eres veraz, tendrás logro en tu corazón, y lo que hicieres tendrá éxito. LA IMAGEN El agua fluye ininterrumpidamente y llega a la meta: la imagen de Lo Abismal reiterado. Así el noble observa una conducta de constante virtud y ejerce el negocio de la enseñanza.',
@@ -218,25 +218,25 @@ const infoHexagramasNacimientoIChing = {
 } 
 
 var infoTrigramasNacimiento = {
-    '2': 'CHIEN – TAE MO 41VB',
-    '3': 'TUI – YANG OE 5SJ',
-    '4': 'LI – YANG KEO 62V',
-    '5': 'CHEN – TOU MAE 3ID',
-    '6': 'SUN – REN MAE 7P',
-    '7': 'KAN – YIN KEO 6R',
-    '0': 'KEN – YIN OE 6MC',
-    '1': 'KUN – CHONG MAI 4B'
+    '2': 'CHIEN – TAE MO 乾 Qian (Chien) LA CREATIVIDAD DEL CIELO 41VB',
+    '3': 'TUI – YANG OE 兌 Dui (Tui) LA CALMA DEL LAGO 5SJ',
+    '4': 'LI – YANG KEO LI, LUMINOSIDAD DEL FUEGO 62V',
+    '5': 'CHEN – TOU MAE 震 Zhen (Chen) ZHEN, CHEN, MOVILIDAD DEL TRUENO 3ID',
+    '6': 'SUN – REN MAE 巽 Xun (Suen) SUN, SUEN, LA PENETRACIÓN DEL VIENTO 7P',
+    '7': 'KAN – YIN KEO 坎 Kan (K’an) KAN, K ́AN, EL ABISMO DEL AGUA 6R',
+    '0': 'KEN – YIN OE 艮 Gen (Ken) GEN, KEN, LA INMOVILIDAD DE LA MONTAÑA 6MC',
+    '1': 'KUN – CHONG MAI 坤 Kun (K’uen) KUN, K ́UEN, RECEPTIVIDAD DE LA TIERRA 4B'
 }
 
 var infoTrigramasVital ={
-    '111': 'CHIEN – TAE MO 41VB',
-    '011': 'TUI – YANG OE 5SJ',
-    '101': 'LI – YANG KEO 62V',
-    '001': 'CHEN – TOU MAE 3ID',
-    '110': 'SUN – REN MAE 7P',
-    '010': 'KAN – YIN KEO 6R',
-    '100': 'KEN – YIN OE 6MC',
-    '000': 'KUN – CHONG MAI 4B'
+    '111': 'CHIEN – TAE MO 乾 Qian (Chien) LA CREATIVIDAD DEL CIELO 41VB',
+    '011': 'TUI – YANG OE 兌 Dui (Tui) LA CALMA DEL LAGO 5SJ',
+    '101': 'LI – YANG KEO LI, LUMINOSIDAD DEL FUEGO 62V',
+    '001': 'CHEN – TOU MAE 震 Zhen (Chen) ZHEN, CHEN, MOVILIDAD DEL TRUENO 3ID',
+    '110': 'SUN – REN MAE 巽 Xun (Suen) SUN, SUEN, LA PENETRACIÓN DEL VIENTO 7P',
+    '010': 'KAN – YIN KEO 坎 Kan (K’an) KAN, K ́AN, EL ABISMO DEL AGUA 6R',
+    '100': 'KEN – YIN OE 艮 Gen (Ken) GEN, KEN, LA INMOVILIDAD DE LA MONTAÑA 6MC',
+    '000': 'KUN – CHONG MAI 坤 Kun (K’uen) KUN, K ́UEN, RECEPTIVIDAD DE LA TIERRA 4B'
 }
 
 var unidadAno = {

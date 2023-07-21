@@ -2,7 +2,7 @@ const animales = [
     'Null', // -1
     'Buey 牛', // 2
     'Tigre 虎 ', // 3
-    'Liebre 兔 ', // 4
+    'Liebre 兔', // 4
     'Dragón 龍', // 5
     'Serpiente 蛇', // 6
     'Caballo 馬', // 7
@@ -281,18 +281,18 @@ var tronco = [
 ]
 
 var animalEnblematico = [
-    {'Animal':'Rata', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
-    {'Animal':'Buey', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
-    {'Animal':'Tigre', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},
-    {'Animal':'Liebre', 'Horas':'05-07', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'IG6', 'Mes Lunar': '2'},
-    {'Animal':'Dragon', 'Horas':'07-09', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'E40', 'Mes Lunar': '3'},
-    {'Animal':'Serpiente', 'Horas':'09-11', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'B4', 'Mes Lunar': '4'},
-    {'Animal':'Caballo', 'Horas':'11-13', 'Canal Unitario':'C-R', 'Energia Celeste':'Calor', 'Punto Estatico':'C4', 'Mes Lunar': '5'},
-    {'Animal':'Cabra', 'Horas':'13-15', 'Canal Unitario':'P-B', 'Energia Celeste':'Humedad', 'Punto Estatico':'ID12', 'Mes Lunar': '6'},
-    {'Animal':'Mono', 'Horas':'15-17', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'V60', 'Mes Lunar': '7'},
-    {'Animal':'Gallo', 'Horas':'17-19', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'R23', 'Mes Lunar': '8'},
-    {'Animal':'Perro', 'Horas':'19-21', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'MC8', 'Mes Lunar': '9'},
-    {'Animal':'Cerdo', 'Horas':'21-23', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'TR10', 'Mes Lunar': '10'}
+    {'Animal':'Rata 鼠', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
+    {'Animal':'Buey 牛', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
+    {'Animal':'Tigre 虎', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},
+    {'Animal':'Liebre 兔', 'Horas':'05-07', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'IG6', 'Mes Lunar': '2'},
+    {'Animal':'Dragón 龍', 'Horas':'07-09', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'E40', 'Mes Lunar': '3'},
+    {'Animal':'Serpiente 蛇', 'Horas':'09-11', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'B4', 'Mes Lunar': '4'},
+    {'Animal':'Caballo 馬', 'Horas':'11-13', 'Canal Unitario':'C-R', 'Energia Celeste':'Calor', 'Punto Estatico':'C4', 'Mes Lunar': '5'},
+    {'Animal':'Cabra 羊', 'Horas':'13-15', 'Canal Unitario':'P-B', 'Energia Celeste':'Humedad', 'Punto Estatico':'ID12', 'Mes Lunar': '6'},
+    {'Animal':'Mono 猴', 'Horas':'15-17', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'V60', 'Mes Lunar': '7'},
+    {'Animal':'Gallo 雞', 'Horas':'17-19', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'R23', 'Mes Lunar': '8'},
+    {'Animal':'Perro 狗', 'Horas':'19-21', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'MC8', 'Mes Lunar': '9'},
+    {'Animal':'Cerdo 豬', 'Horas':'21-23', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'TR10', 'Mes Lunar': '10'}
 ]
 
 var tabla = {

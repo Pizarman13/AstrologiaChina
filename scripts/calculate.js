@@ -166,5 +166,52 @@ function segundoNum (fechaNa) {
 
 function tercerNum (fechaNa) {
 
+    var otp = (new Date(fechaNa.getFullYear(), fechaNa.getMonth(), fechaNa.getDate()) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(fechaNa.getFullYear(), fechaNa.getMonth(), fechaNa.getDate()) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (fechaNa.getHours() >= 23 ? 1 : 0)
+
+    return otp
+}
+
+function numConAno (fechaNa) {
     
+    var ano = getAnoNuevo(fechaNa)
+
+    var otp = ((ano - 3) - (Math.floor((ano - 3) / 60) * 60) === 0) ? 60 : (ano - 3) - (Math.floor((ano - 3) / 60) * 60);
+
+    return otp
+}
+
+function numConMes(fechaNa) {
+
+    var num = segundoNum(fechaNa)
+
+    var otp = (num > 60) ? (num - 60) : num;
+
+    return otp
+}
+
+function numConDia(fechaNa) {
+
+    var num = tercerNum(fechaNa)
+
+    var otp = (num === 0) ? 60 : num;
+
+    return otp
+}
+
+function numConHora(fechaNa) {
+
+    var numDia = cicloDia(fechaNa)
+    var horaNa = fechaNa.getHours()
+    var KT_A39_B48 = [/* Define an array with the lookup range KT!$A$39:$B$48 values */];
+    var KT_A13_B37 = [/* Define an array with the lookup range KT!$A$13:$B$37 values */];
+
+    var findValue1 = Number(numDia.toString().slice(-1));
+    var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
+    var result1 = (lookup1 !== undefined) ? lookup1[1] : 0;
+
+    var findValue2 = horaNa;
+    var lookup2 = KT_A13_B37.find(item => item[0] === findValue2);
+    var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
+
+    var otp = result1 + result2 - 1;
 }

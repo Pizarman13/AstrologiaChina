@@ -202,8 +202,8 @@ function numConHora(fechaNa) {
 
     var numDia = cicloDia(fechaNa)
     var horaNa = fechaNa.getHours()
-    var KT_A39_B48 = [/* Define an array with the lookup range KT!$A$39:$B$48 values */];
-    var KT_A13_B37 = [/* Define an array with the lookup range KT!$A$13:$B$37 values */];
+    var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
+    var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
 
     var findValue1 = Number(numDia.toString().slice(-1));
     var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
@@ -214,4 +214,34 @@ function numConHora(fechaNa) {
     var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
 
     var otp = result1 + result2 - 1;
+}
+
+function horaSegunPais (fechaNa) {
+
+    const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
+const dataToSend = {
+  fromTimeZone: 'America/New_York',
+  dateTime: fechaNa,
+  toTimeZone: 'Europe/London',
+  dstAmbiguity: ''
+};
+
+const requestOptions = {
+  method: 'POST',
+  headers: {
+    'accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(dataToSend)
+};
+
+fetch(url, requestOptions)
+  .then(response => response.json())
+  .then(data => {
+    console.log('Response from the server:', data);
+    // Do something with the response data here
+  })
+  .catch(error => {
+    console.error('Error making the request:', error);
+  });
 }

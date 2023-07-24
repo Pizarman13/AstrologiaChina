@@ -356,4 +356,32 @@ var tabla = {
     58: [9, 7, 9],
     59: [10, 8, 10],
     60: [11, 9, 11]
-}   
+} 
+
+const franjasHorarias = {
+    'EEUU(Los Angeles)':'America/Los_Angeles',
+    'EEUU(Chicago)': 'America/Chicago',
+    'EEUU(NY)': 'America/New_York',
+    'Reino Unido':'Europe/London',
+    'España':'Europe/Madrid',
+    'Portugal':'Europe/Lisbon',
+    'Alemania':'Europe/Berlin',
+    'Francia':'Europe/Paris',
+    'Italia':'Europe/Rome',
+    'Belgica':'Europe/Brussels',
+    'Dinamarca':'Europe/Berlin',
+    'Polonia':'Europe/Warsaw',
+    'Paises Bajos':'Europe/Amsterdam',
+    'Lituania':'Europe/Vilna',
+    'Noruega':'Europe/Oslo',
+    'Suecia':'Europe/Stockholm',
+    'Peru':'America/Lima',
+    'Colombia':'America/Bogota',
+    'Venezuela':'America/Caracas',
+    'Brazil':'Ameriaca/Manaus',
+    'Bolivia':'America/La_Paz',
+    'Paraguay':'America/Asuncion',
+    'Argentina':'America/Buenos_Aires',
+    'Chile':'America/Santiago',
+    'Ecuador':'America/Lima'
+}

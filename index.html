@@ -26,7 +26,7 @@
       <!-- Content-->
       <form class="row g-3 needs-validation" novalidate>
         <!-- Birthdate -->
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="birthdate" class="form-label">Fecha de
             Nacimiento</label>
           <input type="date" class="form-control" id="birthdate"
@@ -34,7 +34,7 @@
             required>
         </div>
         <!-- Birthtime -->
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="birthtime" class="form-label">Hora de Nacimiento</label>
           <input type="time" class="form-control" id="birthtime"
             value="00:00" required>
@@ -43,6 +43,36 @@
           <button class="btn btn-primary"
             onclick="handleKiaTse(event); return false">Calcular
             ciclo</button>
+        </div>
+        <div class="col-md-3">
+          <label for="paises" class="form-label">Paises</label>
+          <select class="form-select" id="paises" required>
+            <option selected disabled value>Paises</option>
+            <option value="Alemania">Alemania</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Belgica">Belgica</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Chile">Chile</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Dinamarca">Dinamarca</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="España">España</option>
+            <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
+            <option value="EEUU(Chicago)">EEUU(Chicago)</option>
+            <option value="EEUU(NY)">EEUU(NY)</option>
+            <option value="Francia">Francia</option>
+            <option value="Italia">Italia</option>
+            <option value="Lituania">Lituania</option>
+            <option value="Paises Bajos">Paises Bajos</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Peru">Peru</option>
+            <option value="Polonia">Polonia</option>
+            <option value="Reino Unido">Reino Unido</option>
+            <option value="Noruega">Noruega</option>
+            <option value="Suecia">Suecia</option>
+            <option value="Venezuela">Venezuela</option>
+          </select>
         </div>
       </form>
 

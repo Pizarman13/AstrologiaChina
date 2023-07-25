@@ -9,6 +9,7 @@ function handleKiaTse() {
 
     var birthdate = document.getElementById('birthdate').value
     var birthtime = document.getElementById('birthtime').value
+    var timeZone = document.getElementById('paises').value
 
     //document.getElementById("otp").innerHTML = birthdate;
 

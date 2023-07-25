@@ -220,7 +220,7 @@ function horaSegunPais (fechaNa, franjaHoraria) {
 
     const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
 const dataToSend = {
-  fromTimeZone: franjaHoraria,
+  fromTimeZone: franjasHorarias[franjaHoraria],
   dateTime: fechaNa,
   toTimeZone: 'Europe/London',
   dstAmbiguity: ''

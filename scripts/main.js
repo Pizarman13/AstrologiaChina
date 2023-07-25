@@ -12,7 +12,12 @@ function handleKiaTse() {
     var timeZone = document.getElementById('paises').value
 
     //document.getElementById("otp").innerHTML = birthdate;
-
+    var animal = getAnimal(birthdate)
+    var anoKiaTse = numConAno(birthdate)
+    var mesKiatse = numConMes(birthdate)
+    var diaKiaTse = numConDia(birthdate)
+    var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
+    
 }
 
 function handleHexagrams() {

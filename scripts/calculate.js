@@ -87,7 +87,9 @@ function getTrigramaNacimiento(fechaNa) {
 
     let code = res.join('')
 
-    return code
+    var info = infoTrigramasNacimiento[code]; 
+
+    return info
 }
 
 function getTrigramaVital(fechaNa, genero) {
@@ -115,7 +117,9 @@ function getTrigramaVital(fechaNa, genero) {
         numero -= periodo
     }
 
-    return numero
+    var info = infoTrigramasVital[numero] 
+
+    return info
   
 }
 
@@ -139,7 +143,9 @@ function getHexagramaNacimiento(fechaNa) {
         return sum - 64
     }
   
-    return sum
+    var info = infoHexagramasNacimiento[sum]
+
+    return info
     
 }
 
@@ -198,10 +204,10 @@ function numConDia(fechaNa) {
     return otp
 }
 
-function numConHora(fechaNa) {
+function numConHora(fechaNa, horaNa, pais) {
 
     var numDia = cicloDia(fechaNa)
-    var horaNa = fechaNa.getHours()
+    var hora = horaSegunPais(fechaNa, horaNa, pais).getHours()
     var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
     var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
 
@@ -209,39 +215,50 @@ function numConHora(fechaNa) {
     var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
     var result1 = (lookup1 !== undefined) ? lookup1[1] : 0;
 
-    var findValue2 = horaNa;
+    var findValue2 = hora;
     var lookup2 = KT_A13_B37.find(item => item[0] === findValue2);
     var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
 
     var otp = result1 + result2 - 1;
+    return otp
 }
 
-function horaSegunPais (fechaNa, franjaHoraria) {
+function horaSegunPais (horaNa, franjaHoraria) {
 
     const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
-const dataToSend = {
-  fromTimeZone: franjasHorarias[franjaHoraria],
-  dateTime: fechaNa,
-  toTimeZone: 'Europe/London',
-  dstAmbiguity: ''
-};
+    const dataToSend = {
+        fromTimeZone: franjasHorarias[franjaHoraria],
+        dateTime: horaNa,
+        toTimeZone: 'Europe/London',
+        dstAmbiguity: ''
+    };
 
-const requestOptions = {
-  method: 'POST',
-  headers: {
-    'accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(dataToSend)
-};
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataToSend)
+    };
 
-fetch(url, requestOptions)
-  .then(response => response.json())
-  .then(data => {
-    console.log('Response from the server:', data);
-    // Do something with the response data here
-  })
-  .catch(error => {
-    console.error('Error making the request:', error);
-  });
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Response from the server:', data);
+        // Do something with the response data here
+      })
+      .catch(error => {
+        console.error('Error making the request:', error);
+      });
+
+      var dt = response.json()['conversionResult']
+      var hora = dt['hour'] 
+      var min = dt['minute']
+
+      fechaNa.setHours(hora)
+      fechaNa.setMinutes(min)
+
+      return fechaNa;
+
 }

@@ -216,11 +216,11 @@ function numConHora(fechaNa) {
     var otp = result1 + result2 - 1;
 }
 
-function horaSegunPais (fechaNa) {
+function horaSegunPais (fechaNa, franjaHoraria) {
 
     const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
 const dataToSend = {
-  fromTimeZone: 'America/New_York',
+  fromTimeZone: franjaHoraria,
   dateTime: fechaNa,
   toTimeZone: 'Europe/London',
   dstAmbiguity: ''

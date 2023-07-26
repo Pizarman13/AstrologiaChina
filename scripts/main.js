@@ -27,7 +27,9 @@ function handleHexagrams() {
     //data in scripts/functions.js
     var triagramaVital = getTrigramaVital(birthdate, genre)
     var triagramaNacimiento = getTrigramaNacimiento(birthdate)
-    var hexgramaVital = getHexagramaVital(birthdate, genre)
-    var hexagramaNacimiento = getHexagramaNacimiento(birthdate)
+    var hexgramaVital = infoHexVi(birthdate, genre)
+    var hexViIchin = infoHexViIchin(birthdate, genre)
+    var hexagramaNacimiento = infoHexNa(birthdate)
+    var hexNa
 
 }

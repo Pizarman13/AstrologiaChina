@@ -151,7 +151,7 @@ const combersion = {
     '000.1':64
 }
 
-const infoHexagramasNacimientoIChing = {
+const infoHexagramasIChing = {
     1 :'Ch’ien Lo Creador \nEL DICTAMEN Lo Creativo obra elevado logro, Propiciando por la perseverancia. \nLA IMAGEN Pleno de fuerza es el movimiento del Cielo. Así el noble se hace fuerte e infatigable.',
     43: 'Kuai / El Desbordamiento  (La Resolución), \nEL DICTAMEN El Desbordamiento. Resueltamente el asunto ha de darse a conocer en la corte del rey. Ha de proclamarse conforme a la verdad. ¡Peligro! Hay que dar aviso a la propia ciudad. No es propicio tomar las armas. Es propicio emprender algo. \nLA IMAGEN El lago ha subido al cielo: la imagen del Desbordamiento. Así el noble dispensas riquezas hacia abajo y recela cobijarse en su virtud.',
     14: 'Ta Yu / La Posesión de lo Grande \nEL DICTAMEN La Posesión de lo Grande: Elevado logro. \nLA IMAGEN El Fuego en lo alto del Cielo: La imagen de la Posesión de lo Grande. Así el noble frena el mal y fomenta el bien, obedeciendo con ello la buena voluntad del Cielo.',
@@ -218,7 +218,7 @@ const infoHexagramasNacimientoIChing = {
     2 : 'K’un \nEL DICTAMEN Lo receptivo obra elevado éxito, propiciante por la perseverancia de una yegua. Cuando el noble ha de emprender algo y quiere avanzar, se extravía; mas si va en seguimiento encuentra conducción. Es propicio encontrar amigos al Oeste y al Sur,  evitar los amigos al Este y al Norte. Una tranquila perseverancia trae ventura. \nLA IMAGEN El estado de la Tierra es la receptiva entrega. Así el noble, de naturaleza amplia, sostiene al mundo externo.',
 } 
 
-var infoTrigramasVital = {
+const infoTrigramasVital = {
     2: 'CHIEN – TAE MO 乾 Qian (Chien) LA CREATIVIDAD DEL CIELO 41VB',
     3: 'TUI – YANG OE 兌 Dui (Tui) LA CALMA DEL LAGO 5SJ',
     4: 'LI – YANG KEO LI, LUMINOSIDAD DEL FUEGO 62V',
@@ -229,7 +229,7 @@ var infoTrigramasVital = {
     1: 'KUN – CHONG MAI 坤 Kun (K’uen) KUN, K ́UEN, RECEPTIVIDAD DE LA TIERRA 4B'
 }
 
-var infoTrigramasNacimiento ={
+const infoTrigramasNacimiento ={
     '111': 'CHIEN – TAE MO 乾 Qian (Chien) LA CREATIVIDAD DEL CIELO 41VB',
     '011': 'TUI – YANG OE 兌 Dui (Tui) LA CALMA DEL LAGO 5SJ',
     '101': 'LI – YANG KEO LI, LUMINOSIDAD DEL FUEGO 62V',

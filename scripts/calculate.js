@@ -92,6 +92,14 @@ function getTrigramaNacimiento(fechaNa) {
     return code
 }
 
+function infoTriNa(fechaNa) {
+
+    var trig = getTrigramaNacimiento(fechaNa)
+    var info = infoTrigramasNacimiento[trig]
+
+    return info
+}
+
 function getTrigramaVital(fechaNa, genero) {
      
     var anoNa = fechaNa.split('-')[0]
@@ -123,6 +131,14 @@ function getTrigramaVital(fechaNa, genero) {
   
 }
 
+function infoTriVi(fechaNa, genero) {
+
+    var trig = getTrigramaVital(fechaNa, fechaNa)
+    var info = infoTrigramasVital[trig]
+
+    return info
+}
+
 function getHexagramaNacimiento(fechaNa) { 
     
     var fechasplit = fechaNa.split('-')
@@ -142,22 +158,50 @@ function getHexagramaNacimiento(fechaNa) {
     if (sum>64) {
         return sum - 64
     }
-  
-    var info = infoHexagramasNacimiento[sum]
+
+    return sum
+}
+
+function infoHexNa(fechaNa) {
+    
+    var hexagrama = getHexagramaNacimiento(fechaNa)
+    var info = infoHexagramasNacimiento[hexagrama]
 
     return info
+}
+
+function infoHexNaIchin(fechaNa) {
     
+    var hexagrama = getHexagramaNacimiento(fechaNa)
+    var infoIchin = infoHexagramasIChing[hexagrama]
+
+    return infoIchin
 }
 
 function getHexagramaVital(fechaNa, genero) {
 
     var hexgrama = getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
 
-    var numHex = combersion[hexgrama]
-    var info = infoHexagramasNacimiento[numHex]
-    var infoIchin = infoHexagramasNacimientoIChing[numHex]
+    return hexgrama
+}
 
-    return info + '\n' + infoIchin
+function infoHexVi(fechaNa, genero) {
+
+    var hexagrama = getHexagramaVital(fechaNa, genero)
+    var numHex = combersion[hexagrama]
+    var info = infoHexagramasNacimiento[numHex]
+    
+    return info
+}
+
+function infoHexViIchin(fechaNa, genero) {
+
+    var hexagrama = getHexagramaVital(fechaNa, genero)
+    var numHex = combersion[hexagrama]
+    var infoIchin = infoHexagramasIChing[numHex]
+    
+    return infoIchin
+
 }
 
 function segundoNum (fechaNa) {

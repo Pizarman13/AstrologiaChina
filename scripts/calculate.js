@@ -32,7 +32,6 @@ function getAnoNuevo(fechaNa) {
 function getAnimal(fechaNa) {
 
     var anoNa = getAnoNuevo(fechaNa)
-    alert('año: ' + anoNa)
 
     const inicio = 1900; // Año inicial
     const periodo = 12; // Número de años en un ciclo
@@ -225,9 +224,14 @@ function segundoNum (fechaNa) {
     return resultado
 }
 
-function tercerNum (fechaNa) {
+function tercerNum (fechaNa, horaNa, pais) {
+    var fechaAno = fechaNa.split('-')[0]
+    var fechaMes = fechaNa.split('-')[1]
+    var fechaDia = fechaNa.split('-')[2]
+    var hora = horaSegunPais(fechaNa, horaNa, pais)
 
-    var otp = (new Date(fechaNa.getFullYear(), fechaNa.getMonth(), fechaNa.getDate()) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(fechaNa.getFullYear(), fechaNa.getMonth(), fechaNa.getDate()) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (fechaNa.getHours() >= 23 ? 1 : 0)
+    var otp = (new Date(fechaAno, fechaMes, fechaDia) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(fechaAno, fechaMes, fechaDia) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (hora >= 23 ? 1 : 0)
+
 
     return otp
 }
@@ -250,9 +254,9 @@ function numConMes(fechaNa) {
     return otp
 }
 
-function numConDia(fechaNa) {
+function numConDia(fechaNa, horaNa) {
 
-    var num = tercerNum(fechaNa)
+    var num = tercerNum(fechaNa, horaNa)
 
     var otp = (num === 0) ? 60 : num;
 
@@ -261,8 +265,8 @@ function numConDia(fechaNa) {
 
 function numConHora(fechaNa, horaNa, pais) {
 
-    var numDia = cicloDia(fechaNa)
-    var hora = horaSegunPais(fechaNa, horaNa, pais).getHours()
+    var numDia = numConDia(fechaNa, horaNa)
+    var hora = horaSegunPais(fechaNa, horaNa, pais)
     var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
     var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
 
@@ -279,11 +283,16 @@ function numConHora(fechaNa, horaNa, pais) {
 }
 
 function horaSegunPais (horaNa, franjaHoraria) {
-
+    date = Date()
+    td = horaNa.split(':')
+    date.hora = td[0]
+    date.minute = td[1]
+    date = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSZ');
+    
     const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
     const dataToSend = {
         fromTimeZone: franjasHorarias[franjaHoraria],
-        dateTime: horaNa,
+        dateTime: date,
         toTimeZone: 'Europe/London',
         dstAmbiguity: ''
     };
@@ -296,24 +305,23 @@ function horaSegunPais (horaNa, franjaHoraria) {
       },
       body: JSON.stringify(dataToSend)
     };
-
     fetch(url, requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log('Response from the server:', data);
-        // Do something with the response data here
+        
+        var dt = response.json()['conversionResult']
+        var hora = dt['hour'] 
+        var min = dt['minute']
+
+        alert("hello")
+        alert(hora)
+        alert(min)
+        return hora;
+
       })
       .catch(error => {
         console.error('Error making the request:', error);
       });
-
-      var dt = response.json()['conversionResult']
-      var hora = dt['hour'] 
-      var min = dt['minute']
-
-      fechaNa.setHours(hora)
-      fechaNa.setMinutes(min)
-
-      return fechaNa;
 
 }

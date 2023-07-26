@@ -5,18 +5,23 @@ function show(shown, hidden) {
 }
 
 function handleKiaTse() {
-    show('kiatse-results', 'kiatse-form')
+    try {
+        show('kiatse-results', 'kiatse-form')
 
-    var birthdate = document.getElementById('birthdate').value
-    var birthtime = document.getElementById('birthtime').value
-    var timeZone = document.getElementById('paises').value
+        var birthdate = document.getElementById('birthdate').value
+        var birthtime = document.getElementById('birthtime').value
+        var timeZone = document.getElementById('paises').value
 
-    //document.getElementById("otp").innerHTML = birthdate;
-    var animal = getAnimal(birthdate)
-    var anoKiaTse = numConAno(birthdate)
-    var mesKiatse = numConMes(birthdate)
-    var diaKiaTse = numConDia(birthdate)
-    var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
+        //document.getElementById("otp").innerHTML = birthdate;
+        var animal = getAnimal(birthdate)
+        var anoKiaTse = numConAno(birthdate)
+        var mesKiatse = numConMes(birthdate)
+        var diaKiaTse = numConDia(birthdate, birthtime)
+        var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
+    }
+    catch (e) {
+        alert(e)
+    }
 
 }
 

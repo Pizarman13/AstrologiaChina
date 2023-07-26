@@ -89,7 +89,7 @@ function getTrigramaNacimiento(fechaNa) {
 
     var info = infoTrigramasNacimiento[code]; 
 
-    return info
+    return code
 }
 
 function getTrigramaVital(fechaNa, genero) {
@@ -119,7 +119,7 @@ function getTrigramaVital(fechaNa, genero) {
 
     var info = infoTrigramasVital[numero] 
 
-    return info
+    return numero
   
 }
 
@@ -147,6 +147,15 @@ function getHexagramaNacimiento(fechaNa) {
 
     return info
     
+}
+
+function getHexagramaVital(fechaNa) {
+
+    var hexgrama = getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
+
+    var info = infoHexagramasVital[hexgrama]
+
+    return info
 }
 
 function segundoNum (fechaNa) {

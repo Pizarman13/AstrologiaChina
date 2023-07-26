@@ -17,7 +17,7 @@ function handleKiaTse() {
     var mesKiatse = numConMes(birthdate)
     var diaKiaTse = numConDia(birthdate)
     var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
-    
+
 }
 
 function handleHexagrams() {
@@ -25,6 +25,9 @@ function handleHexagrams() {
     var genre = document.getElementById('hexagram_genre').value
 
     //data in scripts/functions.js
-    var hexdat = calculateHexagram(birthdate, genre)
+    var triagramaVital = getTrigramaVital(birthdate, genre)
+    var triagramaNacimiento = getTrigramaNacimiento(birthdate)
+    var hexgramaVital = getHexagramaVital(birthdate, genre)
+    var hexagramaNacimiento = getHexagramaNacimiento(birthdate)
 
 }

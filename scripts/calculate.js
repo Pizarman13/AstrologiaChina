@@ -149,13 +149,15 @@ function getHexagramaNacimiento(fechaNa) {
     
 }
 
-function getHexagramaVital(fechaNa) {
+function getHexagramaVital(fechaNa, genero) {
 
     var hexgrama = getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
 
-    var info = infoHexagramasVital[hexgrama]
+    var numHex = combersion[hexgrama]
+    var info = infoHexagramasNacimiento[numHex]
+    var infoIchin = infoHexagramasNacimientoIChing[numHex]
 
-    return info
+    return info + '\n' + infoIchin
 }
 
 function segundoNum (fechaNa) {

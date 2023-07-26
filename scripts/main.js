@@ -25,11 +25,11 @@ function handleHexagrams() {
     var genre = document.getElementById('hexagram_genre').value
 
     //data in scripts/functions.js
-    var triagramaVital = getTrigramaVital(birthdate, genre)
-    var triagramaNacimiento = getTrigramaNacimiento(birthdate)
+    var triagramaVital = infoTriVi(birthdate, genre)
+    var triagramaNacimiento = infoTriNa(birthdate)
     var hexgramaVital = infoHexVi(birthdate, genre)
     var hexViIchin = infoHexViIchin(birthdate, genre)
     var hexagramaNacimiento = infoHexNa(birthdate)
-    var hexNa
+    var hexNaIchin = infoHexNaIchin(birthdate)
 
 }

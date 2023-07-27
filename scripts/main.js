@@ -26,6 +26,9 @@ function handleKiaTse() {
 }
 
 function handleHexagrams() {
+    show('hexagram-results', 'hexagram-form')
+
+
     var birthdate = document.getElementById('hex_birthdate').value
     var genre = document.getElementById('hexagram_genre').value
 

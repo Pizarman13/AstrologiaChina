@@ -168,8 +168,26 @@
     </div>
 
     <!-- View Hexagram -->
-    <div class="container" id="Hexagram-results" style="display: none;">
-      <h1>Resultados Hexagrama</h1>
+    <div class="container" id="hexagram-results" style="display: none;">
+      <div class="container text-center">
+
+        <div class="row">
+          <h1>Resultados Hexagrama</h1>
+        </div>
+        <div class="row inline-flex">
+          <div class="col-8 col-md-6 flex-md-column " style="background-color: blue; height: 75vh; padding: 2vh">
+            <h3>Nacimiento</h3>
+
+          </div>
+          <div class="col-8 col-md-6 flex-md-column" style="background-color: aqua; height: 75vh; padding: 2vh">
+            <h3>Vitalidad</h3>
+          </div>
+        </div>
+  
+      </div>
+
+      <button type="button" class="btn btn-primary"
+          onclick="return show('hexagram-form','hexagram-results');">Back</button>
     </div>
 
   </body>

@@ -254,31 +254,31 @@ var unidadAno = {
 }
 
 var rama = [ 
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'RI':'RI 子Zǐ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'RII':'RII 丑Chǒu'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'RIII':'RIII  寅 Yín'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Md(-)', 'RIV':'RIV 卯Mǎo'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'RV':'RV  辰Chén'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'F(-)', 'RVI':'RVI 巳Sì'},
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'F(+)', 'RVII':'RVII 午Ǔ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'RVIII':'RVIII 未Wèi'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Me(+)', 'RIX':'RIX 申Shēn'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Me(-)', 'RX':'RX  酉Yǒu'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'RXI':'RXI 戌Xū'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'A(-)', 'RXII':'RXII 亥Hài'}
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'R':'RI 子Zǐ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RII 丑Chǒu'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'R':'RIII  寅 Yín'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Md(-)', 'R':'RIV 卯Mǎo'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'R':'RV  辰Chén'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'F(-)', 'R':'RVI 巳Sì'},
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'F(+)', 'R':'RVII 午Ǔ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RVIII 未Wèi'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Me(+)', 'R':'RIX 申Shēn'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Me(-)', 'R':'RX  酉Yǒu'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'R':'RXI 戌Xū'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'A(-)', 'R':'RXII 亥Hài'}
 ]
 
 var tronco = [
-    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'TI':'TI 甲Jiǎ'},
-    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'TII':'TII 乙Yǐ'},
-    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'TIII':'TIII 丙Bǐng'},
-    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Fuego Corazon', 'TIV':'TIV 丁Dīng'},
-    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Tierra Estomago', 'TV':'TV 戊Wù'},
-    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Tierra Brazo', 'TVI':'TVI 己Jǐ'},
-    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Metal I.Grueso', 'TVII':'TVII 庚Gēng'},
-    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Metal Pulmon', 'TVIII':'TVIII 辛Xīn'},
-    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Agua Vejiga', 'TIX':'TIX 壬Rén'},
-    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Agua Riñon', 'TX':'TX  癸Guǐ'}
+    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'T':'TI 甲Jiǎ'},
+    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'T':'TII 乙Yǐ'},
+    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'T':'TIII 丙Bǐng'},
+    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Fuego Corazon', 'T':'TIV 丁Dīng'},
+    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Tierra Estomago', 'T':'TV 戊Wù'},
+    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Tierra Brazo', 'T':'TVI 己Jǐ'},
+    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Metal I.Grueso', 'T':'TVII 庚Gēng'},
+    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Metal Pulmon', 'T':'TVIII 辛Xīn'},
+    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Agua Vejiga', 'T':'TIX 壬Rén'},
+    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Agua Riñon', 'T':'TX  癸Guǐ'}
 ]
 
 var animalEnblematico = [

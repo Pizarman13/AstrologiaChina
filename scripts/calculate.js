@@ -132,7 +132,7 @@ function getTrigramaVital(fechaNa, genero) {
 
 function infoTriVi(fechaNa, genero) {
 
-    var trig = getTrigramaVital(fechaNa, fechaNa)
+    var trig = getTrigramaVital(fechaNa, genero)
     var info = infoTrigramasVital[trig]
 
     return info

@@ -253,6 +253,21 @@ const unidadAno = {
 }
 
 const rama = [ 
+    "<br>ShaoYin<br>A(+)<br>RI 子Zǐ'",
+    "<br>TaeYin<br>T(-)<br>RII 丑Chǒu'",
+    "<br>ShaoYang<br>Md(+)<br>RIII  寅 Yín'",
+    "<br>YangMing<br>Md(-)<br>RIV 卯Mǎo'",
+    "<br>TaeYang<br>T(+)<br>RV  辰Chén'",
+    "<br>JueYin<br>F(-)<br>RVI 巳Sì'",
+    "<br>ShaoYin<br>F(+)<br>RVII 午Ǔ'",
+    "<br>TaeYin<br>T(-)<br>RVIII 未Wèi'",
+    "<br>ShaoYang<br>Me(+)<br>RIX 申Shēn'",
+    "<br>YangMing<br>Me(-)<br>RX  酉Yǒu'",
+    "<br>TaeYang<br>T(+)<br>RXI 戌Xū'",
+    "<br>JueYin<br>A(-)<br>RXII 亥Hài",
+]
+
+const ramaBK = [ 
     {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'R':'RI 子Zǐ'},
     {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RII 丑Chǒu'},
     {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'R':'RIII  寅 Yín'},
@@ -268,6 +283,19 @@ const rama = [
 ]
 
 const tronco = [
+    "Tierra Humedad<br>Madera Vesicula Biliar<br>TI 甲Jiǎ'",
+    "Metal Sequedad<br>Madera Higado<br>TII 乙Yǐ'",
+    "Agua Frio<br>Fuego I.Delgado<br>TIII 丙Bǐng'",
+    "Madera Viento<br>Fuego Corazon<br>TIV 丁Dīng'",
+    "Fuego Calor<br>Tierra Estomago<br>TV 戊Wù'",
+    "Tierra Humedad<br>Tierra Brazo<br>TVI 己Jǐ'",
+    "Metal Sequedad<br>Metal I.Grueso<br>TVII 庚Gēng'",
+    "Agua Frio<br>Metal Pulmon<br>TVIII 辛Xīn'",
+    "Madera Viento<br>Agua Vejiga<br>TIX 壬Rén'",
+    "Fuego Calor<br>Agua Riñon<br>TX  癸Guǐ"
+]
+
+const troncoBK = [
     {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'T':'TI 甲Jiǎ'},
     {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'T':'TII 乙Yǐ'},
     {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'T':'TIII 丙Bǐng'},
@@ -281,6 +309,21 @@ const tronco = [
 ]
 
 const animalEnblematico = [
+    "Rata 鼠<br>23-01<br>C-R<br>Calor<br>VB13<br>11",
+    "Buey 牛<br>01-03<br>P-B<br>Humedad<br>H14<br>12",
+    "Tigre 虎<br>03-05<br>TR-VB<br>Fuego<br>P7<br>1",
+    "Liebre 兔<br>05-07<br>IG-E<br>Sequedad<br>IG6<br>2",
+    "Dragón 龍<br>07-09<br>ID-V<br>Frio<br>E40<br>3",
+    "Serpiente 蛇<br>09-11<br>MC-H<br>Viento<br>B4<br>4",
+    "Caballo 馬<br>11-13<br>C-R<br>Calor<br>C4<br>5",
+    "Cabra 羊<br>13-15<br>P-B<br>Humedad<br>ID12<br>6",
+    "Mono 猴<br>15-17<br>TR-VB<br>Fuego<br>V60<br>7",
+    "Gallo 雞<br>17-19<br>IG-E<br>Sequedad<br>R23<br>8",
+    "Perro 狗<br>19-21<br>ID-V<br>Frio<br>MC8<br>9",
+    "Cerdo 豬<br>21-23<br>MC-H<br>Viento<br>TR10<br>10",
+]
+
+const animalEnblematicoBK = [
     {'Animal':'Rata 鼠', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
     {'Animal':'Buey 牛', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
     {'Animal':'Tigre 虎', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},

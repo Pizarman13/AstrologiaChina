@@ -324,9 +324,14 @@ function horaSegunPais (horaNa, franjaHoraria) {
         console.error('Error making the request:', error);
       });
 
+
 }
 
-function datosTabla(num) {
+function datosTabla (num) {
 
-    return [tabla[num][0], tabla[num][1], tabla[num][2]]
+    return [
+        tabla[num][0],
+        tabla[num][1],
+        tabla[num][2],
+    ]
 }

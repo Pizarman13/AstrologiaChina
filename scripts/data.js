@@ -83,7 +83,6 @@ const infoHexagramasNacimiento = {
     64: '坤 Kūn Lo receptivo La obediencia',
 } 
 
-
 const combersion = {
     '111.2':1,
     '011.2':2,
@@ -240,7 +239,7 @@ const infoTrigramasNacimiento ={
     '000': 'KUN – CHONG MAI 坤 Kun (K’uen) KUN, K ́UEN, RECEPTIVIDAD DE LA TIERRA 4B'
 }
 
-var unidadAno = {
+const unidadAno = {
     0: 15,
     1: 27,
     2: 39,
@@ -253,7 +252,7 @@ var unidadAno = {
     9: 3
 }
 
-var rama = [ 
+const rama = [ 
     {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'R':'RI 子Zǐ'},
     {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RII 丑Chǒu'},
     {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'R':'RIII  寅 Yín'},
@@ -268,7 +267,7 @@ var rama = [
     {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'A(-)', 'R':'RXII 亥Hài'}
 ]
 
-var tronco = [
+const tronco = [
     {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'T':'TI 甲Jiǎ'},
     {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'T':'TII 乙Yǐ'},
     {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'T':'TIII 丙Bǐng'},
@@ -281,7 +280,7 @@ var tronco = [
     {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Agua Riñon', 'T':'TX  癸Guǐ'}
 ]
 
-var animalEnblematico = [
+const animalEnblematico = [
     {'Animal':'Rata 鼠', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
     {'Animal':'Buey 牛', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
     {'Animal':'Tigre 虎', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},
@@ -296,7 +295,7 @@ var animalEnblematico = [
     {'Animal':'Cerdo 豬', 'Horas':'21-23', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'TR10', 'Mes Lunar': '10'}
 ]
 
-var tabla = {
+const tabla = {
     1:  [0, 0, 0],
     2:  [1, 1, 1],
     3:  [2, 2, 2],

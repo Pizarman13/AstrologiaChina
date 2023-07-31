@@ -1,34 +1,103 @@
-function KiatSe() {
-    alert('KiatSe')
+function getRefAnyo (birthdatetime) {
+    
+    var anyo = changeToChineseYear(birthdatetime)
+
+    var otp = ((anyo - 3) - (Math.floor((anyo - 3) / 60) * 60) === 0) ? 60 : (anyo - 3) - (Math.floor((anyo - 3) / 60) * 60);
+
+    return otp + 1 //! CHECK
 }
 
-function getAnoNuevo(fechaNa) {
+function changeToChineseYear(datetime) {
 
-    var fechaAno = fechaNa.split('-')[0]
-    var fechaMes = fechaNa.split('-')[1]
-    var fechaDia = fechaNa.split('-')[2]
-
-    var nuevoAno = anoChino[fechaAno]
+    var nuevoAno = anoChino[datetime.getFullYear()]
     var fechanuevoAno = new Date(nuevoAno)
 
     
     var mesNuevoAno = fechanuevoAno.getMonth() + 1
     var diaNuevoAno = fechanuevoAno.getDate() 
 
-    if (mesNuevoAno  <= fechaMes) {
+    if (mesNuevoAno <= datetime.getMonth()) {
         
-        if (diaNuevoAno <= fechaDia) {
-            return fechaAno;
+        if (diaNuevoAno <= datetime.getDate()) {
+            return datetime.getFullYear();
         } else {
-            return fechaAno - 1;
+            return datetime.getFullYear() - 1;
         }
         
     } else {
-       return fechaAno - 1;
+       return datetime.getFullYear() - 1;
     }
-
 }
 
+function getRefMes(birthdatetime) {
+
+    var num = getRefMesNum(birthdatetime)
+
+    var otp = (num > 60) ? (num - 60) : num;
+
+    return otp
+}
+
+function getRefMesNum(datetime){
+
+    var anyoNa = datetime.getFullYear()
+    var numUnidad = anyoNa % 10
+    var mesNa = datetime.getMonth() + 1
+
+
+    var primerNum = unidadAno[numUnidad]
+    var mes = 0
+    var resultado = 0
+
+    //? Ajuste de mes
+    if (changeToChineseYear(datetime) < anyoNa) {
+        mes = 12
+    } else {
+        mes = mesNa
+    }
+
+    resultado = primerNum + mes
+
+    return resultado
+}
+
+function getRefDia(birthdatetime) {
+    var num = getRefDiaNum(birthdatetime)
+    
+    var otp = (num === 0) ? 60 : num;
+    
+    return otp
+}
+
+function getRefDiaNum (datetime) {
+
+    var otp = (new Date(datetime.getFullYear(), datetime.getMonth(), datetime.getDate()) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(datetime.getFullYear(), datetime.getMonth(), datetime.getDate()) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (datetime.getHours() >= 23 ? 1 : 0)
+    return otp
+}
+
+function convertTZ(date, tzString) {
+    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: "Europe/London"}));    
+}
+
+function getRefHora(birthdatetime) {
+
+    var numDia = getRefDia(birthdatetime)
+    var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
+    var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
+
+    var findValue1 = Number(numDia.toString().slice(-1));
+    var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
+    var result1 = (lookup1 !== undefined) ? lookup1[1] : 0;
+
+    var findValue2 = birthdatetime;
+    var lookup2 = KT_A13_B37.find(item => item[0] === findValue2);
+    var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
+
+    var otp = result1 + result2 - 1;
+    return otp
+}
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getAnimal(fechaNa) {
 
     var anoNa = getAnoNuevo(fechaNa)
@@ -203,135 +272,11 @@ function infoHexViIchin(fechaNa, genero) {
 
 }
 
-function segundoNum (fechaNa) {
-    
-    var anoNa = fechaNa.split('-')[0]
-    var numUnidad = anoNa % 10
-    var mesNa = fechaNa.split('-')[1]
-
-    var primerNum = unidadAno[numUnidad]
-    var mes = 0
-    var resultado = 0
-
-    if (getAnoNuevo(fechaNa) < anoNa) {
-        mes = 12
-    } else {
-        mes = mesNa
-    }
-
-    resultado = primerNum + mes
-
-    return resultado
-}
-
-function tercerNum (fechaNa, horaNa, pais) {
-    var fechaAno = fechaNa.split('-')[0]
-    var fechaMes = fechaNa.split('-')[1]
-    var fechaDia = fechaNa.split('-')[2]
-    var hora = horaSegunPais(fechaNa, horaNa, pais)
-
-    var otp = (new Date(fechaAno, fechaMes, fechaDia) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(fechaAno, fechaMes, fechaDia) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (hora >= 23 ? 1 : 0)
-
-
-    return otp
-}
-
-function numConAno (fechaNa) {
-    
-    var ano = getAnoNuevo(fechaNa)
-
-    var otp = ((ano - 3) - (Math.floor((ano - 3) / 60) * 60) === 0) ? 60 : (ano - 3) - (Math.floor((ano - 3) / 60) * 60);
-
-    return otp
-}
-
-function numConMes(fechaNa) {
-
-    var num = segundoNum(fechaNa)
-
-    var otp = (num > 60) ? (num - 60) : num;
-
-    return otp
-}
-
-function numConDia(fechaNa, horaNa, pais) {
-
-    var num = tercerNum(fechaNa, horaNa, pais)
-
-    var otp = (num === 0) ? 60 : num;
-
-    return otp
-}
-
-function numConHora(fechaNa, horaNa, pais) {
-
-    var numDia = numConDia(fechaNa, horaNa)
-    var hora = horaSegunPais(fechaNa, horaNa, pais)
-    var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
-    var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
-
-    var findValue1 = Number(numDia.toString().slice(-1));
-    var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
-    var result1 = (lookup1 !== undefined) ? lookup1[1] : 0;
-
-    var findValue2 = hora;
-    var lookup2 = KT_A13_B37.find(item => item[0] === findValue2);
-    var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
-
-    var otp = result1 + result2 - 1;
-    return otp
-}
-
-function horaSegunPais (horaNa, franjaHoraria) {
-    date = Date()
-    td = horaNa.split(':')
-    date.hora = td[0]
-    date.minute = td[1]
-    date = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSZ');
-    
-    const url = 'https://timeapi.io/api/Conversion/ConvertTimeZone';
-    const dataToSend = {
-        fromTimeZone: franjasHorarias[franjaHoraria],
-        dateTime: date,
-        toTimeZone: 'Europe/London',
-        dstAmbiguity: ''
-    };
-
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dataToSend)
-    };
-    fetch(url, requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        console.log('Response from the server:', data);
-        
-        var dt = response.json()['conversionResult']
-        var hora = dt['hour'] 
-        var min = dt['minute']
-
-        alert("hello")
-        alert(hora)
-        alert(min)
-        return hora;
-
-      })
-      .catch(error => {
-        console.error('Error making the request:', error);
-      });
-
-
-}
-
 function datosTabla (num) {
 
     return [
-        tabla[num][0],
-        tabla[num][1],
-        tabla[num][2],
+        rama[tabla[num][0]],
+        tronco[tabla[num][1]],
+        animalEnblematico[tabla[num][2]],
     ]
 }

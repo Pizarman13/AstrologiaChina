@@ -7,39 +7,43 @@ function show(shown, hidden) {
 function handleKiaTse() {
     show('kiatse-results', 'kiatse-form')
 
-    var birthdate = document.getElementById('birthdate').value
-    var birthtime = document.getElementById('birthtime').value
-    var timeZone = document.getElementById('paises').value
+    //? Extract data from HTML
+    var birthdate = document.getElementById('birthdate').value;
+    var birthtime = document.getElementById('birthtime').value;
+    
+    var timeZone = document.getElementById('paises').value;
+    var GMT = '+0' //!ADD IT IN data.js
 
-    var animal = getAnimal(birthdate)
-    var anyoKiaTse = numConAno(birthdate)
-    var mesKiaTse = numConMes(birthdate)
-    var diaKiaTse = numConDia(birthdate, birthtime)
-    var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
+    var birthdatetime = new Date(birthdate + ' ' + birthtime + ' GMT' + GMT);
+    var timeZoneStr = franjasHorarias[timeZone]
+    birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 
-    alert(diaKiaTse)
+    //? Process data
+    var KiaTse_anyo = getRefAnyo(birthdatetime)
+    var KiaTse_mes = getRefMes(birthdatetime) //! REQUIERE CORRECCION
+    var KiaTse_dia = getRefDia(birthdatetime, timeZone) //!REQUIERE CORRECCION
+    var KiaTse_hora = getRefHora(birthdatetime) //!Comprobar
 
-    var datosKiaTse_anyo = datosTabla(anyoKiaTse)
-    var datosKiaTse_mes = datosTabla(mesKiaTse)
-    var datosKiaTse_dia = datosTabla(diaKiaTse)
-    //var datosKiaTse_hora = datosTabla(horaKiaTse)
+    var datosKiaTse_anyo = datosTabla(KiaTse_anyo)
+    var datosKiaTse_mes = datosTabla(KiaTse_mes)
 
-    //document.getElementById('kiatse-results-anyo_ciclo').innerHTML = anyoKiaTse
-    //document.getElementById('kiatse-results-anyo_tronco').innerHTML = datosKiaTse_anyo[0]
-    //document.getElementById('kiatse-results-anyo_rama').innerHTML = datosKiaTse_anyo[1]
-    //document.getElementById('kiatse-results-anyo_animal').innerHTML = datosKiaTse_anyo[2]
+    //? Update data in HTML
+    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = KiaTse_anyo
+    document.getElementById('kiatse-results-anyo_tronco').innerHTML = datosKiaTse_anyo[0]
+    document.getElementById('kiatse-results-anyo_rama').innerHTML = datosKiaTse_anyo[1]
+    document.getElementById('kiatse-results-anyo_animal').innerHTML = datosKiaTse_anyo[2]
 
-    //document.getElementById('kiatse-results-mes_ciclo').innerHTML = mesKiaTse
-    //document.getElementById('kiatse-results-mes_tronco').innerHTML = datosKiaTse_mes[0]
-    //document.getElementById('kiatse-results-mes_rama').innerHTML = datosKiaTse_mes[1]
-    //document.getElementById('kiatse-results-mes_animal').innerHTML = datosKiaTse_mes[2]
+    document.getElementById('kiatse-results-mes_ciclo').innerHTML = KiaTse_mes
+    document.getElementById('kiatse-results-mes_tronco').innerHTML = datosKiaTse_mes[0]
+    document.getElementById('kiatse-results-mes_rama').innerHTML = datosKiaTse_mes[1]
+    document.getElementById('kiatse-results-mes_animal').innerHTML = datosKiaTse_mes[2]
 
-    //document.getElementById('kiatse-results-dia_ciclo').innerHTML = diaKiaTse
+    document.getElementById('kiatse-results-dia_ciclo').innerHTML = KiaTse_dia
     //document.getElementById('kiatse-results-dia_tronco').innerHTML = datosKiaTse_dia[0]
     //document.getElementById('kiatse-results-dia_rama').innerHTML = datosKiaTse_dia[1]
     //document.getElementById('kiatse-results-dia_animal').innerHTML = datosKiaTse_dia[2]
 
-    //document.getElementById('kiatse-results-hora_ciclo').innerHTML = horaKiaTse
+    document.getElementById('kiatse-results-hora_ciclo').innerHTML = KiaTse_hora
     //document.getElementById('kiatse-results-hora_tronco').innerHTML = datosKiaTse_hora[0]
     //document.getElementById('kiatse-results-hora_rama').innerHTML = datosKiaTse_hora[1]
     //document.getElementById('kiatse-results-hora_animal').innerHTML = datosKiaTse_hora[2]

@@ -22,7 +22,6 @@ function handleKiaTse() {
     catch (e) {
         alert(e)
     }
-
 }
 
 function handleHexagrams() {

@@ -51,19 +51,25 @@ function handleKiaTse() {
 }
 
 function handleHexagrams() {
-    show('hexagram-results', 'hexagram-form')
-
     //? Extract data from HTML
     var birthdate = document.getElementById('hex_birthdate').value
     var genre = document.getElementById('hexagram_genre').value
-
+    console.log('data colected from html')
     //? Process data
+    
     var trigramaVital = infoTriVi(birthdate, genre)
+    //console.log('trigramaVital: ' + trigramaVital)
     var trigramaNacimiento = infoTriNa(birthdate)
+    //console.log('trigramaNacimiento: ' + trigramaNacimiento)
     var hexgramaVital = infoHexVi(birthdate, genre)
+    //console.log('hexgramaVital: ' + hexgramaVital)
     var hexViIchin = infoHexViIchin(birthdate, genre)
+    //console.log('hexViIchin: ' + hexViIchin)
     var hexagramaNacimiento = infoHexNa(birthdate)
+    //console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
     var hexNaIchin = infoHexNaIchin(birthdate)
+    //console.log('hexNaIchin: ' + hexNaIchin)
+    
 
     //? Update data in HTML
     //document.getElementById('kiatse-results-anyo_ciclo').innerHTML = KiaTse_anyo
@@ -75,9 +81,21 @@ function handleHexagrams() {
     document.getElementById('hexagram-results-hexagrama_vital_oracular').innerHTML = hexgramaVital
     document.getElementById('hexagram-results-hexagrama_vital_ichin').innerHTML = hexViIchin
 
-    document.getElementById('hexagram-results-img-trigrama_nacimiento').setAttribute('src', 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdate) + '.png')
-    document.getElementById('hexagram-results-img-hexagrama_nacimiento').setAttribute('src', 'img/hexagramaNacimiento/' + getTrigramaVital(birthdate, genre) + '.png')
-    document.getElementById('hexagram-results-img-trigrama_vital').setAttribute('src', 'img/trigramasVital/' + getHexagramaNacimiento(birthdate) + '.png')
-    document.getElementById('hexagram-results-img-hexagrama_vital').setAttribute('src', 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdate, genre)] + '.png')
+    var path_trigrama_nacimiento = 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdate) + '.png'
+    document.getElementById('hexagram-results-img-trigrama_nacimiento').setAttribute('src', path_trigrama_nacimiento)
+    console.log('path_trigrama_nacimiento: '+ path_trigrama_nacimiento)
+    
+    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getTrigramaVital(birthdate, genre) + '.png'
+    document.getElementById('hexagram-results-img-hexagrama_nacimiento').setAttribute('src', path_hexagrama_nacimiento)
+    console.log('path_hexagrama_nacimiento: path_hexagrama_nacimiento' + path_hexagrama_nacimiento)
+    
+    var path_trigrama_vital = 'img/trigramasVital/' + getHexagramaNacimiento(birthdate) + '.png'
+    document.getElementById('hexagram-results-img-trigrama_vital').setAttribute('src', path_trigrama_vital)
+    console.log('path_trigrama_vital: ' + path_trigrama_vital)
+    
+    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdate, genre)] + '.png'
+    document.getElementById('hexagram-results-img-hexagrama_vital').setAttribute('src', path_hexagrama_vital)
+    console.log('path_hexagrama_vital: '+ path_hexagrama_vital)
 
+    show('hexagram-results', 'hexagram-form')
 }

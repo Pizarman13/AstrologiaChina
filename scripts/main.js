@@ -16,7 +16,7 @@ function handleKiaTse() {
         var animal = getAnimal(birthdate)
         var anoKiaTse = numConAno(birthdate)
         var mesKiatse = numConMes(birthdate)
-        var diaKiaTse = numConDia(birthdate, birthtime)
+        var diaKiaTse = numConDia(birthdate, birthtime, timeZone)
         var horaKiaTse = numConHora(birthdate, birthtime, timeZone)
     }
     catch (e) {

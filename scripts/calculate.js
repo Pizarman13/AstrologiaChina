@@ -254,9 +254,9 @@ function numConMes(fechaNa) {
     return otp
 }
 
-function numConDia(fechaNa, horaNa) {
+function numConDia(fechaNa, horaNa, pais) {
 
-    var num = tercerNum(fechaNa, horaNa)
+    var num = tercerNum(fechaNa, horaNa, pais)
 
     var otp = (num === 0) ? 60 : num;
 

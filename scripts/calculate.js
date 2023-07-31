@@ -325,3 +325,8 @@ function horaSegunPais (horaNa, franjaHoraria) {
       });
 
 }
+
+function datosTabla(num) {
+
+    return [tabla[num][0], tabla[num][1], tabla[num][2]]
+}

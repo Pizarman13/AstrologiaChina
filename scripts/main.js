@@ -48,23 +48,36 @@ function handleKiaTse() {
     //document.getElementById('kiatse-results-hora_rama').innerHTML = datosKiaTse_hora[1]
     //document.getElementById('kiatse-results-hora_animal').innerHTML = datosKiaTse_hora[2]
 
-    console.log('view updated')
-
 }
 
 function handleHexagrams() {
     show('hexagram-results', 'hexagram-form')
 
-
+    //? Extract data from HTML
     var birthdate = document.getElementById('hex_birthdate').value
     var genre = document.getElementById('hexagram_genre').value
 
-    //data in scripts/functions.js
-    var triagramaVital = infoTriVi(birthdate, genre)
-    var triagramaNacimiento = infoTriNa(birthdate)
+    //? Process data
+    var trigramaVital = infoTriVi(birthdate, genre)
+    var trigramaNacimiento = infoTriNa(birthdate)
     var hexgramaVital = infoHexVi(birthdate, genre)
     var hexViIchin = infoHexViIchin(birthdate, genre)
     var hexagramaNacimiento = infoHexNa(birthdate)
     var hexNaIchin = infoHexNaIchin(birthdate)
+
+    //? Update data in HTML
+    //document.getElementById('kiatse-results-anyo_ciclo').innerHTML = KiaTse_anyo
+
+    document.getElementById('hexagram-results-trigrama_nacimiento').innerHTML = trigramaNacimiento
+    document.getElementById('hexagram-results-hexagrama_nacimiento_oracular').innerHTML = hexagramaNacimiento
+    document.getElementById('hexagram-results-hexagrama_nacimiento_ichin').innerHTML = hexNaIchin
+    document.getElementById('hexagram-results-trigrama_vital').innerHTML = trigramaVital
+    document.getElementById('hexagram-results-hexagrama_vital_oracular').innerHTML = hexgramaVital
+    document.getElementById('hexagram-results-hexagrama_vital_ichin').innerHTML = hexViIchin
+
+    document.getElementById('hexagram-results-img-trigrama_nacimiento').setAttribute('src', 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdate) + '.png')
+    document.getElementById('hexagram-results-img-hexagrama_nacimiento').setAttribute('src', 'img/hexagramaNacimiento/' + getTrigramaVital(birthdate, genre) + '.png')
+    document.getElementById('hexagram-results-img-trigrama_vital').setAttribute('src', 'img/trigramasVital/' + getHexagramaNacimiento(birthdate) + '.png')
+    document.getElementById('hexagram-results-img-hexagrama_vital').setAttribute('src', 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdate, genre)] + '.png')
 
 }

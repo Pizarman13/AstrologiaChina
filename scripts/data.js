@@ -83,7 +83,7 @@ const infoHexagramasNacimiento = {
     64: '坤 Kūn Lo receptivo La obediencia',
 } 
 
-const combersion = {
+const conversion = {
     '111.2':1,
     '011.2':2,
     '101.2':3,

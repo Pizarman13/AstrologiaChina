@@ -1,209 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrologia China</title>
 
-    <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astrologia China</title>
 
-    <!-- Internal Scipts -->
+  <!-- Bootstrap -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    
-    <link href="styles/main.css" rel="stylesheet" type="text/css">
-    <script src="scripts/main.js"></script>
-    <script src="scripts/calculate.js"></script>
-    <script src="scripts/data.js"></script>
+  <!-- Internal Scipts -->
 
-  </head>
-  <body>
-    <!-- View kiatse -->
-    <div class="container" id="kiatse-form">
-      <button type="button" class="btn btn-info" disabled>Ciclo KiaTse</button>
-      <button type="button" class="btn btn-primary"
-        onclick="return show('hexagram-form','kiatse-form');">Hexagramas</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-      <!-- Content-->
-      <form class="row g-3 needs-validation" novalidate>
-        <!-- Birthdate -->
-        <div class="col-md-4">
-          <label for="birthdate" class="form-label">Fecha de
-            Nacimiento</label>
-          <input type="date" class="form-control" id="birthdate"
-            value="2000-01-01" min="1924-01-01" max="2040-12-31"
-            required>
-        </div>
-        <!-- Birthtime -->
-        <div class="col-md-4">
-          <label for="birthtime" class="form-label">Hora de Nacimiento</label>
-          <input type="time" class="form-control" id="birthtime"
-            value="00:00" required>
-        </div>
-        <!-- Country -->
-        <div class="col-md-4">
-          <label for="paises" class="form-label">Paises</label>
-          <select class="form-select" id="paises" required>
-            <option selected disabled value>Paises</option>
-            <option value="Alemania">Alemania</option>
-            <option value="Argentina">Argentina</option>
-            <option value="Belgica">Belgica</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Chile">Chile</option>
-            <option value="Colombia">Colombia</option>
-            <option value="Dinamarca">Dinamarca</option>
-            <option value="Ecuador">Ecuador</option>
-            <option value="España">España</option>
-            <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
-            <option value="EEUU(Chicago)">EEUU(Chicago)</option>
-            <option value="EEUU(NY)">EEUU(NY)</option>
-            <option value="Francia">Francia</option>
-            <option value="Italia">Italia</option>
-            <option value="Lituania">Lituania</option>
-            <option value="Paises Bajos">Paises Bajos</option>
-            <option value="Paraguay">Paraguay</option>
-            <option value="Peru">Peru</option>
-            <option value="Polonia">Polonia</option>
-            <option value="Reino Unido">Reino Unido</option>
-            <option value="Noruega">Noruega</option>
-            <option value="Suecia">Suecia</option>
-            <option value="Venezuela">Venezuela</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary"
-            onclick="handleKiaTse(event); return false">Calcular
-            ciclo</button>
-        </div>
-      </form>
+  <link href="styles/main.css" rel="stylesheet" type="text/css">
+  <script src="scripts/main.js"></script>
+  <script src="scripts/calculate.js"></script>
+  <script src="scripts/data.js"></script>
 
-    </div>
-    <!-- View hexagram -->
-    <div class="container" id="hexagram-form" style="display: none;">
-      <button type="button" class="btn btn-info"
-        onclick="return show('kiatse-form','hexagram-form');">Ciclo
-        KiaTse</button>
-      <button type="button" class="btn btn-primary" disabled>Hexagramas</button>
+</head>
 
-      <!-- Content-->
-      <form class="row g-3 needs-validation" novalidate>
-        <!-- Birthdate -->
-        <div class="col-md-6">
-          <label for="hex_birthdate" class="form-label">Fecha de
-            Nacimiento</label>
-          <input type="date" class="form-control" id="hex_birthdate"
-            value="2000-01-01" min="1924-01-01" max="2040-12-31"
-            required>
-        </div>
-        
-        <!-- Genre -->
-        <div class="col-md-6">
-          <label for="hexagram_genre" class="form-label">Genero</label>
-          <select class="form-select" id="hexagram_genre" required>
-            <option selected disabled value>Genero</option>
-            <option value="h">Hombre</option>
-            <option value="m">Mujer</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit" onclick="handleHexagrams(event); return false">Calcular
-            Hexagramas</button>
-        </div>
-      </form>
+<body>
+  <!-- View kiatse -->
+  <div class="container" id="kiatse-form">
+    <button type="button" class="btn btn-info" disabled>Ciclo KiaTse</button>
+    <button type="button" class="btn btn-primary"
+      onclick="return show('hexagram-form','kiatse-form');">Hexagramas</button>
 
-    </div>
+    <!-- Content-->
+    <form class="row g-3 needs-validation" novalidate>
+      <!-- Birthdate -->
+      <div class="col-md-4">
+        <label for="birthdate" class="form-label">Fecha de
+          Nacimiento</label>
+        <input type="date" class="form-control" id="birthdate" value="2000-01-01" min="1924-01-01" max="2040-12-31"
+          required>
+      </div>
+      <!-- Birthtime -->
+      <div class="col-md-4">
+        <label for="birthtime" class="form-label">Hora de Nacimiento</label>
+        <input type="time" class="form-control" id="birthtime" value="00:00" required>
+      </div>
+      <!-- Country -->
+      <div class="col-md-4">
+        <label for="paises" class="form-label">Paises</label>
+        <select class="form-select" id="paises" required>
+          <option selected disabled value>Paises</option>
+          <option value="Alemania">Alemania</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Belgica">Belgica</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Chile">Chile</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Dinamarca">Dinamarca</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="España">España</option>
+          <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
+          <option value="EEUU(Chicago)">EEUU(Chicago)</option>
+          <option value="EEUU(NY)">EEUU(NY)</option>
+          <option value="Francia">Francia</option>
+          <option value="Italia">Italia</option>
+          <option value="Lituania">Lituania</option>
+          <option value="Paises Bajos">Paises Bajos</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Peru">Peru</option>
+          <option value="Polonia">Polonia</option>
+          <option value="Reino Unido">Reino Unido</option>
+          <option value="Noruega">Noruega</option>
+          <option value="Suecia">Suecia</option>
+          <option value="Venezuela">Venezuela</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" onclick="handleKiaTse(event); return false">Calcular
+          ciclo</button>
+      </div>
+    </form>
 
-    <!--! Display Results -->
-    <!-- View KiaTse -->
-    <div class="container" id="kiatse-results" style="display: none;">
-      <h1>Resultados Kiatse</h1>
+  </div>
+  <!-- View hexagram -->
+  <div class="container" id="hexagram-form" style="display: none;">
+    <button type="button" class="btn btn-info" onclick="return show('kiatse-form','hexagram-form');">Ciclo
+      KiaTse</button>
+    <button type="button" class="btn btn-primary" disabled>Hexagramas</button>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Ciclo</th>
-            <th scope="col">Tronco</th>
-            <th scope="col">Rama</th>
-            <th scope="col">Animal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Año</th>
-            <td id="kiatse-results-anyo_ciclo"></td>
-            <td id="kiatse-results-anyo_tronco"></td>
-            <td id="kiatse-results-anyo_rama"></td>
-            <td id="kiatse-results-anyo_animal"></td>
-          </tr>
-          <tr>
-            <th scope="row">Mes</th>
-            <td id="kiatse-results-mes_ciclo"></td>
-            <td id="kiatse-results-mes_tronco"></td>
-            <td id="kiatse-results-mes_rama"></td>
-            <td id="kiatse-results-mes_animal"></td>
-          </tr>
-          <tr>
-            <th scope="row">Dia</th>
-            <td id="kiatse-results-dia_ciclo"></td>
-            <td id="kiatse-results-dia_tronco"></td>
-            <td id="kiatse-results-dia_rama"></td>
-            <td id="kiatse-results-dia_animal"></td>
-          </tr>
-          <tr>
-            <th scope="row">Hora</th>
-            <td id="kiatse-results-hora_ciclo"></td>
-            <td id="kiatse-results-hora_tronco"></td>
-            <td id="kiatse-results-hora_rama"></td>
-            <td id="kiatse-results-hora_animal"></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <button type="button" class="btn btn-primary"
-        onclick="return show('kiatse-form','kiatse-results');">Back</button>
-    </div>
-
-    <!-- View Hexagram -->
-    <div class="container" id="hexagram-results" style="display: none;">
-      <div class="container text-center">
-
-        <div class="row">
-          <h1>Resultados Hexagrama</h1>
-        </div>
-        <div class="row">
-          <div class="col-8 col-md-6 flex-md-column " style="background-color: palegreen; height: 90vh; padding: 2vh">
-            <h3>Nacimiento</h3>
-
-            <div class="d-flex p-2" style="background-color: greenyellow; height: 15vh;"><img src="img/trigramasNacimiento/000.png"></div>
-            <div style="background-color: blueviolet; height: 7vh; padding: 0.25vh"><p>{}</p></div>
-            <br>
-            <div class="d-flex p-2" style="background-color: rgb(255, 47, 161); height: 25vh;"><img src="img/hexagramaNacimiento/1.png"></div>
-            <div style="background-color: rgb(43, 226, 67); height: 14vh; padding: 0.25vh"><h5>Tablero Oracular</h5><p>{}</p></div>
-            <div style="background-color: yellow; height: 14vh; padding: 0.25vh"><h5>Ichin</h5><p>{}</p></div>
-
-          </div>
-          <div class="col-8 col-md-6 flex-md-column" style="background-color: aqua; height: 90vh; padding: 2vh;">
-            <h3>Vida</h3>
-
-            <div class="d-flex p-2" style="background-color: greenyellow; height: 15vh;"><img src="img/trigramasVital/5.png"></div>
-            <div style="background-color: blueviolet; height: 7vh; padding: 0.25vh"><p>{}</p></div>
-            <br>
-            <div class="d-flex p-2" style="background-color: rgb(255, 47, 161); height: 25vh;"><img src="img/hexagramaNacimiento/19.png"></div>
-            <div style="background-color: rgb(43, 226, 67); height: 14vh; padding: 0.25vh"><h5>Tablero Oracular</h5><p>{}</p></div>
-            <div style="background-color: yellow; height: 14vh; padding: 0.25vh"><h5>Ichin</h5><p>{}</p></div>
-
-          </div>
-        </div>
-  
+    <!-- Content-->
+    <form class="row g-3 needs-validation" novalidate>
+      <!-- Birthdate -->
+      <div class="col-md-6">
+        <label for="hex_birthdate" class="form-label">Fecha de
+          Nacimiento</label>
+        <input type="date" class="form-control" id="hex_birthdate" value="2000-01-01" min="1924-01-01" max="2040-12-31"
+          required>
       </div>
 
-      <button type="button" class="btn btn-primary"
-          onclick="return show('hexagram-form','hexagram-results');">Back</button>
+      <!-- Genre -->
+      <div class="col-md-6">
+        <label for="hexagram_genre" class="form-label">Genero</label>
+        <select class="form-select" id="hexagram_genre" required>
+          <option selected disabled value>Genero</option>
+          <option value="hombre" selected>Hombre</option>
+          <option value="mujer">Mujer</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit" onclick="handleHexagrams(event); return false">Calcular
+          Hexagramas</button>
+      </div>
+    </form>
+
+  </div>
+
+  <!--! Display Results -->
+  <!-- View KiaTse -->
+  <div class="container" id="kiatse-results" style="display: none;">
+    <h1>Resultados Kiatse</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Ciclo</th>
+          <th scope="col">Tronco</th>
+          <th scope="col">Rama</th>
+          <th scope="col">Animal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Año</th>
+          <td id="kiatse-results-anyo_ciclo"></td>
+          <td id="kiatse-results-anyo_tronco"></td>
+          <td id="kiatse-results-anyo_rama"></td>
+          <td id="kiatse-results-anyo_animal"></td>
+        </tr>
+        <tr>
+          <th scope="row">Mes</th>
+          <td id="kiatse-results-mes_ciclo"></td>
+          <td id="kiatse-results-mes_tronco"></td>
+          <td id="kiatse-results-mes_rama"></td>
+          <td id="kiatse-results-mes_animal"></td>
+        </tr>
+        <tr>
+          <th scope="row">Dia</th>
+          <td id="kiatse-results-dia_ciclo"></td>
+          <td id="kiatse-results-dia_tronco"></td>
+          <td id="kiatse-results-dia_rama"></td>
+          <td id="kiatse-results-dia_animal"></td>
+        </tr>
+        <tr>
+          <th scope="row">Hora</th>
+          <td id="kiatse-results-hora_ciclo"></td>
+          <td id="kiatse-results-hora_tronco"></td>
+          <td id="kiatse-results-hora_rama"></td>
+          <td id="kiatse-results-hora_animal"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary" onclick="return show('kiatse-form','kiatse-results');">Back</button>
+  </div>
+
+  <!-- View Hexagram -->
+  <div class="container" id="hexagram-results" style="display: none;">
+    <div class="container text-center">
+
+      <div class="row">
+        <h1>Resultados Hexagrama</h1>
+      </div>
+      <div class="row">
+        <div class="col-8 col-md-6 flex-md-column " style="height: 90vh; padding: 2vh">
+          <h3>Nacimiento</h3>
+
+          <div class="d-flex p-2" style="height: 15vh;"><img
+              id="hexagram-results-img-trigrama_nacimiento"></div>
+          <div style=" height: 7vh; padding: 0.25vh">
+            <p id="hexagram-results-trigrama_nacimiento"></p>
+          </div>
+          <br>
+          <div class="d-flex p-2" style="height: 25vh;"><img
+              id="hexagram-results-img-hexagrama_nacimiento"></div>
+          <div style="height: 14vh; padding: 0.25vh">
+            <h5>Tablero
+              Oracular</h5>
+            <p id="hexagram-results-hexagrama_nacimiento_oracular"></p>
+          </div>
+          <div style="height: 14vh; padding: 0.25vh">
+            <h5>Ichin</h5>
+            <p id="hexagram-results-hexagrama_nacimiento_ichin"></p>
+          </div>
+
+        </div>
+        <div class="col-8 col-md-6 flex-md-column" style="height: 90vh; padding: 2vh;">
+          <h3>Vida</h3>
+
+          <div class="d-flex p-2" style="height: 15vh;"><img
+              id="hexagram-results-img-trigrama_vital"></div>
+          <div style="height: 7vh; padding: 0.25vh">
+            <p id="hexagram-results-trigrama_vital"></p>
+          </div>
+          <br>
+          <div class="d-flex p-2" style="height: 25vh;"><img
+              id="hexagram-results-img-hexagrama_vital"></div>
+          <div style="height: 14vh; padding: 0.25vh">
+            <h5>Tablero
+              Oracular</h5>
+            <p id="hexagram-results-hexagrama_vital_oracular"></p>
+          </div>
+          <div style="height: 14vh; padding: 0.25vh">
+            <h5>Ichin</h5>
+            <p id="hexagram-results-hexagrama_vital_ichin"></p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
-  </body>
+    <button type="button" class="btn btn-primary"
+      onclick="return show('hexagram-form','hexagram-results');">Back</button>
+  </div>
+
+</body>
+
 </html>

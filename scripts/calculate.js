@@ -256,7 +256,7 @@ function getHexagramaVital(fechaNa, genero) {
 function infoHexVi(fechaNa, genero) {
 
     var hexagrama = getHexagramaVital(fechaNa, genero)
-    var numHex = combersion[hexagrama]
+    var numHex = conversion[hexagrama]
     var info = infoHexagramasNacimiento[numHex]
     
     return info
@@ -265,9 +265,8 @@ function infoHexVi(fechaNa, genero) {
 function infoHexViIchin(fechaNa, genero) {
 
     var hexagrama = getHexagramaVital(fechaNa, genero)
-    var numHex = combersion[hexagrama]
+    var numHex = conversion[hexagrama]
     var infoIchin = infoHexagramasIChing[numHex]
-    
     return infoIchin
 
 }

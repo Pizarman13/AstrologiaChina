@@ -85,11 +85,11 @@ function handleHexagrams() {
     document.getElementById('hexagram-results-img-trigrama_nacimiento').setAttribute('src', path_trigrama_nacimiento)
     console.log('path_trigrama_nacimiento: '+ path_trigrama_nacimiento)
     
-    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getTrigramaVital(birthdate, genre) + '.png'
+    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getHexagramaNacimiento(birthdate) + '.png'
     document.getElementById('hexagram-results-img-hexagrama_nacimiento').setAttribute('src', path_hexagrama_nacimiento)
     console.log('path_hexagrama_nacimiento: path_hexagrama_nacimiento' + path_hexagrama_nacimiento)
     
-    var path_trigrama_vital = 'img/trigramasVital/' + getHexagramaNacimiento(birthdate) + '.png'
+    var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdate, genre) + '.png'
     document.getElementById('hexagram-results-img-trigrama_vital').setAttribute('src', path_trigrama_vital)
     console.log('path_trigrama_vital: ' + path_trigrama_vital)
     

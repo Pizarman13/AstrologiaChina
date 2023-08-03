@@ -186,14 +186,17 @@ function getTrigramaVital(fechaNa, genero) {
         periodo = 7
     }
 
+
     var numPeriodo = edad / periodo
     var numero = parseInt(numPeriodo)
+    
+    if (numero%periodo == 0) {
+        numero += 1
+    }
 
     if (numero > periodo) {
         numero -= periodo
     }
-
-    var info = infoTrigramasVital[numero] 
 
     return numero
   

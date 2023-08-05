@@ -1,3 +1,41 @@
+var kiatSe_metal = 0
+var kiatSe_agua = 0
+var kiatSe_madera = 0
+var kiatSe_fuego = 0
+var kiatSe_tierra = 0
+var kiatSe_yin = 0
+var kiatSe_yang = 0
+
+function countOccurrences(inputString, wordToCount) {
+    // Create a regular expression to match the wordToCount with word boundaries (\b)
+    const regex = new RegExp(`\\b${wordToCount}\\b`, 'gi');
+  
+    // Use the match() function with the regex to find all occurrences of the word in the input string
+    const matches = inputString.match(regex);
+  
+    // If no matches are found, return 0
+    if (!matches) {
+      return 0;
+    }
+  
+    // Return the number of matches found
+    return matches.length;
+  }
+
+function countRealms(text) {
+
+    kiatSe_metal += countOccurrences(text, 'Metal');
+    kiatSe_agua += countOccurrences(text, 'Agua')
+    kiatSe_madera += countOccurrences(text, 'Madera')
+    kiatSe_fuego += countOccurrences(text, 'Fuego')
+    kiatSe_tierra += countOccurrences(text, 'Tierra')
+    kiatSe_yin += countOccurrences(text, 'Yin')
+    kiatSe_yang += countOccurrences(text, 'Yang')
+
+    return text
+}
+
+
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
     document.getElementById(hidden).style.display='none';
@@ -19,6 +57,7 @@ function handleKiaTse() {
     birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 
     //? Process data
+
     var KiaTse_anyo = getRefAnyo(birthdatetime)
     var KiaTse_mes = getRefMes(birthdatetime) //! REQUIERE CORRECCION
     var KiaTse_dia = getRefDia(birthdatetime, timeZone) //!REQUIERE CORRECCION
@@ -28,25 +67,33 @@ function handleKiaTse() {
     var datosKiaTse_mes = datosTabla(KiaTse_mes)
 
     //? Update data in HTML
-    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = KiaTse_anyo
-    document.getElementById('kiatse-results-anyo_tronco').innerHTML = datosKiaTse_anyo[0]
-    document.getElementById('kiatse-results-anyo_rama').innerHTML = datosKiaTse_anyo[1]
-    document.getElementById('kiatse-results-anyo_animal').innerHTML = datosKiaTse_anyo[2]
+    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo)
+    document.getElementById('kiatse-results-anyo_tronco').innerHTML = countRealms(datosKiaTse_anyo[0])
+    document.getElementById('kiatse-results-anyo_rama').innerHTML = countRealms(datosKiaTse_anyo[1])
+    document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
 
-    document.getElementById('kiatse-results-mes_ciclo').innerHTML = KiaTse_mes
-    document.getElementById('kiatse-results-mes_tronco').innerHTML = datosKiaTse_mes[0]
-    document.getElementById('kiatse-results-mes_rama').innerHTML = datosKiaTse_mes[1]
-    document.getElementById('kiatse-results-mes_animal').innerHTML = datosKiaTse_mes[2]
+    document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes)
+    document.getElementById('kiatse-results-mes_tronco').innerHTML = countRealms(datosKiaTse_mes[0])
+    document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1])
+    document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
 
-    document.getElementById('kiatse-results-dia_ciclo').innerHTML = KiaTse_dia
-    //document.getElementById('kiatse-results-dia_tronco').innerHTML = datosKiaTse_dia[0]
-    //document.getElementById('kiatse-results-dia_rama').innerHTML = datosKiaTse_dia[1]
-    //document.getElementById('kiatse-results-dia_animal').innerHTML = datosKiaTse_dia[2]
+    document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia)
+    //document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
+    //document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
+    //document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
 
-    document.getElementById('kiatse-results-hora_ciclo').innerHTML = KiaTse_hora
-    //document.getElementById('kiatse-results-hora_tronco').innerHTML = datosKiaTse_hora[0]
-    //document.getElementById('kiatse-results-hora_rama').innerHTML = datosKiaTse_hora[1]
-    //document.getElementById('kiatse-results-hora_animal').innerHTML = datosKiaTse_hora[2]
+    document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora)
+    //document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
+    //document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
+    //document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
+
+    console.log('Metal: ' + kiatSe_metal)
+    console.log('Agua: ' + kiatSe_agua)
+    console.log('Madera: ' + kiatSe_madera)
+    console.log('Fuego: ' + kiatSe_fuego)
+    console.log('Tierra: ' + kiatSe_tierra)
+    console.log('Yin: ' + kiatSe_yin)
+    console.log('Yang: ' + kiatSe_yang)
 
 }
 

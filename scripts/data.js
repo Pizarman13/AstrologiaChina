@@ -253,33 +253,33 @@ const unidadAno = {
 }
 
 const rama = [ 
-    "<br>ShaoYin<br>A(+)<br>RI 子Zǐ'",
-    "<br>TaeYin<br>T(-)<br>RII 丑Chǒu'",
-    "<br>ShaoYang<br>Md(+)<br>RIII  寅 Yín'",
-    "<br>YangMing<br>Md(-)<br>RIV 卯Mǎo'",
-    "<br>TaeYang<br>T(+)<br>RV  辰Chén'",
-    "<br>JueYin<br>F(-)<br>RVI 巳Sì'",
-    "<br>ShaoYin<br>F(+)<br>RVII 午Ǔ'",
-    "<br>TaeYin<br>T(-)<br>RVIII 未Wèi'",
-    "<br>ShaoYang<br>Me(+)<br>RIX 申Shēn'",
-    "<br>YangMing<br>Me(-)<br>RX  酉Yǒu'",
-    "<br>TaeYang<br>T(+)<br>RXI 戌Xū'",
-    "<br>JueYin<br>A(-)<br>RXII 亥Hài",
+    "<br>ShaoYin<br>Agua (+)<br>RI 子Zǐ'",
+    "<br>TaeYin<br>Tierra (-)<br>RII 丑Chǒu'",
+    "<br>ShaoYang<br>Madera (+)<br>RIII  寅 Yín'",
+    "<br>YangMing<br>Madera (-)<br>RIV 卯Mǎo'",
+    "<br>TaeYang<br>Tierra (+)<br>RV  辰Chén'",
+    "<br>JueYin<br>Fuego (-)<br>RVI 巳Sì'",
+    "<br>ShaoYin<br>Fuego (+)<br>RVII 午Ǔ'",
+    "<br>TaeYin<br>Tierra (-)<br>RVIII 未Wèi'",
+    "<br>ShaoYang<br>Metal (+)<br>RIX 申Shēn'",
+    "<br>YangMing<br>Metal (-)<br>RX  酉Yǒu'",
+    "<br>TaeYang<br>Tierra (+)<br>RXI 戌Xū'",
+    "<br>JueYin<br>Agua (-)<br>RXII 亥Hài",
 ]
 
 const ramaBK = [ 
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'A(+)', 'R':'RI 子Zǐ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RII 丑Chǒu'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Md(+)', 'R':'RIII  寅 Yín'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Md(-)', 'R':'RIV 卯Mǎo'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'R':'RV  辰Chén'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'F(-)', 'R':'RVI 巳Sì'},
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'F(+)', 'R':'RVII 午Ǔ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'T(-)', 'R':'RVIII 未Wèi'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Me(+)', 'R':'RIX 申Shēn'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Me(-)', 'R':'RX  酉Yǒu'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'T(+)', 'R':'RXI 戌Xū'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'A(-)', 'R':'RXII 亥Hài'}
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'Agua (+)', 'R':'RI 子Zǐ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'Tierra (-)', 'R':'RII 丑Chǒu'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Madera (+)', 'R':'RIII  寅 Yín'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Madedra(-)', 'R':'RIV 卯Mǎo'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'Tierra (+)', 'R':'RV  辰Chén'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'Fuego (-)', 'R':'RVI 巳Sì'},
+    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'Fuego (+)', 'R':'RVII 午Ǔ'},
+    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'Tierra(-)', 'R':'RVIII 未Wèi'},
+    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Metal (+)', 'R':'RIX 申Shēn'},
+    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Metal (-)', 'R':'RX  酉Yǒu'},
+    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'Tierra (+)', 'R':'RXI 戌Xū'},
+    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'Agua (-)', 'R':'RXII 亥Hài'}
 ]
 
 const tronco = [

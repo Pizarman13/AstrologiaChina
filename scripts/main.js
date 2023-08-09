@@ -11,7 +11,7 @@ function countOccurrences(inputString, wordToCount) {
     const regex = new RegExp(`\\b${wordToCount}\\b`, 'gi');
   
     // Use the match() function with the regex to find all occurrences of the word in the input string
-    const matches = inputString.match(regex);
+    const matches = String(inputString).match(regex);
   
     // If no matches are found, return 0
     if (!matches) {
@@ -43,6 +43,16 @@ function show(shown, hidden) {
 }
 
 function handleKiaTse() {
+    console.warn('Development mode Enabled')
+    try {
+        _handleKiaTse()
+    }
+    catch (ex) {
+        console.error(ex)
+    }
+}
+
+function _handleKiaTse() {
     show('kiatse-results', 'kiatse-form')
 
     //? Extract data from HTML
@@ -97,7 +107,17 @@ function handleKiaTse() {
 
 }
 
-function handleHexagrams(session, type) {
+function handleHexagrams() {
+    console.warn('Development mode Enabled')
+    try {
+        _handleHexagrams()
+    }
+    catch (ex) {
+        console.error(ex)
+    }
+}
+
+function _handleHexagrams(session, type) {
     //? Extract data from HTML
     var birthdate = document.getElementById('hex_birthdate').value
     var genre = document.getElementById('hexagram_genre').value

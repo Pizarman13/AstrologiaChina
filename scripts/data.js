@@ -253,18 +253,18 @@ const unidadAno = {
 }
 
 const rama = [ 
-    "<br>ShaoYin<br>Agua (+)<br>RI 子Zǐ'",
-    "<br>TaeYin<br>Tierra (-)<br>RII 丑Chǒu'",
-    "<br>ShaoYang<br>Madera (+)<br>RIII  寅 Yín'",
-    "<br>YangMing<br>Madera (-)<br>RIV 卯Mǎo'",
-    "<br>TaeYang<br>Tierra (+)<br>RV  辰Chén'",
-    "<br>JueYin<br>Fuego (-)<br>RVI 巳Sì'",
-    "<br>ShaoYin<br>Fuego (+)<br>RVII 午Ǔ'",
-    "<br>TaeYin<br>Tierra (-)<br>RVIII 未Wèi'",
-    "<br>ShaoYang<br>Metal (+)<br>RIX 申Shēn'",
-    "<br>YangMing<br>Metal (-)<br>RX  酉Yǒu'",
-    "<br>TaeYang<br>Tierra (+)<br>RXI 戌Xū'",
-    "<br>JueYin<br>Agua (-)<br>RXII 亥Hài",
+    "<br>ShaoYin<br>Agua yang<br>RI 子Zǐ'",
+    "<br>TaeYin<br>Tierra yin<br>RII 丑Chǒu'",
+    "<br>ShaoYang<br>Madera yang<br>RIII  寅 Yín'",
+    "<br>YangMing<br>Madera yin<br>RIV 卯Mǎo'",
+    "<br>TaeYang<br>Tierra yang<br>RV  辰Chén'",
+    "<br>JueYin<br>Fuego yin<br>RVI 巳Sì'",
+    "<br>ShaoYin<br>Fuego yang<br>RVII 午Ǔ'",
+    "<br>TaeYin<br>Tierra yin<br>RVIII 未Wèi'",
+    "<br>ShaoYang<br>Metal yang<br>RIX 申Shēn'",
+    "<br>YangMing<br>Metal yin<br>RX  酉Yǒu'",
+    "<br>TaeYang<br>Tierra yang<br>RXI 戌Xū'",
+    "<br>JueYin<br>Agua yin<br>RXII 亥Hài",
 ]
 
 const ramaBK = [ 

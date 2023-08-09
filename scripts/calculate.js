@@ -57,6 +57,7 @@ function getRefMesNum(datetime){
     }
 
     resultado = primerNum + mes
+    alert('resultado: ' + resultado)
 
     return resultado
 }

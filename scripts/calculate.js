@@ -44,8 +44,9 @@ function getRefMes(birthdatetime) {
 
 function getRefMesNum(datetime){
 
+    var anyoNaC = changeToChineseYear(datetime)
     var anyoNa = datetime.getFullYear()
-    var numUnidad = anyoNa % 10
+    var numUnidad = anyoNaC % 10
     var mesNa = datetime.getMonth() + 1
 
 
@@ -54,13 +55,13 @@ function getRefMesNum(datetime){
     var resultado = 0
 
     //? Ajuste de mes
-    if (changeToChineseYear(datetime) < anyoNa) {
+    if (anyoNaC < anyoNa) {
         mes = 12
     } else {
         mes = mesNa
     }
 
-    resultado = primerNum + mes
+    resultado = primerNum + mes - 1
     alert('resultado: ' + resultado)
 
     return resultado

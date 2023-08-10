@@ -3,26 +3,30 @@ function getRefAnyo (birthdatetime) {
     var anyo = changeToChineseYear(birthdatetime)
 
     var otp = ((anyo - 3) - (Math.floor((anyo - 3) / 60) * 60) === 0) ? 60 : (anyo - 3) - (Math.floor((anyo - 3) / 60) * 60);
-
-    return otp + 1 //! CHECK
+    alert('año: ' + anyo)
+    return otp    //! CHECK
 }
 
 function changeToChineseYear(datetime) {
 
     var nuevoAno = anoChino[datetime.getFullYear()]
     var fechanuevoAno = new Date(nuevoAno)
-
     
     var mesNuevoAno = fechanuevoAno.getMonth() + 1
+    var mesActual = datetime.getMonth() + 1
     var diaNuevoAno = fechanuevoAno.getDate() 
-
-    if (mesNuevoAno <= datetime.getMonth()) {
+    
+    if (mesNuevoAno <= mesActual) {
         
-        if (diaNuevoAno <= datetime.getDate()) {
-            return datetime.getFullYear();
-        } else {
-            return datetime.getFullYear() - 1;
+        if (mesNuevoAno == mesActual) {
+            if (diaNuevoAno <= datetime.getDate()) {
+                return datetime.getFullYear();
+            } else {
+                return datetime.getFullYear() - 1;
+            }
         }
+
+        return datetime.getFullYear();
         
     } else {
        return datetime.getFullYear() - 1;

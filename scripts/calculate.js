@@ -58,10 +58,10 @@ function getRefMesNum(datetime){
     if (anyoNaC < anyoNa) {
         mes = 12
     } else {
-        mes = mesNa
+        mes = 0
     }
 
-    resultado = primerNum + mes - 1
+    resultado = primerNum + mes + datetime.getMonth()
     alert('resultado: ' + resultado)
 
     return resultado

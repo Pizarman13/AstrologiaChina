@@ -107,10 +107,10 @@ function _handleKiaTse() {
 
 }
 
-function handleHexagrams() {
+function handleHexagrams(session, type) {
     console.warn('Development mode Enabled')
     try {
-        _handleHexagrams()
+        _handleHexagrams(session, type)
     }
     catch (ex) {
         console.error(ex)

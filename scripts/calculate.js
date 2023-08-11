@@ -74,13 +74,22 @@ function getRefDia(birthdatetime) {
     
     return otp
 }
-
+//////////////////////////PINCHI////////////////////////////////
 function getRefDiaNum (datetime) {
 
-    var otp = (new Date(datetime.getFullYear(), datetime.getMonth(), datetime.getDate()) - new Date(1900, 0, 1) + 10) - (Math.floor((new Date(datetime.getFullYear(), datetime.getMonth(), datetime.getDate()) - new Date(1900, 0, 1) + 10) / 60000) * 60000) + (datetime.getHours() >= 23 ? 1 : 0)
-    return otp
-}
+    var fechaCelda = new Date(datetime);
+    const fechaBase = new Date(1900, 0, 1);
+    fechaBase.setDate(fechaBase.getDate() + 10);
+    
+    var diferenciaDias = Math.floor((fechaCelda - fechaBase) / (1000 * 60 * 60 * 24));
+    alert('diffdias: ' + diferenciaDias)
+    var minutosCompletos = Math.floor(diferenciaDias * 24 * 60);
+    alert('diffmins: '  + minutosCompletos)
+    var segundosRestantes = (diferenciaDias * 24 * 60 * 60) - (minutosCompletos * 60);
 
+    return diferenciaDias
+}
+///////////////////////////AYUDA//////////////////////////////////
 function convertTZ(date, tzString) {
     return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: "Europe/London"}));    
 }

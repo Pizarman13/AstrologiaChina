@@ -3,7 +3,6 @@ function getRefAnyo (birthdatetime) {
     var anyo = changeToChineseYear(birthdatetime)
 
     var otp = ((anyo - 3) - (Math.floor((anyo - 3) / 60) * 60) === 0) ? 60 : (anyo - 3) - (Math.floor((anyo - 3) / 60) * 60);
-    alert('año: ' + anyo)
     return otp    //! CHECK
 }
 
@@ -62,7 +61,6 @@ function getRefMesNum(datetime){
     }
 
     resultado = primerNum + mes + datetime.getMonth()
-    alert('resultado: ' + resultado)
 
     return resultado
 }
@@ -82,10 +80,14 @@ function getRefDiaNum (datetime) {
     fechaBase.setDate(fechaBase.getDate() + 10);
     
     var diferenciaDias = Math.floor((fechaCelda - fechaBase) / (1000 * 60 * 60 * 24));
-    alert('diffdias: ' + diferenciaDias)
     var minutosCompletos = Math.floor(diferenciaDias * 24 * 60);
-    alert('diffmins: '  + minutosCompletos)
     var segundosRestantes = (diferenciaDias * 24 * 60 * 60) - (minutosCompletos * 60);
+
+    console.log('fechaBase: ' + fechaBase)
+    console.log('fechaCelda: ' + fechaCelda)
+    console.log('diferenciaDias: ' + diferenciaDias)
+    console.log('minutosCompletos: ' + minutosCompletos)
+    console.log('segundosRestantes: ' + segundosRestantes)
 
     return diferenciaDias
 }
@@ -137,9 +139,6 @@ function getAnimal(fechaNa) {
 }
 
 function calculateHexagram(birthdate, genre) {
-    alert('birthdate: ' + birthdate)
-    alert('genre: ' + genre)
-
     return null
 }
 

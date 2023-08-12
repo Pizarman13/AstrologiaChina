@@ -86,7 +86,8 @@ function _handleKiaTse() {
     document.getElementById('kiatse-results-mes_tronco').innerHTML = countRealms(datosKiaTse_mes[0])
     document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1])
     document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
-
+    
+    console.log('KiaTse_dia: ' + KiaTse_dia)
     document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia)
     //document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
     //document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
@@ -118,6 +119,7 @@ function handleHexagrams(session, type) {
 }
 
 function _handleHexagrams(session, type) {
+    
     //? Extract data from HTML
     var birthdate = document.getElementById('hex_birthdate').value
     var genre = document.getElementById('hexagram_genre').value

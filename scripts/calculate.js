@@ -281,8 +281,8 @@ function infoHexViIchin(fechaNa, genero) {
 function datosTabla (num) {
 
     return [
-        rama[tabla[num][0]],
         tronco[tabla[num][1]],
+        rama[tabla[num][0]],
         animalEnblematico[tabla[num][2]],
     ]
 }

@@ -53,6 +53,15 @@ function handleKiaTse() {
 }
 
 function _handleKiaTse() {
+    kiatSe_metal = 0
+    kiatSe_agua = 0
+    kiatSe_madera = 0
+    kiatSe_fuego = 0
+    kiatSe_tierra = 0
+    kiatSe_yin = 0
+    kiatSe_yang = 0
+
+
     show('kiatse-results', 'kiatse-form')
 
     //? Extract data from HTML
@@ -76,6 +85,7 @@ function _handleKiaTse() {
     var datosKiaTse_anyo = datosTabla(KiaTse_anyo)
     var datosKiaTse_mes = datosTabla(KiaTse_mes)
     var datosKiaTse_dia = datosTabla(KiaTse_dia)
+    var datosKiaTse_hora = datosTabla(KiaTse_hora)
 
     //? Update data in HTML
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo)
@@ -95,9 +105,9 @@ function _handleKiaTse() {
     document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
 
     document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora)
-    //document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
-    //document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
-    //document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
+    document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
+    document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
+    document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
 
     console.log('Metal: ' + kiatSe_metal)
     console.log('Agua: ' + kiatSe_agua)

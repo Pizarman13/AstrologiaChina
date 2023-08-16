@@ -95,19 +95,13 @@ function convertTZ(date, tzString) {
 function getRefHora(birthdatetime) {
 
     var numDia = getRefDia(birthdatetime)
-    var KT_A39_B48 = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
-    var KT_A13_B37 = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
+    var unidades = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
+    var horas = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
 
-    var findValue1 = Number(numDia.toString().slice(-1));
-    var lookup1 = KT_A39_B48.find(item => item[0] === findValue1);
-    var result1 = (lookup1 !== undefined) ? lookup1[1] : 0;
-
-    var findValue2 = birthdatetime;
-    var lookup2 = KT_A13_B37.find(item => item[0] === findValue2);
-    var result2 = (lookup2 !== undefined) ? lookup2[1] : 0;
-
-    var otp = result1 + result2 - 1;
-    return otp
+    var unidad = unidades[Number(numDia.toString().slice(-1))]
+    var hora = horas[birthdatetime.getHours()]
+    
+    return unidad + hora - 1
 }
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

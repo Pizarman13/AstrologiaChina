@@ -75,6 +75,7 @@ function _handleKiaTse() {
 
     var datosKiaTse_anyo = datosTabla(KiaTse_anyo)
     var datosKiaTse_mes = datosTabla(KiaTse_mes)
+    var datosKiaTse_dia = datosTabla(KiaTse_dia)
 
     //? Update data in HTML
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo)
@@ -89,9 +90,9 @@ function _handleKiaTse() {
     
     console.log('KiaTse_dia: ' + KiaTse_dia)
     document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia)
-    //document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
-    //document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
-    //document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
+    document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
+    document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
+    document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
 
     document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora)
     //document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])

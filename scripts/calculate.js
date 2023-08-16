@@ -72,26 +72,22 @@ function getRefDia(birthdatetime) {
     
     return otp
 }
-//////////////////////////PINCHI////////////////////////////////
+
 function getRefDiaNum (datetime) {
 
     var fechaCelda = new Date(datetime);
     const fechaBase = new Date(1900, 0, 1);
-    fechaBase.setDate(fechaBase.getDate() + 10);
+    fechaBase.setDate(fechaBase.getDate());
+
+    //? Eliminar hora de la fecha
+    var fechaCeldaSinHora = new Date(fechaCelda.getFullYear(), fechaCelda.getMonth(), fechaCelda.getDate());
+    var fechaBaseSinHora = new Date(fechaBase.getFullYear(), fechaBase.getMonth(), fechaBase.getDate());
     
-    var diferenciaDias = Math.floor((fechaCelda - fechaBase) / (1000 * 60 * 60 * 24));
-    var minutosCompletos = Math.floor(diferenciaDias * 24 * 60);
-    var segundosRestantes = (diferenciaDias * 24 * 60 * 60) - (minutosCompletos * 60);
+    var diferenciaDias = Math.floor((fechaCeldaSinHora - fechaBaseSinHora) / (1000 * 60 * 60 * 24));
 
-    console.log('fechaBase: ' + fechaBase)
-    console.log('fechaCelda: ' + fechaCelda)
-    console.log('diferenciaDias: ' + diferenciaDias)
-    console.log('minutosCompletos: ' + minutosCompletos)
-    console.log('segundosRestantes: ' + segundosRestantes)
-
-    return diferenciaDias
+    return ((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60) 
 }
-///////////////////////////AYUDA//////////////////////////////////
+
 function convertTZ(date, tzString) {
     return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: "Europe/London"}));    
 }

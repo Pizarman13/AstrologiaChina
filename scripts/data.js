@@ -435,18 +435,18 @@ const troncoBK = [
 ]
 
 const animalEnblematico = [
-    "Rata 鼠<br>23-01<br>C-R<br>Calor<br>VB13<br>11",
-    "Buey 牛<br>01-03<br>P-B<br>Humedad<br>H14<br>12",
-    "Tigre 虎<br>03-05<br>TR-VB<br>Fuego<br>P7<br>1",
-    "Liebre 兔<br>05-07<br>IG-E<br>Sequedad<br>IG6<br>2",
-    "Dragón 龍<br>07-09<br>ID-V<br>Frio<br>E40<br>3",
-    "Serpiente 蛇<br>09-11<br>MC-H<br>Viento<br>B4<br>4",
-    "Caballo 馬<br>11-13<br>C-R<br>Calor<br>C4<br>5",
-    "Cabra 羊<br>13-15<br>P-B<br>Humedad<br>ID12<br>6",
-    "Mono 猴<br>15-17<br>TR-VB<br>Fuego<br>V60<br>7",
-    "Gallo 雞<br>17-19<br>IG-E<br>Sequedad<br>R23<br>8",
-    "Perro 狗<br>19-21<br>ID-V<br>Frio<br>MC8<br>9",
-    "Cerdo 豬<br>21-23<br>MC-H<br>Viento<br>TR10<br>10",
+    "Rata 鼠 Yīn",
+    "Buey 牛 Yīn",
+    "Tigre 虎 Yáng" ,
+    "Liebre 兔 Yīn",
+    "Dragón 龍 Yáng",
+    "Serpiente 蛇 Yáng",
+    "Caballo 馬 Yáng",
+    "Cabra 羊 Yáng",
+    "Mono 猴 Yīn" ,
+    "Gallo 雞 Yáng",
+    "Perro 狗 Yīn",
+    "Cerdo 豬 Yīn",
 ]
 
 const animalEnblematicoBK = [

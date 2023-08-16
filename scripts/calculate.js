@@ -85,7 +85,14 @@ function getRefDiaNum (datetime) {
     
     var diferenciaDias = Math.floor((fechaCeldaSinHora - fechaBaseSinHora) / (1000 * 60 * 60 * 24));
 
-    return ((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60) 
+    var resultado = ((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60)
+
+    if (datetime.getHours() >= 23) {
+        return resultado + 1
+    } else {
+        return resultado
+    }
+     
 }
 
 function convertTZ(date, tzString) {

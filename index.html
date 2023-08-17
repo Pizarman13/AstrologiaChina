@@ -15,8 +15,11 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Internal Scipts -->
+  <!-- Internal Styles -->
   <link href="styles/main.css" rel="stylesheet" type="text/css">
+  <link href="styles/bs.css" rel="stylesheet" type="text/css">
+
+  <!-- Internal Scipts -->
   <script src="scripts/main.js"></script>
   <script src="scripts/calculate.js"></script>
   <script src="scripts/data.js"></script>
@@ -50,214 +53,198 @@
   </nav>
 
   <main>
-
     <!-- Data Colection -->
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-      <!-- KiaTse -->
-      <div class="page" id="KiaTse-form">
-        <form>
-          <label for="KiaTse_birthdate" class="form-label">Fecha de Nacimiento</label>
-          <input type="date" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthdate"
-            value="1900-01-01" min="1924-01-01" max="2040-12-31">
+      <div class="page active" id="KiaTse-form">
+        <div class="card bg-dark text-white p-4">
+          <form>
+            <label for="KiaTse_birthdate" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthdate"
+              value="1900-01-01" min="1924-01-01" max="2040-12-31">
 
-          <label for="KiaTse_birthtime" class="form-label">Hora de Nacimiento</label>
-          <input type="time" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthtime" value="00:00">
+            <label for="KiaTse_birthtime" class="form-label">Hora de Nacimiento</label>
+            <input type="time" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthtime" value="00:00">
 
-          <label for="KiaTse_country" class="form-label">Pais de Nacimiento</label>
-          <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark" id="KiaTse_country">
-            <option selected disabled value>Paises</option>
-            <option value="Alemania">Alemania</option>
-            <option value="Argentina">Argentina</option>
-            <option value="Belgica">Belgica</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Chile">Chile</option>
-            <option value="Colombia">Colombia</option>
-            <option value="Dinamarca">Dinamarca</option>
-            <option value="Ecuador">Ecuador</option>
-            <option value="España">España</option>
-            <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
-            <option value="EEUU(Chicago)">EEUU(Chicago)</option>
-            <option value="EEUU(NY)">EEUU(NY)</option>
-            <option value="Francia">Francia</option>
-            <option value="Italia">Italia</option>
-            <option value="Lituania">Lituania</option>
-            <option value="Paises Bajos">Paises Bajos</option>
-            <option value="Paraguay">Paraguay</option>
-            <option value="Peru">Peru</option>
-            <option value="Polonia">Polonia</option>
-            <option value="Reino Unido">Reino Unido</option>
-            <option value="Noruega">Noruega</option>
-            <option value="Suecia">Suecia</option>
-            <option value="Venezuela">Venezuela</option>
-          </select>
-          <div id="countryhelp" class="form-text mb-4">Solo necesario para correcciones astronomicas</div>
+            <label for="KiaTse_country" class="form-label">Pais de Nacimiento</label>
+            <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark" id="KiaTse_country">
+              <option selected disabled value>Paises</option>
+              <option value="Alemania">Alemania</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Belgica">Belgica</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Dinamarca">Dinamarca</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="España">España</option>
+              <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
+              <option value="EEUU(Chicago)">EEUU(Chicago)</option>
+              <option value="EEUU(NY)">EEUU(NY)</option>
+              <option value="Francia">Francia</option>
+              <option value="Italia">Italia</option>
+              <option value="Lituania">Lituania</option>
+              <option value="Paises Bajos">Paises Bajos</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Polonia">Polonia</option>
+              <option value="Reino Unido">Reino Unido</option>
+              <option value="Noruega">Noruega</option>
+              <option value="Suecia">Suecia</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+            <div id="countryhelp" class="form-text mb-4 text-white">Solo necesario para correcciones astronomicas</div>
 
-          <button type="button" class="btn btn btn-outline-warning w-100" onclick="return page('KiaTse-data')"
-            id="nav-btn-Hexagrams">Calcular KiaTse</button>
-        </form>
+            <button type="button" class="btn btn btn-outline-warning w-100" onclick="return handleKiaTse()"
+              id="nav-btn-Hexagrams">Calcular KiaTse</button>
+          </form>
+        </div>
+
       </div>
-      <!-- Hexagram -->
       <div class="page" id="Hexagram-form">
-        <form>
-          <label for="Hexagrams_birthdate" class="form-label">Fecha de Nacimiento</label>
-          <input type="date" class="form-control bg-transparent text-white mb-3" id="Hexagrams_birthdate"
-            value="1900-01-01" min="1924-01-01" max="2040-12-31">
+        <div class="card bg-dark text-white p-3">
+          <form>
+            <label for="Hexagrams_birthdate" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control bg-transparent text-white mb-3" id="Hexagrams_birthdate"
+              value="1900-01-01" min="1924-01-01" max="2040-12-31">
 
-          <label for="Hexagrams_genre" class="form-label">Genero</label>
-          <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark mb-3" id="Hexagrams_genre">
-            <option selected disabled value>Genero</option>
-            <option value="hombre" selected>Hombre</option>
-            <option value="mujer">Mujer</option>
-          </select>
+            <label for="Hexagrams_genre" class="form-label">Genero</label>
+            <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark mb-3" id="Hexagrams_genre">
+              <option selected disabled value>Genero</option>
+              <option value="hombre" selected>Hombre</option>
+              <option value="mujer">Mujer</option>
+            </select>
 
-          <div class="d-flex">
-            <button type="button" class="btn btn btn-outline-warning flex-fill max-width-49"
-              onclick="return page('Hexagram-dataN')">Calcular Hexagramas Nacimiento</button>
-            <button type="button" class="btn btn btn-outline-warning flex-fill max-width-49 ms-3"
-              onclick="return page('Hexagram-dataV')">Calcular Hexagramas Vitales</button>
-          </div>
-        </form>
+            <div class="d-flex">
+              <button type="button" class="btn btn btn-outline-warning flex-fill max-width-49"
+                onclick="return handleHexagrams('birth')">Calcular Hexagramas Nacimiento</button>
+              <button type="button" class="btn btn btn-outline-warning flex-fill max-width-49 ms-3"
+                onclick="return handleHexagrams('vital')">Calcular Hexagramas Vitales</button>
+            </div>
+          </form>
+        </div>
       </div>
-
-
       <!-- Data Presentation -->
       <div class="page" id="KiaTse-data">
-        <!-- Content within the centered div goes here -->
-
-        
-        <table class="table table-responsive table-KiaTse" style="--bs-table-bg: rgba(255, 255, 255, 0.541); --bs-table-color: white;">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Ciclo</th>
-              <th scope="col">Leyenda</th>
-              <th scope="col">Tronco</th>
-              <th scope="col">Rama</th>
-              <th scope="col">Animal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Año</th>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-            </tr>
-            <tr>
-              <th scope="row">Mes</th>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-            </tr>
-            <tr>
-              <th scope="row">Dia</th>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-            </tr>
-            <tr>
-              <th scope="row">Hora</th>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-              <td>{}</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div class="card bg-dark text-white p-3">
+          <table class="table table-dark table-KiaTse">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Ciclo</th>
+                <th scope="col">Leyenda</th>
+                <th scope="col">Tronco</th>
+                <th scope="col">Rama</th>
+                <th scope="col">Animal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Año</th>
+                <td id="kiatse-results-anyo_ciclo"></td>
+                <td id="kiatse-results-anyo_leyenda"></td>
+                <td id="kiatse-results-anyo_tronco"></td>
+                <td id="kiatse-results-anyo_rama"></td>
+                <td id="kiatse-results-anyo_animal"></td>
+              </tr>
+              <tr>
+                <th scope="row">Mes</th>
+                <td id="kiatse-results-mes_ciclo"></td>
+                <td id="kiatse-results-mes_leyenda"></td>
+                <td id="kiatse-results-mes_tronco"></td>
+                <td id="kiatse-results-mes_rama"></td>
+                <td id="kiatse-results-mes_animal"></td>
+              </tr>
+              <tr>
+                <th scope="row">Dia</th>
+                <td id="kiatse-results-dia_ciclo"></td>
+                <td id="kiatse-results-dia_leyenda"></td>
+                <td id="kiatse-results-dia_tronco"></td>
+                <td id="kiatse-results-dia_rama"></td>
+                <td id="kiatse-results-dia_animal"></td>
+              </tr>
+              <tr>
+                <th scope="row">Hora</th>
+                <td id="kiatse-results-hora_ciclo"></td>
+                <td id="kiatse-results-hora_leyenda"></td>
+                <td id="kiatse-results-hora_tronco"></td>
+                <td id="kiatse-results-hora_rama"></td>
+                <td id="kiatse-results-hora_animal"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="page active" id="Hexagram-dataN">
-        <!-- Content within the centered div goes here -->
-        
-        <div class="container-fluid hexagram-container">
-          <div class="container-fluid" style="height: 12vh; text-align: center; padding-top: 5vh;"; ><h2>Nacimiento</h2></div>
-          <div class="container text-center">
+      <div class="page" id="Hexagram-dataN">
+        <div class="card bg-light text-white p-3">
+          <div class="container-fluid text-center hexagram-container">
             <div class="row mb-3">
-                <div class="col-4">
-                    <img src="img/trigramasNacimiento/000.png">
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nesciunt adipisci earum magni consequatur dolorum quia hic rerum consectetur! Iure, quibusdam perspiciatis? Porro doloribus dolorum nam quisquam, quasi labore.</p>
-                </div>
+              <div class="col-4">
+                <img src="img/trigramasNacimiento/000.png">
+              </div>
+              <div class="col-8">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nesciunt adipisci earum
+                  magni consequatur dolorum quia hic rerum consectetur! Iure, quibusdam perspiciatis? Porro doloribus
+                  dolorum nam quisquam, quasi labore.</p>
+              </div>
             </div>
             <div class="row mb-3">
-                <div class="col-8">
-                  <h4>Ajedrez Oracular
-                    (Según Escuela Neijing)</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quidem rem? Perferendis qui soluta nulla alias maiores quis, nostrum minima eveniet temporibus ipsum quas dicta delectus et dolorum voluptates illum?</p>
-                </div>
-                <div class="col-4">
-                    <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
-                </div>
+              <div class="col-8">
+                <h4>Ajedrez Oracular
+                  (Según Escuela Neijing)</h4>
+                <p>TEXT</p>
+              </div>
+              <div class="col-4">
+                <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
+              </div>
             </div>
             <div class="row mb-3">
-                <div class="col-4" style="padding: 10vh;">
-                    <img src="img/Hexagrama/hex_15.png">
-                </div>
-                <div class="col-8">
-                  <h4>I Ching</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dignissimos quaerat facere provident veniam at repudiandae distinctio maxime nobis. Nulla et minima quam ut dolore aperiam nam architecto officiis illum.</p>
-                </div>
+              <div class="col-4" style="padding: 10vh;">
+                <img src="img/Hexagrama/hex_15.png">
+              </div>
+              <div class="col-8">
+                <h4>I Ching</h4>
+                <p>TEXT</p>
+              </div>
             </div>
+          </div>
         </div>
-        
-
-        </div>
-
       </div>
       <div class="page" id="Hexagram-dataV">
-        <!-- Content within the centered div goes here -->
-
-        <div class="container-fluid hexagram-container">
-          <div class="container-fluid" style="height: 12vh; text-align: center; padding-top: 5vh;"; ><h2>Vida</h2></div>
-          <div class="container text-center">
+        <div class="card bg-light text-white p-3">
+          <div class="container-fluid text-center hexagram-container">
             <div class="row mb-3">
-                <div class="col-4">
-                    <img src="img/trigramasNacimiento/000.png">
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nesciunt adipisci earum magni consequatur dolorum quia hic rerum consectetur! Iure, quibusdam perspiciatis? Porro doloribus dolorum nam quisquam, quasi labore.</p>
-                </div>
+              <div class="col-4">
+                <img src="img/trigramasNacimiento/000.png">
+              </div>
+              <div class="col-8">
+                <p>TEXT</p>
+              </div>
             </div>
-            
             <div class="row mb-3">
-                <div class="col-8">
-                  <h4>Ajedrez Oracular
-                    (Según Escuela Neijing)</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quidem rem? Perferendis qui soluta nulla alias maiores quis, nostrum minima eveniet temporibus ipsum quas dicta delectus et dolorum voluptates illum?</p>
-                </div>
-                <div class="col-4">
-                    <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
-                </div>
+              <div class="col-8">
+                <h4>Ajedrez Oracular
+                  (Según Escuela Neijing)</h4>
+                <p>TEXT</p>
+              </div>
+              <div class="col-4">
+                <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
+              </div>
             </div>
-            
             <div class="row mb-3">
-                <div class="col-4" style="padding: 10vh;">
-                    <img src="img/Hexagrama/hex_15.png" class="rounded">
-                </div>
-                <div class="col-8">
-                  <h4>I Ching</h4>
-                    <p>47 Meng / La Necedad Juvenil<br>
-                      EL DICTAMEN:
-                      La Necedad juvenil tiene éxito. No soy yo quien busca al joven necio, el joven necio me busca a mí. Al primer oráculo doy razón. Si pregunta dos, tres veces, es molestia. Cuando molesta no doy información. Es propicia la perseverancia.
-                      <br>LA IMAGEN:
-                      En lo bajo, el pie de la montaña, surge un manantial: la imagen de la juventud. Así el noble, mediante su actuación escrupulosa, sustenta su carácter.</p>
-                </div>
+              <div class="col-4" style="padding: 10vh;">
+                <img src="img/Hexagrama/hex_15.png" class="rounded">
+              </div>
+              <div class="col-8">
+                <h4>I Ching</h4>
+                <p>TEXT</p>
+              </div>
             </div>
+          </div>
         </div>
-
       </div>
-    </div>
-
   </main>
+  
   <footer></footer>
 
 </body>

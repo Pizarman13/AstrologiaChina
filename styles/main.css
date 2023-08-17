@@ -2,10 +2,6 @@
     margin-top: 5vh;
 }
 
-form {
-    margin-top: 5vh;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -88,9 +84,8 @@ img {
 }
 
 .hexagram-container {
-    background-color: rgba(255, 255, 255, 0.541);
-    height: 88vh; width: 80vw; 
-    margin-top: 5vh;
+    height: 70vh; width: 80vw; 
+
     border-radius: 15px;
 }
 

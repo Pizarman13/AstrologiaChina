@@ -1,0 +1,9 @@
+.card {
+    border-radius: 15px;
+    --bs-bg-opacity: 0.7
+}
+
+.table{
+    --bs-bg-opacity: 0.7;
+    --bs-table-bg: rgba(0,0,0,0)
+}

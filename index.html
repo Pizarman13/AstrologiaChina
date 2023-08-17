@@ -104,7 +104,7 @@
           <input type="date" class="form-control bg-transparent text-white mb-3" id="Hexagrams_birthdate"
             value="1900-01-01" min="1924-01-01" max="2040-12-31">
 
-          <label for="Hexagrams_genre" class="form-label">Pais de Nacimiento</label>
+          <label for="Hexagrams_genre" class="form-label">Genero</label>
           <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark mb-3" id="Hexagrams_genre">
             <option selected disabled value>Genero</option>
             <option value="hombre" selected>Hombre</option>
@@ -122,19 +122,138 @@
 
 
       <!-- Data Presentation -->
-      <div class="page active" id="KiaTse-data">
+      <div class="page" id="KiaTse-data">
         <!-- Content within the centered div goes here -->
 
-        <h1>HOLA KiaTse</h1>
+        
+        <table class="table table-responsive table-KiaTse" style="--bs-table-bg: rgba(255, 255, 255, 0.541); --bs-table-color: white;">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Ciclo</th>
+              <th scope="col">Leyenda</th>
+              <th scope="col">Tronco</th>
+              <th scope="col">Rama</th>
+              <th scope="col">Animal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Año</th>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+            </tr>
+            <tr>
+              <th scope="row">Mes</th>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+            </tr>
+            <tr>
+              <th scope="row">Dia</th>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+            </tr>
+            <tr>
+              <th scope="row">Hora</th>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+            </tr>
+          </tbody>
+        </table>
 
       </div>
-      <div class="page" id="Hexagram-dataN">
+      <div class="page active" id="Hexagram-dataN">
         <!-- Content within the centered div goes here -->
-        <h1>HOLA HEXAGRAMA NACIMIENTO</h1>
+        
+        <div class="container-fluid hexagram-container">
+          <div class="container-fluid" style="height: 12vh; text-align: center; padding-top: 5vh;"; ><h2>Nacimiento</h2></div>
+          <div class="container text-center">
+            <div class="row mb-3">
+                <div class="col-4">
+                    <img src="img/trigramasNacimiento/000.png">
+                </div>
+                <div class="col-8">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nesciunt adipisci earum magni consequatur dolorum quia hic rerum consectetur! Iure, quibusdam perspiciatis? Porro doloribus dolorum nam quisquam, quasi labore.</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-8">
+                  <h4>Ajedrez Oracular
+                    (Según Escuela Neijing)</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quidem rem? Perferendis qui soluta nulla alias maiores quis, nostrum minima eveniet temporibus ipsum quas dicta delectus et dolorum voluptates illum?</p>
+                </div>
+                <div class="col-4">
+                    <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4" style="padding: 10vh;">
+                    <img src="img/Hexagrama/hex_15.png">
+                </div>
+                <div class="col-8">
+                  <h4>I Ching</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dignissimos quaerat facere provident veniam at repudiandae distinctio maxime nobis. Nulla et minima quam ut dolore aperiam nam architecto officiis illum.</p>
+                </div>
+            </div>
+        </div>
+        
+
+        </div>
+
       </div>
       <div class="page" id="Hexagram-dataV">
         <!-- Content within the centered div goes here -->
-        <h1>HOLA HEXAGRAMA VITAL</h1>
+
+        <div class="container-fluid hexagram-container">
+          <div class="container-fluid" style="height: 12vh; text-align: center; padding-top: 5vh;"; ><h2>Vida</h2></div>
+          <div class="container text-center">
+            <div class="row mb-3">
+                <div class="col-4">
+                    <img src="img/trigramasNacimiento/000.png">
+                </div>
+                <div class="col-8">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellat nesciunt adipisci earum magni consequatur dolorum quia hic rerum consectetur! Iure, quibusdam perspiciatis? Porro doloribus dolorum nam quisquam, quasi labore.</p>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-8">
+                  <h4>Ajedrez Oracular
+                    (Según Escuela Neijing)</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quidem rem? Perferendis qui soluta nulla alias maiores quis, nostrum minima eveniet temporibus ipsum quas dicta delectus et dolorum voluptates illum?</p>
+                </div>
+                <div class="col-4">
+                    <img src="img/hexagramaNacimiento/16.png" style="height: 15vh;">
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-4" style="padding: 10vh;">
+                    <img src="img/Hexagrama/hex_15.png" class="rounded">
+                </div>
+                <div class="col-8">
+                  <h4>I Ching</h4>
+                    <p>47 Meng / La Necedad Juvenil<br>
+                      EL DICTAMEN:
+                      La Necedad juvenil tiene éxito. No soy yo quien busca al joven necio, el joven necio me busca a mí. Al primer oráculo doy razón. Si pregunta dos, tres veces, es molestia. Cuando molesta no doy información. Es propicia la perseverancia.
+                      <br>LA IMAGEN:
+                      En lo bajo, el pie de la montaña, surge un manantial: la imagen de la juventud. Así el noble, mediante su actuación escrupulosa, sustenta su carácter.</p>
+                </div>
+            </div>
+        </div>
+
       </div>
     </div>
 

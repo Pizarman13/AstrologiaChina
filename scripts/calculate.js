@@ -114,7 +114,7 @@ function getRefHora(birthdatetime) {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function getAnimal(fechaNa) {
 
-    var anoNa = getAnoNuevo(fechaNa)
+    var anoNa = changeToChineseYear(fechaNa)
 
     const inicio = 1900; // Año inicial
     const periodo = 12; // Número de años en un ciclo

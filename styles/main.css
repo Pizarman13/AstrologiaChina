@@ -9,7 +9,6 @@ form {
 * {
     padding: 0;
     margin: 0;
-    color: white;
 }
 
 /* Hithe the scroll bar */
@@ -20,6 +19,7 @@ body::-webkit-scrollbar {
 
 .page {
     display: none;
+    color: white;
 
 }
 
@@ -54,10 +54,6 @@ footer {
 
 /*? Custom ones */
 
-#countryhelp {
-    color: white;
-}
-
 option {
     background: transparent;
     color: rgb(0, 0, 0);
@@ -77,4 +73,27 @@ option {
 
 .thead-transparent {
     background-color: transparent;
+}
+
+
+table.table-KiaTse {
+    width: 80vw;
+    height: 50vh;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+img {
+    height: 12vh;
+}
+
+.hexagram-container {
+    background-color: rgba(255, 255, 255, 0.541);
+    height: 88vh; width: 80vw; 
+    margin-top: 5vh;
+    border-radius: 15px;
+}
+
+p {
+    color: black;
 }

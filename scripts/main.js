@@ -6,6 +6,70 @@ var kiatSe_tierra = 0
 var kiatSe_yin = 0
 var kiatSe_yang = 0
 
+
+
+function page(page) {
+    //? Turn all pages
+    document.getElementById('KiaTse-form').classList.remove("active");
+    document.getElementById('KiaTse-data').classList.remove("active");
+    document.getElementById('Hexagram-form').classList.remove("active");
+    document.getElementById('Hexagram-dataN').classList.remove("active");
+    document.getElementById('Hexagram-dataV').classList.remove("active");
+    
+    //? Data Colection
+    if (page == 'KiaTse-form') {
+        updateNavBTN('nav-btn-Hexagrams', false);
+        updateNavBTN('nav-btn-KiaTse', true);
+
+        show('KiaTse-form','Hexagram-form');
+    }
+    else if (page == 'Hexagrams-form') {
+        updateNavBTN('nav-btn-KiaTse', false);
+        updateNavBTN('nav-btn-Hexagrams', true);
+
+        show('Hexagram-form','KiaTse-form');
+    }
+    //? Data Display
+    else if (page == 'KiaTse-data'){
+        show('KiaTse-data','KiaTse-form');
+    }
+    else if (page == 'Hexagram-dataN'){
+        show('Hexagram-dataN','Hexagram-form');
+    }
+    else if (page == 'Hexagram-dataV'){
+        show('Hexagram-dataV','Hexagram-form');
+    }
+    //? ERR
+    else {
+        console.error('Page not indexed')
+    }
+    
+    console.log('Page changed to: ' + page)
+    return false;
+    
+}
+
+function updateNavBTN(element, status) {
+    
+    if (status) {
+        document.getElementById(element).classList.add("active");
+    }
+    else {
+        document.getElementById(element).classList.remove("active");
+    }
+    
+    return false;
+}
+
+function show(shown, hidden) {
+    //document.getElementById(shown).style.display='block';
+    document.getElementById(shown).classList.add("active");
+    //document.getElementById(hidden).style.display='none';
+    document.getElementById(hidden).classList.remove("active");
+
+    return false;
+}
+
 function countOccurrences(inputString, wordToCount) {
     // Create a regular expression to match the wordToCount with word boundaries (\b)
     const regex = new RegExp(`\\b${wordToCount}\\b`, 'gi');
@@ -36,11 +100,9 @@ function countRealms(text) {
 }
 
 
-function show(shown, hidden) {
-    document.getElementById(shown).style.display='block';
-    document.getElementById(hidden).style.display='none';
-    return false;
-}
+
+
+
 
 function handleKiaTse() {
     console.warn('Development mode Enabled')

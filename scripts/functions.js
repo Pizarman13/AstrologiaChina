@@ -85,9 +85,9 @@ async function datosTabla(num) {
     ]
 }
 
-function getAnimal(fechaNa) {
+async function getAnimal(datetime) {
 
-    var anoNa = changeToChineseYear(fechaNa)
+    var anoNa = await changeToChineseYear(datetime)
 
     const inicio = 1900; // Año inicial
     const periodo = 12; // Número de años en un ciclo
@@ -102,6 +102,10 @@ function getAnimal(fechaNa) {
 
     // Ajustar el número de meses para comenzar en 1 en lugar de 0
     const numeroMes = mesesCiclo === 0 ? 12 : mesesCiclo;
+
+    var animales = await readFile('data/KiaTse/animales.json')
+
+    console.log('numeroMEs: ' + numeroMes)
 
     var animal = animales[numeroMes]
 

@@ -1,15 +1,15 @@
 [
     "Null",
-    "Buey 牛",
-    "Tigre 虎 ",
-    "Liebre 兔",
-    "Dragón 龍",
-    "Serpiente 蛇",
-    "Caballo 馬",
-    "Cabra 羊",
-    "Mono 猴",
-    "Gallo 雞",
-    "Perro 狗 ",
-    "Cerdo 豬 ",
-    "Rata 鼠"
+    "02-Buey",
+    "03-Tigre",
+    "04-Liebre",
+    "05-Dragón",
+    "06-Serpiente",
+    "07-Caballo",
+    "08-Cabra",
+    "09-Mono",
+    "10-Gallo",
+    "11-Perro",
+    "12-Cerdo",
+    "01-Rata"
 ]

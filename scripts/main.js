@@ -172,14 +172,23 @@ function _handleKiaTse() {
     document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
     document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
 
+    //! HOT IMPLEMENTATION
     console.log('Metal: ' + kiatSe_metal)
+    document.getElementById('metal').innerHTML = 'Metal: ' + kiatSe_metal
     console.log('Agua: ' + kiatSe_agua)
+    document.getElementById('agua').innerHTML = 'Agua: ' + kiatSe_agua
     console.log('Madera: ' + kiatSe_madera)
+    document.getElementById('madera').innerHTML = 'Madera: ' + kiatSe_madera
     console.log('Fuego: ' + kiatSe_fuego)
+    document.getElementById('fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
     console.log('Tierra: ' + kiatSe_tierra)
+    document.getElementById('tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
     console.log('Yin: ' + kiatSe_yin)
+    document.getElementById('yin').innerHTML = 'Yin: ' + kiatSe_yin
     console.log('Yang: ' + kiatSe_yang)
-
+    document.getElementById('yang').innerHTML = 'Yang: ' + kiatSe_yang
+    //! HOT IMPLEMENTATION
+    
     page('KiaTse-data')
 
 }

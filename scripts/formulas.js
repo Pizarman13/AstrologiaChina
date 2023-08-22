@@ -25,10 +25,9 @@ function getKiaTse_mes(birthdatetime) {
 
 function getKiaTse_dia(birthdatetime) {
 
-    var fechaCelda = new Date(birthdatetime);
     const fechaBase = new Date(1900, 0, 1);
         
-    var diferenciaDias = Math.floor((new Date(fechaCelda.getFullYear(), fechaCelda.getMonth(), fechaCelda.getDate(), 0, 0, 0, 0) - new Date(fechaBase.getFullYear(), fechaBase.getMonth(), fechaBase.getDate(), 0, 0, 0, 0)) / (1000 * 60 * 60 * 24));
+    var diferenciaDias = Math.floor((new Date(birthdatetime.getFullYear(), birthdatetime.getMonth(), birthdatetime.getDate(), 0, 0, 0, 0) - new Date(fechaBase.getFullYear(), fechaBase.getMonth(), fechaBase.getDate(), 0, 0, 0, 0)) / (1000 * 60 * 60 * 24));
 
     var num = ((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60)
 
@@ -142,7 +141,5 @@ function getHexagramaNacimiento(fechaNa) {
 
 function getHexagramaVital(fechaNa, genero) {
 
-    var hexgrama = getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
-
-    return hexgrama
+    return getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
 }

@@ -14,8 +14,6 @@ const animales = [
     'Rata 鼠' // 1
 ]
 
-const anoChino = {1924: '1924/2/5', 1925: '1925/1/24/', 1926: '1926/2/13', 1927: '1927/2/2', 1928: '1928/1/23', 1929: '1929/2/10', 1930: '1930/1/30', 1931: '1931/2/17', 1932: '1932/2/6', 1933: '1933/1/26', 1934: '1934/2/14', 1935: '1935/2/14', 1936: '1936/1/24', 1937: '1937/2/11', 1938: '1938/1/31', 1939: '1939/2/19', 1940: '1940/2/8', 1941: '1941/1/27', 1942: '1942/2/15', 1943: '1943/2/5', 1944: '1944/1/25', 1945: '1945/2/13', 1946: '1946/2/2', 1947: '1947/1/22', 1948: '1948/2/10', 1949: '1949/1/29', 1950: '1950/2/17', 1951: '1951/2/6', 1952: '1952/1/27', 1953: '1953/2/14', 1954: '1954/2/3', 1955: '1955/1/24', 1956: '1956/2/12', 1957: '1957/1/30', 1958: '1958/2/18', 1959: '1959/2/8', 1960: '1960/1/28', 1961: '1961/2/15', 1962: '1962/2/5', 1963: '1963/1/25', 1964: '1964/2/13', 1965: '1965/2/2', 1966: '1966/1/21', 1967: '1967/2/9', 1968: '1968/1/30', 1969: '1969/2/17', 1970: '1970/2/6', 1971: '1971/1/27', 1972: '1972/2/15', 1973: '1973/2/3', 1974: '1974/1/23', 1975: '1975/2/11', 1976: '1976/1/31', 1977: '1977/2/18', 1978: '1978/2/7', 1979: '1979/1/28', 1980: '1980/2/16', 1981: '1981/2/5', 1982: '1982/1/25', 1983: '1983/2/13', 1984: '1984/2/2', 1985: '1985/2/20', 1986: '1986/2/9', 1987: '1987/1/29', 1988: '1988/2/17', 1989: '1989/2/6', 1990: '1990/1/27', 1991: '1991/2/14', 1992: '1992/2/4', 1993: '1993/1/23', 1994: '1994/2/10', 1995: '1995/1/31', 1996: '1996/2/19', 1997: '1997/2/7', 1998: '1998/1/28', 1999: '1999/2/16', 2000: '2000/2/5', 2001: '2001/1/24', 2002: '2002/2/12', 2003: '2003/2/1', 2004: '2004/1/22', 2005: '2005/2/9', 2006: '2006/1/29', 2007: '2007/2/18', 2008: '2008/2/7', 2009: '2009/1/26', 2010: '2010/2/14', 2011: '2011/2/3', 2012: '2012/1/23', 2013: '2013/2/10', 2014: '2014/1/31', 2015: '2015/2/19', 2016: '2016/2/8', 2017: '2017/1/28', 2018: '2018/2/16', 2019: '2019/2/5', 2020: '2019/2/25', 2021: '2021/2/12', 2022: '2022/2/1', 2023: '2023/1/22', 2024: '2024/2/10', 2025: '2025/1/29', 2026: '2026/2/17', 2027: '2027/2/6', 2028: '2028/1/26', 2029: '2029/2/13', 2030: '2030/2/3', 2031: '2031/1/23', 2032: '2032/2/11', 2033: '2033/1/31', 2034: '2034/2/19', 2035: '2035/2/8', 2036: '2036/1/28', 2037: '2037/2/15', 2038: '2038/2/4', 2039: '2039/1/24', 2040: '2040/2/12'}
-
 const infoHexagramasNacimiento = {
     1: '乾 Qián Lo Creativo <em>El verbo creador</em>',
     2: '夬 Guài El desenlace <em>La decisión firme</em>',
@@ -315,124 +313,7 @@ const ciclo = {
    60: 'Agua	Yīn',
 }
 
-const leyenda = {
-    1: 'EL ORO DEL FONDO DEL MAR',
-   2: 'EL ORO DEL FONDO DEL MAR',
-   3: 'EL FUEGO DEL HORNO',
-   4: 'EL FUEGO DEL HORNO',
-   5: 'EL ARBOL DEL GRAN BOSQUE',
-   6: 'EL ARBOL DEL GRAN BOSQUE',
-   7: 'LA TIERRA DEL BORDE <br> DEL CAMINO',
-   8: 'LA TIERRA DEL BORDE <br> DEL CAMINO',
-   9: 'EL ACERO DE LA CUCHILLA <br> QUE CORTA',
-   10: 'EL ACERO DE LA CUCHILLA <br> QUE CORTA',
-   11: 'EL FUEGO DE LA COLINA',
-   12: 'EL FUEGO DE LA COLINA',
-   13: 'EL AGUA QUE PENETRA Y <br> FERTILIZA',
-   14: 'EL AGUA QUE PENETRA Y <br> FERTILIZA',
-   15: 'LA TIERRA EN LOS MUROS <br> DE LA CIUDAD',
-   16: 'LA TIERRA EN LOS MUROS <br> DE LA CIUDAD',
-   17: 'EL BRONCE MOLDEADO',
-   18: 'EL BRONCE MOLDEADO',
-   19: 'LA MADERA DEL SAUCE Y <br> DEL ÁLAMO',
-   20: 'LA MADERA DEL SAUCE Y <br> DEL ÁLAMO',
-   21: 'EL AGUA DEL POZO <br> DE LA FUENTE',
-   22: 'EL AGUA DEL POZO <br> DE LA FUENTE',
-   23: 'LA TIERRA DEL TECHO',
-   24: 'LA TIERRA DEL TECHO',
-   25: 'EL FUEGO DEL RELÁMPAGO',
-   26: 'EL FUEGO DEL RELÁMPAGO',
-   27: 'LA MADERA DEL CEDRO Y <br> DEL PINO (LONGEVIDAD)',
-   28: 'LA MADERA DEL CEDRO Y <br> DEL PINO (LONGEVIDAD)',
-   29: 'EL AGUA CORRIENTE',
-   30: 'EL AGUA CORRIENTE',
-   31: 'EL ORO EN LA ARENA',
-   32: 'EL ORO EN LA ARENA',
-   33: 'EL FUEGO AL PIE <br> DE LA COLINA',
-   34: 'EL FUEGO AL PIE <br> DE LA COLINA',
-   35: 'LA MADERA DE LA LLANURA',
-   36: 'LA MADERA DE LA LLANURA',
-   37: 'LA TIERRA DEL MURO',
-   38: 'LA TIERRA DEL MURO',
-   39: 'EL METAL DEL ESPEJO',
-   40: 'EL METAL DEL ESPEJO',
-   41: 'EL FUEGO DE LA LÁMPARA.',
-   42: 'EL FUEGO DE LA LÁMPARA.',
-   43: 'EL AGUA DEL RIO CELESTE. <br> (VIA LÁCTEA)',
-   44: 'EL AGUA DEL RIO CELESTE. <br> (VIA LÁCTEA)',
-   45: 'LA TIERRA DEL GRAN CAMINO',
-   46: 'LA TIERRA DEL GRAN CAMINO',
-   47: 'EL METAL DE LAS PULSERAS <br> Y LAS HORQUILLAS.',
-   48: 'EL METAL DE LAS PULSERAS <br> Y LAS HORQUILLAS.',
-   49: 'LA MADERA DE MORA',
-   50: 'LA MADERA DE MORA',
-   51: 'EL AGUA DE LAS CORRIENTES',
-   52: 'EL AGUA DE LAS CORRIENTES',
-   53: 'LA TIERRA ESCONDIDA BAJO <br> LA ARENA',
-   54: 'LA TIERRA ESCONDIDA BAJO <br> LA ARENA',
-   55: 'EL FUEGO EN LO ALTO <br> DEL CIELO',
-   56: 'EL FUEGO EN LO ALTO <br> DEL CIELO',
-   57: 'LA MADERA DE GRANADA  <br> (NUMEROSOS DESCENDIETES)',
-   58: 'LA MADERA DE GRANADA  <br> (NUMEROSOS DESCENDIETES)',
-   59: 'EL AGUA DEL OCÉANO. ',
-   60: 'EL AGUA DEL OCÉANO.',
-}
 
-const rama = [ 
-    "ShaoYin - calor<br>Agua Yáng<br>RI 子Zǐ",
-    "TaeYin - humedad<br>Tierra Yīn<br>RII 丑Chǒu",
-    "ShaoYang - fuego<br>Madera Yáng<br>RIII  寅 Yín",
-    "YangMing - sequedad<br>Madera Yīn<br>RIV 卯Mǎo",
-    "TaeYang - frio<br>Tierra Yáng<br>RV  辰Chén",
-    "JueYin - viento<br>Fuego Yīn<br>RVI 巳Sì",
-    "ShaoYin - calor<br>Fuego Yáng<br>RVII 午Ǔ",
-    "TaeYin - humedad<br>Tierra Yīn<br>RVIII 未Wèi",
-    "ShaoYang - fuego<br>Metal Yáng<br>RIX 申Shēn",
-    "YangMing - sequedad<br>Metal Yīn<br>RX  酉Yǒu",
-    "TaeYang - frio<br>Tierra Yáng<br>RXI 戌Xū",
-    "JueYin - viento<br>Agua Yīn<br>RXII 亥Hài",
-]
-
-const ramaBK = [ 
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'Agua (+)', 'R':'RI 子Zǐ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'Tierra (-)', 'R':'RII 丑Chǒu'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Madera (+)', 'R':'RIII  寅 Yín'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Madedra(-)', 'R':'RIV 卯Mǎo'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'Tierra (+)', 'R':'RV  辰Chén'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'Fuego (-)', 'R':'RVI 巳Sì'},
-    {'Ciclo Cosmico': 'ShaoYin', 'Ciclo Normal': 'Fuego (+)', 'R':'RVII 午Ǔ'},
-    {'Ciclo Cosmico': 'TaeYin', 'Ciclo Normal': 'Tierra(-)', 'R':'RVIII 未Wèi'},
-    {'Ciclo Cosmico': 'ShaoYang', 'Ciclo Normal': 'Metal (+)', 'R':'RIX 申Shēn'},
-    {'Ciclo Cosmico': 'YangMing', 'Ciclo Normal': 'Metal (-)', 'R':'RX  酉Yǒu'},
-    {'Ciclo Cosmico': 'TaeYang', 'Ciclo Normal': 'Tierra (+)', 'R':'RXI 戌Xū'},
-    {'Ciclo Cosmico': 'JueYin', 'Ciclo Normal': 'Agua (-)', 'R':'RXII 亥Hài'}
-]
-
-const tronco = [
-    "Tierra Humedad<br>Madera Vesicula Biliar<br>TI 甲Jiǎ  Yáng",
-    "Metal Sequedad<br>Madera Higado<br>TII 乙Yǐ Yīn",
-    "Agua Frio<br>Fuego I.Delgado<br>TIII 丙Bǐng  Yáng",
-    "Madera Viento<br>Fuego Corazon<br>TIV 丁Dīng  Yīn",
-    "Fuego Calor<br>Tierra Estomago<br>TV 戊Wù  Yáng",
-    "Tierra Humedad<br>Tierra Brazo<br>TVI 己Jǐ  Yīn",
-    "Metal Sequedad<br>Metal I.Grueso<br>TVII 庚Gēng  Yáng",
-    "Agua Frio<br>Metal Pulmon<br>TVIII 辛Xīn  Yīn",
-    "Madera Viento<br>Agua Vejiga<br>TIX 壬Rén  Yáng",
-    "Fuego Calor<br>Agua Riñon<br>TX  癸Guǐ  Yīn"
-]
-
-const troncoBK = [
-    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Madera Vesicula Biliar', 'T':'TI 甲Jiǎ'},
-    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Madera Higado', 'T':'TII 乙Yǐ'},
-    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Fuego I.Delgado', 'T':'TIII 丙Bǐng'},
-    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Fuego Corazon', 'T':'TIV 丁Dīng'},
-    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Tierra Estomago', 'T':'TV 戊Wù'},
-    {'Ciclo Cosmico': 'Tierra Humedad', 'Ciclo Normal': 'Tierra Brazo', 'T':'TVI 己Jǐ'},
-    {'Ciclo Cosmico': 'Metal Sequedad', 'Ciclo Normal': 'Metal I.Grueso', 'T':'TVII 庚Gēng'},
-    {'Ciclo Cosmico': 'Agua Frio', 'Ciclo Normal': 'Metal Pulmon', 'T':'TVIII 辛Xīn'},
-    {'Ciclo Cosmico': 'Madera Viento', 'Ciclo Normal': 'Agua Vejiga', 'T':'TIX 壬Rén'},
-    {'Ciclo Cosmico': 'Fuego Calor', 'Ciclo Normal': 'Agua Riñon', 'T':'TX  癸Guǐ'}
-]
 
 const animalEnblematico = [
     "Rata 鼠 Yīn",
@@ -449,20 +330,6 @@ const animalEnblematico = [
     "Cerdo 豬 Yīn",
 ]
 
-const animalEnblematicoBK = [
-    {'Animal':'Rata 鼠', 'Horas':'23-01', 'Canal Unitario':'C-R',  'Energia Celeste':'Calor', 'Punto Estatico':'VB13', 'Mes Lunar': '11'},
-    {'Animal':'Buey 牛', 'Horas':'01-03', 'Canal Unitario':'P-B',  'Energia Celeste':'Humedad', 'Punto Estatico':'H14', 'Mes Lunar': '12'},
-    {'Animal':'Tigre 虎', 'Horas':'03-05', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'P7', 'Mes Lunar': '1'},
-    {'Animal':'Liebre 兔', 'Horas':'05-07', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'IG6', 'Mes Lunar': '2'},
-    {'Animal':'Dragón 龍', 'Horas':'07-09', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'E40', 'Mes Lunar': '3'},
-    {'Animal':'Serpiente 蛇', 'Horas':'09-11', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'B4', 'Mes Lunar': '4'},
-    {'Animal':'Caballo 馬', 'Horas':'11-13', 'Canal Unitario':'C-R', 'Energia Celeste':'Calor', 'Punto Estatico':'C4', 'Mes Lunar': '5'},
-    {'Animal':'Cabra 羊', 'Horas':'13-15', 'Canal Unitario':'P-B', 'Energia Celeste':'Humedad', 'Punto Estatico':'ID12', 'Mes Lunar': '6'},
-    {'Animal':'Mono 猴', 'Horas':'15-17', 'Canal Unitario':'TR-VB', 'Energia Celeste':'Fuego', 'Punto Estatico':'V60', 'Mes Lunar': '7'},
-    {'Animal':'Gallo 雞', 'Horas':'17-19', 'Canal Unitario':'IG-E', 'Energia Celeste':'Sequedad', 'Punto Estatico':'R23', 'Mes Lunar': '8'},
-    {'Animal':'Perro 狗', 'Horas':'19-21', 'Canal Unitario':'ID-V', 'Energia Celeste':'Frio', 'Punto Estatico':'MC8', 'Mes Lunar': '9'},
-    {'Animal':'Cerdo 豬', 'Horas':'21-23', 'Canal Unitario':'MC-H', 'Energia Celeste':'Viento', 'Punto Estatico':'TR10', 'Mes Lunar': '10'}
-]
 
 const tabla = {
     1:  [0, 0, 0],

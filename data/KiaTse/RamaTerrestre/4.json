@@ -1,0 +1,20 @@
+{
+    "Rama": "RV辰Chén",
+    "Nivel Terrestre": {
+        "RM":"Tierra",
+        "Yin/Yang":"Yáng",
+        "Organo": "E",
+        "Energía": "Humedad"
+    },
+    "Nivel Humano": {
+        "Hora": "07h-09h",
+        "Pto. Estatico": "40E",
+        "Organo": "E",
+        "Energía": "Humedad"
+    },
+    "Ciclo Cósmico": {
+        "C. Unitario": "Tài Yáng",
+        "Organo": "ID",
+        "Energía": "Frío"
+    }
+}

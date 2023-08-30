@@ -117,45 +117,45 @@ async function _handleKiaTse() {
     var datosKiaTse_hora = await datosTabla(KiaTse_hora)
 
     //? Update data in HTML
-    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + '<br>' + ciclo[KiaTse_anyo])
-    document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo])
-    document.getElementById('kiatse-results-anyo_tronco').innerHTML = countRealms(datosKiaTse_anyo[0])
-    document.getElementById('kiatse-results-anyo_rama').innerHTML = countRealms(datosKiaTse_anyo[1])
-    document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
-
-    document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + '<br>' + ciclo[KiaTse_mes])
-    document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes])
-    document.getElementById('kiatse-results-mes_tronco').innerHTML = countRealms(datosKiaTse_mes[0])
-    document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1])
-    document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
-    
-    document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + '<br>' + ciclo[KiaTse_dia])
-    document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia])
-    document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
-    document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
-    document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
-
-    document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + '<br>' + ciclo[KiaTse_hora])
-    document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora])
-    document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
-    document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
-    document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
-
-    //! HOT IMPLEMENTATION
-    console.log('Metal: ' + kiatSe_metal)
-    document.getElementById('metal').innerHTML = 'Metal: ' + kiatSe_metal
-    console.log('Agua: ' + kiatSe_agua)
-    document.getElementById('agua').innerHTML = 'Agua: ' + kiatSe_agua
-    console.log('Madera: ' + kiatSe_madera)
-    document.getElementById('madera').innerHTML = 'Madera: ' + kiatSe_madera
-    console.log('Fuego: ' + kiatSe_fuego)
-    document.getElementById('fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
-    console.log('Tierra: ' + kiatSe_tierra)
-    document.getElementById('tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
-    console.log('Yin: ' + kiatSe_yin)
-    document.getElementById('yin').innerHTML = 'Yin: ' + kiatSe_yin
-    console.log('Yang: ' + kiatSe_yang)
-    document.getElementById('yang').innerHTML = 'Yang: ' + kiatSe_yang
+    //document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + '<br>' + ciclo[KiaTse_anyo])
+    //document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo])
+    //document.getElementById('kiatse-results-anyo_tronco').innerHTML = countRealms(datosKiaTse_anyo[0])
+    //document.getElementById('kiatse-results-anyo_rama').innerHTML = countRealms(datosKiaTse_anyo[1])
+    //document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
+//
+    //document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + '<br>' + ciclo[KiaTse_mes])
+    //document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes])
+    //document.getElementById('kiatse-results-mes_tronco').innerHTML = countRealms(datosKiaTse_mes[0])
+    //document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1])
+    //document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
+    //
+    //document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + '<br>' + ciclo[KiaTse_dia])
+    //document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia])
+    //document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
+    //document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
+    //document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
+//
+    //document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + '<br>' + ciclo[KiaTse_hora])
+    //document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora])
+    //document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
+    //document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
+    //document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
+//
+    ////! HOT IMPLEMENTATION
+    //console.log('Metal: ' + kiatSe_metal)
+    //document.getElementById('metal').innerHTML = 'Metal: ' + kiatSe_metal
+    //console.log('Agua: ' + kiatSe_agua)
+    //document.getElementById('agua').innerHTML = 'Agua: ' + kiatSe_agua
+    //console.log('Madera: ' + kiatSe_madera)
+    //document.getElementById('madera').innerHTML = 'Madera: ' + kiatSe_madera
+    //console.log('Fuego: ' + kiatSe_fuego)
+    //document.getElementById('fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
+    //console.log('Tierra: ' + kiatSe_tierra)
+    //document.getElementById('tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
+    //console.log('Yin: ' + kiatSe_yin)
+    //document.getElementById('yin').innerHTML = 'Yin: ' + kiatSe_yin
+    //console.log('Yang: ' + kiatSe_yang)
+    //document.getElementById('yang').innerHTML = 'Yang: ' + kiatSe_yang
     //! HOT IMPLEMENTATION
     
     page('KiaTse-data')

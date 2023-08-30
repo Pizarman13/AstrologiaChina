@@ -79,7 +79,7 @@ function handleKiaTse() {
     }
 }
 
-function _handleKiaTse() {
+async function _handleKiaTse() {
     //? Reset Counters
     kiatSe_metal = 0
     kiatSe_agua = 0
@@ -89,6 +89,10 @@ function _handleKiaTse() {
     kiatSe_yin = 0
     kiatSe_yang = 0
 
+    //? Load dataFiles
+    ciclo = await readFile(`/data/KiaTse/ciclo.json`)
+    leyenda = await readFile(`/data/KiaTse/ciclo.json`)
+    
     //? Extract data from HTML
     var birthdate = document.getElementById('KiaTse_birthdate').value;
     var birthtime = document.getElementById('KiaTse_birthtime').value;
@@ -102,15 +106,15 @@ function _handleKiaTse() {
 
     //? Process data
 
-    var KiaTse_anyo = getKiaTse_anyo(birthdatetime)
-    var KiaTse_mes = getKiaTse_mes(birthdatetime)
-    var KiaTse_dia = getKiaTse_dia(birthdatetime, timeZone)
-    var KiaTse_hora = getKiaTse_hora(birthdatetime)
+    var KiaTse_anyo = await getKiaTse_anyo(birthdatetime)
+    var KiaTse_mes = await getKiaTse_mes(birthdatetime)
+    var KiaTse_dia = await getKiaTse_dia(birthdatetime, timeZone)
+    var KiaTse_hora = await getKiaTse_hora(birthdatetime)
 
-    var datosKiaTse_anyo = datosTabla(KiaTse_anyo)
-    var datosKiaTse_mes = datosTabla(KiaTse_mes)
-    var datosKiaTse_dia = datosTabla(KiaTse_dia)
-    var datosKiaTse_hora = datosTabla(KiaTse_hora)
+    var datosKiaTse_anyo = await datosTabla(KiaTse_anyo)
+    var datosKiaTse_mes = await datosTabla(KiaTse_mes)
+    var datosKiaTse_dia = await datosTabla(KiaTse_dia)
+    var datosKiaTse_hora = await datosTabla(KiaTse_hora)
 
     //? Update data in HTML
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + '<br>' + ciclo[KiaTse_anyo])
@@ -175,6 +179,8 @@ function _handleHexagrams(type) {
     //? Extract data from HTML
     var birthdate = document.getElementById('Hexagrams_birthdate').value
     var genre = document.getElementById('Hexagrams_genre').value
+
+    var birthdatetime = new Date(birthdate + ' 00:00');
     
     //? Process data
     if (type == 'birth') {

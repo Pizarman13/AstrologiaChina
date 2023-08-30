@@ -1,14 +1,14 @@
-function getKiaTse_anyo (birthdatetime) {
+async function getKiaTse_anyo (birthdatetime) {
     
-    var anyo = changeToChineseYear(birthdatetime)
+    var anyo = await changeToChineseYear(birthdatetime)
 
     var otp = ((anyo - 3) - (Math.floor((anyo - 3) / 60) * 60) === 0) ? 60 : (anyo - 3) - (Math.floor((anyo - 3) / 60) * 60);
     return otp
 }
 
-function getKiaTse_mes(birthdatetime) {
+async function getKiaTse_mes(birthdatetime) {
 
-    var anyoNaC = changeToChineseYear(birthdatetime)
+    var anyoNaC = await changeToChineseYear(birthdatetime)
     var mes = 0
 
     //? Ajuste de mes
@@ -23,7 +23,7 @@ function getKiaTse_mes(birthdatetime) {
     return otp
 }
 
-function getKiaTse_dia(birthdatetime) {
+async function getKiaTse_dia(birthdatetime) {
 
     const fechaBase = new Date(1900, 0, 1);
         
@@ -38,9 +38,9 @@ function getKiaTse_dia(birthdatetime) {
     return (num === 0) ? 60 : num
 }
 
-function getKiaTse_hora(birthdatetime) {
+async function getKiaTse_hora(birthdatetime) {
 
-    var numDia = getKiaTse_dia(birthdatetime)
+    var numDia = await getKiaTse_dia(birthdatetime)
     var unidades = [49, 1, 13, 25, 37, 49, 1, 13, 25, 37];
     var horas = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 1,  1 ];
 

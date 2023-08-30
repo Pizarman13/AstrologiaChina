@@ -1,14 +1,30 @@
 function countOccurrences(inputString, wordToCount) {
-    
+
     const regex = new RegExp(`\\b${wordToCount}\\b`, 'gi');
     const matches = String(inputString).match(regex);
-  
+
     if (!matches) {
-      return 0;
+        return 0;
     }
-  
+
     return matches.length;
 }
+async function readFile(filepath) {
+    try {
+      const response = await fetch(filepath);
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const fileContent = await response.text();
+      const jsonObject = JSON.parse(fileContent);
+      return jsonObject;
+    } catch (error) {
+      console.error('There was a problem:', error);
+      return null; // Or any appropriate error handling
+    }
+  }
 
 function countRealms(text) {
 
@@ -23,17 +39,18 @@ function countRealms(text) {
     return text
 }
 
-function changeToChineseYear(datetime) {
+async function changeToChineseYear(datetime) {
+    anyoChino = await readFile('/data/KiaTse/anyoChino.json')
 
-    var nuevoAno = anoChino[datetime.getFullYear()]
+    var nuevoAno = anyoChino[datetime.getFullYear()]
     var fechanuevoAno = new Date(nuevoAno)
-    
+
     var mesNuevoAno = fechanuevoAno.getMonth() + 1
     var mesActual = datetime.getMonth() + 1
-    var diaNuevoAno = fechanuevoAno.getDate() 
-    
+    var diaNuevoAno = fechanuevoAno.getDate()
+
     if (mesNuevoAno <= mesActual) {
-        
+
         if (mesNuevoAno == mesActual) {
             if (diaNuevoAno <= datetime.getDate()) {
                 return datetime.getFullYear();
@@ -43,22 +60,28 @@ function changeToChineseYear(datetime) {
         }
 
         return datetime.getFullYear();
-        
+
     } else {
-       return datetime.getFullYear() - 1;
+        return datetime.getFullYear() - 1;
     }
 }
 
 function convertTZ(date, tzString) {
-    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: "Europe/London"}));    
+    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: "Europe/London" }));
 }
 
-function datosTabla (num) {
+async function datosTabla(num) {
+    tronco = await readFile(`/data/KiaTse/TroncoCeleste/${tabla[num][1]}.json`)
+    rama = await readFile(`/data/KiaTse/RamaTerrestre/${tabla[num][0]}.json`)
+    animalEmblematico = await readFile('/data/KiaTse/animalEmblematico.json')
 
     return [
-        tronco[tabla[num][1]],
-        rama[tabla[num][0]],
-        animalEnblematico[tabla[num][2]],
+        tronco,
+        rama,
+        animalEmblematico[tabla[num][2]],
+        //tronco[tabla[num][1]],
+        //rama[tabla[num][0]],
+        //animalEnblematico[tabla[num][2]],
     ]
 }
 

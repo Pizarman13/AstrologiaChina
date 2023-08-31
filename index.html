@@ -127,77 +127,276 @@
       </div>
       <!-- Data Presentation -->
       <div class="page" id="KiaTse-data">
-        <div class="card bg-dark text-white p-3" style="margin-top: 50vh;">
-          <ul>
-            <li>
-              <h1>Año</h1>
-              <ul>
-                <li>
-                  <h2>Ciclo</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Tronco</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Rama</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <h1>Mes</h1>
-              <ul>
-                <li>
-                  <h2>Ciclo</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Tronco</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Rama</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <h1>Dia</h1>
-              <ul>
-                <li>
-                  <h2>Ciclo</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Tronco</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Rama</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <h1>Hora</h1>
-              <ul>
-                <li>
-                  <h2>Ciclo</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Tronco</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-                <li>
-                  <h2>Rama</h2>
-                  <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cumque dolor recusandae necessitatibus numquam ipsum qui, magni molestiae ab unde minima sint optio, quos nemo rem quis totam ullam repellat!</p>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="card bg-dark text-white p-3" style="margin-top: 7vh; overflow-y: auto; height: 85vh; min-width: 50%;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 1 -->
+                <h1>Año</h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li id="kiatse-results-anyo_ciclo"></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Leyenda</h2>
+                    <p style="color: white;">texto de la Leyenda</p>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: </li>
+                      <li>Yin/Yang: </li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Energía: </li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: </li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: </li>
+                          <li>Yin/Yang: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: </li>
+                          <li>Pto. Estatico: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                      </ul>
+                  </li>
+                  <li>
+                    <h2>Animal</h2>
+                    <ul>
+                      <li>Serpiente</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 2 -->
+                <h1>Mes</h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li>60</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Leyenda</h2>
+                    <p style="color: white;">texto de la Leyenda</p>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: </li>
+                      <li>Yin/Yang: </li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Energía: </li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: </li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: </li>
+                          <li>Yin/Yang: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: </li>
+                          <li>Pto. Estatico: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                      </ul>
+                  </li>
+                  <li>
+                    <h2>Animal</h2>
+                    <ul>
+                      <li>Serpiente</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 3 -->
+                <h1>Dia</h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li>60</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Leyenda</h2>
+                    <p style="color: white;">LA MADERA DEL CEDRO Y DEL PINO (LONGEVIDAD)</p>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: </li>
+                      <li>Yin/Yang: </li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Energía: </li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: </li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: </li>
+                          <li>Yin/Yang: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: </li>
+                          <li>Pto. Estatico: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                      </ul>
+                  </li>
+                  <li>
+                    <h2>Animal</h2>
+                    <ul>
+                      <li>Serpiente</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 4 -->
+                <h1>Hora</h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li>60</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Leyenda</h2>
+                    <p style="color: white;">texto de la Leyenda</p>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: </li>
+                      <li>Yin/Yang: </li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: </li>
+                          <li>Energía: </li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: </li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: </li>
+                          <li>Yin/Yang: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: </li>
+                          <li>Pto. Estatico: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: </li>
+                          <li>Organo: </li>
+                          <li>Energía: </li>
+                        </ul>
+                      </ul>
+                  </li>
+                  <li>
+                    <h2>Animal</h2>
+                    <ul>
+                      <li>Serpiente</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div class="page" id="Hexagram-dataN">

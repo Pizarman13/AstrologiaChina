@@ -211,7 +211,7 @@ async function _handleKiaTse() {
 
     var path_animal = 'img/animales/' + await getAnimal(birthdatetime) + '.png'
     document.getElementById('kiatse-animal-img').setAttribute('src', path_animal)
-    console.log('path_animalo: '+ path_animal)
+    console.log('path_animal-img: '+ path_animal)
 
     console.log('Metal: ' + kiatSe_metal)
     document.getElementById('kiatse-metal').innerHTML = 'Metal: ' + kiatSe_metal
@@ -244,22 +244,24 @@ function handleHexagrams(type) {
     }
 }
 
-function _handleHexagrams(type) {
+async function _handleHexagrams(type) {
     
     //? Extract data from HTML
     var birthdate = document.getElementById('Hexagrams_birthdate').value
     var genre = document.getElementById('Hexagrams_genre').value
 
     var birthdatetime = new Date(birthdate + ' 00:00');
+
+    //? Get data
     
     //? Process data
     if (type == 'birth') {
 
-        var trigramaNacimiento = getInfoTrigramaNacimiento(birthdate)
+        var trigramaNacimiento = await getInfoTrigramaNacimiento(birthdate)
         console.log('trigramaNacimiento: ' + trigramaNacimiento)
-        var hexagramaNacimiento = getInfoHexagramaNacimiento(birthdate)
+        var hexagramaNacimiento = await getInfoHexagramaNacimiento(birthdate)
         console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
-        var hexagramaNacimiento = getInfoHexagramaNacimientoIchin(birthdate)
+        var hexagramaNacimiento = await getInfoHexagramaNacimientoIchin(birthdate)
         console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
 
         page('Hexagram-dataN')

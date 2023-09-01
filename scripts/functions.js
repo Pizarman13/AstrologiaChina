@@ -67,10 +67,12 @@ async function changeToChineseYear(datetime) {
 }
 
 function convertTZ(date, tzString) {
+
     return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: "Europe/London" }));
 }
 
 async function datosTabla(num) {
+
     tronco = await readFile(`/data/KiaTse/TroncoCeleste/${tabla[num][1]}.json`)
     rama = await readFile(`/data/KiaTse/RamaTerrestre/${tabla[num][0]}.json`)
     animalEmblematico = await readFile('/data/KiaTse/animalEmblematico.json')
@@ -105,30 +107,33 @@ async function getAnimal(datetime) {
 
     var animales = await readFile('data/KiaTse/animales.json')
 
-    console.log('numeroMEs: ' + numeroMes)
-
     var animal = animales[numeroMes]
 
     return animal
 }
 
-function getInfoTrigramaNacimiento(fechaNa) {
+async function getInfoTrigramaNacimiento(fechaNa) {
+    var infoTrigramasNacimiento = await readFile('data/Hexagramas/infoTrigramaNacimiento.json')
     return infoTrigramasNacimiento[getTrigramaNacimiento(fechaNa)]
 }
-function getInfoHexagramaNacimiento(fechaNa) {
+async function getInfoHexagramaNacimiento(fechaNa) {
+    var infoHexagramasNacimiento = await readFile('data/Hexagramas/infoHexagramasIChing.json')
     return infoHexagramasNacimiento[getHexagramaNacimiento(fechaNa)]
 }
-function getInfoHexagramaNacimientoIchin(fechaNa) {
+async function getInfoHexagramaNacimientoIchin(fechaNa) {
+    var infoHexagramasIChing = await readFile('data/Hexagramas/infoHexagramasIChing.json')
     return infoHexagramasIChing[getHexagramaNacimiento(fechaNa)]
 }
 
-function getInfoTrigramaVital(fechaNa, genero) {
+async function getInfoTrigramaVital(fechaNa, genero) {
+    var infoTrigramasVital = await readFile('data/Hexagramas/infoTrigramaVital.json')
     return infoTrigramasVital[getTrigramaVital(fechaNa, genero)]
 }
-function getInfoHexagramaVital(fechaNa, genero) {
+async function getInfoHexagramaVital(fechaNa, genero) {
+    var infoHexagramasNacimiento = await readFile('data/Hexagramas/HexagramaNacimiento.json')
     return infoHexagramasNacimiento[conversion[getHexagramaVital(fechaNa, genero)]]
 }
-function getInfoHexagramaVitalIchin(fechaNa, genero) {
-
+async function getInfoHexagramaVitalIchin(fechaNa, genero) {
+    var infoHexagramasIChing = await readFile('data/Hexagramas/infoHexagramasIChing.json')
     return infoHexagramasIChing[conversion[getHexagramaVital(fechaNa, genero)]]
 }

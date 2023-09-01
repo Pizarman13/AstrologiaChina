@@ -209,7 +209,7 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-hora_tronco_ene').innerHTML = "Energía: " + countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
 //
-    ////! HOT IMPLEMENTATION
+    //! HOT IMPLEMENTATION
     //console.log('Metal: ' + kiatSe_metal)
     //document.getElementById('metal').innerHTML = 'Metal: ' + kiatSe_metal
     //console.log('Agua: ' + kiatSe_agua)

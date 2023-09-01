@@ -50,8 +50,10 @@ async function getKiaTse_hora(birthdatetime) {
     return unidad + hora - 1
 }
 
-function getTrigramaNacimiento(fechaNa) {
-    var fechasplit = fechaNa.split('-')
+function getTrigramaNacimiento(dateTime) {
+    
+    dateTime.getFullYear()
+    var fechasplit = [dateTime.getFullYear(), dateTime.getMonth()+1, dateTime.getDate()]
 
     var res = []
 
@@ -76,15 +78,14 @@ function getTrigramaNacimiento(fechaNa) {
     res.reverse()
 
     let code = res.join('')
-
-    var info = infoTrigramasNacimiento[code]; 
+    console.log('code: ' + code)
 
     return code
 }
 
 function getTrigramaVital(fechaNa, genero) {
      
-    var anoNa = fechaNa.split('-')[0]
+    var anoNa = fechaNa.getFullYear()
     var fechaActual = new Date()
     var anoActual = fechaActual.getFullYear()
 
@@ -116,9 +117,9 @@ function getTrigramaVital(fechaNa, genero) {
   
 }
 
-function getHexagramaNacimiento(fechaNa) { 
+function getHexagramaNacimiento(dateTime) { 
     
-    var fechasplit = fechaNa.split('-')
+    var fechasplit = [dateTime.getFullYear(), dateTime.getMonth()+1, dateTime.getDate()]
     var sum = 0
     var dia = parseInt(fechasplit[2])
     var mes = parseInt(fechasplit[1])   

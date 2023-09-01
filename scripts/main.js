@@ -257,24 +257,24 @@ async function _handleHexagrams(type) {
     //? Process data
     if (type == 'birth') {
 
-        var trigramaNacimiento = await getInfoTrigramaNacimiento(birthdate)
+        var trigramaNacimiento = await getInfoTrigramaNacimiento(birthdatetime)
         console.log('trigramaNacimiento: ' + trigramaNacimiento)
-        var hexagramaNacimiento = await getInfoHexagramaNacimiento(birthdate)
+        var hexagramaNacimiento = await getInfoHexagramaNacimiento(birthdatetime)
         console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
-        var hexagramaNacimiento = await getInfoHexagramaNacimientoIchin(birthdate)
+        var hexagramaNacimiento = await getInfoHexagramaNacimientoIchin(birthdatetime)
         console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
 
         page('Hexagram-dataN')
     }
     else if (type == 'vital') {
 
-        var trigramaVital = getTrigramaVital(birthdate, genre)
+        var trigramaVital = getTrigramaVital(birthdatetime, genre)
         console.log('trigramaVital: ' + trigramaVital)
         
-        var hexgramaVital = getInfoHexagramaVital(birthdate, genre)
+        var hexgramaVital = getInfoHexagramaVital(birthdatetime, genre)
         console.log('hexgramaVital: ' + hexgramaVital)
 
-        var hexViIchin = getInfoHexagramaVitalIchin(birthdate, genre)
+        var hexViIchin = getInfoHexagramaVitalIchin(birthdatetime, genre)
         console.log('hexViIchin: ' + hexViIchin)
         
         

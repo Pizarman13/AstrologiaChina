@@ -98,7 +98,7 @@ async function _handleKiaTse() {
     var birthtime = document.getElementById('KiaTse_birthtime').value;
     
     var timeZone = document.getElementById('KiaTse_country').value;
-    var GMT = '+0' //! IMPLEMENTED IN V2 (Requires merge)
+    var GMT = franjasHorarias[timeZone]
 
     var birthdatetime = new Date(birthdate + ' ' + birthtime + ' GMT' + GMT);
     var timeZoneStr = franjasHorarias[timeZone]

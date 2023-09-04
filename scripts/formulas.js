@@ -78,7 +78,6 @@ function getTrigramaNacimiento(dateTime) {
     res.reverse()
 
     let code = res.join('')
-    console.log('code: ' + code)
 
     return code
 }

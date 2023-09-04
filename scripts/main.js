@@ -268,7 +268,7 @@ async function _handleHexagrams(type) {
     }
     else if (type == 'vital') {
 
-        var trigramaVital = await getTrigramaVital(birthdatetime, genre)
+        var trigramaVital = await getInfoTrigramaVital(birthdatetime, genre)
         console.log('trigramaVital: ' + trigramaVital)
         
         var hexgramaVital = await getInfoHexagramaVital(birthdatetime, genre)

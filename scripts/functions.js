@@ -117,7 +117,7 @@ async function getInfoTrigramaNacimiento(fechaNa) {
     return infoTrigramasNacimiento[getTrigramaNacimiento(fechaNa)]
 }
 async function getInfoHexagramaNacimiento(fechaNa) {
-    var infoHexagramasNacimiento = await readFile('data/Hexagramas/infoHexagramasIChing.json')
+    var infoHexagramasNacimiento = await readFile('data/Hexagramas/HexagramaNacimiento.json')
     return infoHexagramasNacimiento[getHexagramaNacimiento(fechaNa)]
 }
 async function getInfoHexagramaNacimientoIchin(fechaNa) {

@@ -261,20 +261,20 @@ async function _handleHexagrams(type) {
         console.log('trigramaNacimiento: ' + trigramaNacimiento)
         var hexagramaNacimiento = await getInfoHexagramaNacimiento(birthdatetime)
         console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
-        var hexagramaNacimiento = await getInfoHexagramaNacimientoIchin(birthdatetime)
-        console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
+        var hexagramaNacimientoIchin = await getInfoHexagramaNacimientoIchin(birthdatetime)
+        console.log('hexagramaNacimiento: ' + hexagramaNacimientoIchin)
 
         page('Hexagram-dataN')
     }
     else if (type == 'vital') {
 
-        var trigramaVital = getTrigramaVital(birthdatetime, genre)
+        var trigramaVital = await getTrigramaVital(birthdatetime, genre)
         console.log('trigramaVital: ' + trigramaVital)
         
-        var hexgramaVital = getInfoHexagramaVital(birthdatetime, genre)
+        var hexgramaVital = await getInfoHexagramaVital(birthdatetime, genre)
         console.log('hexgramaVital: ' + hexgramaVital)
 
-        var hexViIchin = getInfoHexagramaVitalIchin(birthdatetime, genre)
+        var hexViIchin = await getInfoHexagramaVitalIchin(birthdatetime, genre)
         console.log('hexViIchin: ' + hexViIchin)
         
         
@@ -289,32 +289,32 @@ async function _handleHexagrams(type) {
 
     document.getElementById('Hexagram-results-trigrama_nacimiento').innerHTML = trigramaNacimiento
     document.getElementById('Hexagram-results-hexagrama_nacimiento_oracular').innerHTML = hexagramaNacimiento
-    document.getElementById('Hexagram-results-hexagrama_nacimiento_ichin').innerHTML = hexagramaNacimiento
+    document.getElementById('Hexagram-results-hexagrama_nacimiento_ichin').innerHTML = hexagramaNacimientoIchin
     document.getElementById('Hexagram-results-trigrama_vital').innerHTML = trigramaVital
     document.getElementById('Hexagram-results-hexagrama_vital_oracular').innerHTML = hexgramaVital
     document.getElementById('Hexagram-results-hexagrama_vital_ichin').innerHTML = hexViIchin
 
-    var path_trigrama_nacimiento = 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdate) + '.png'
+    var path_trigrama_nacimiento = 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdatetime     ) + '.png'
     document.getElementById('Hexagram-results-img-trigrama_nacimiento').setAttribute('src', path_trigrama_nacimiento)
     console.log('path_trigrama_nacimiento: '+ path_trigrama_nacimiento)
     
-    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getHexagramaNacimiento(birthdate) + '.png'
+    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getHexagramaNacimiento(birthdatetime) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_nacimiento').setAttribute('src', path_hexagrama_nacimiento)
     console.log('path_hexagrama_nacimiento: path_hexagrama_nacimiento' + path_hexagrama_nacimiento)
 
-    var path_hexagrama_nacimiento_ichin = 'img/Hexagrama/hex_' + getHexagramaNacimiento(birthdate) + '.png'
+    var path_hexagrama_nacimiento_ichin = 'img/Hexagrama/hex_' + getHexagramaNacimiento(birthdatetime) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_nacimiento_ichin').setAttribute('src', path_hexagrama_nacimiento_ichin)
     console.log('path_hexagrama_nacimiento_ichin: ' + path_hexagrama_nacimiento_ichin)
     
-    var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdate, genre) + '.png'
+    var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdatetime, genre) + '.png'
     document.getElementById('Hexagram-results-img-trigrama_vital').setAttribute('src', path_trigrama_vital)
     console.log('path_trigrama_vital: ' + path_trigrama_vital)
     
-    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdate, genre)] + '.png'
+    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital').setAttribute('src', path_hexagrama_vital)
     console.log('path_hexagrama_vital: '+ path_hexagrama_vital)
 
-    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + conversion[getHexagramaVital(birthdate, genre)] + '.png'
+    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital_ichin').setAttribute('src', path_hexagrama_vital_ichin)
     console.log('path_hexagrama_vital_ichin: '+ path_hexagrama_vital_ichin)
     

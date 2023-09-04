@@ -52,7 +52,7 @@ async function getKiaTse_hora(birthdatetime) {
 
 function getTrigramaNacimiento(dateTime) {
     
-    dateTime.getFullYear()
+    
     var fechasplit = [dateTime.getFullYear(), dateTime.getMonth()+1, dateTime.getDate()]
 
     var res = []

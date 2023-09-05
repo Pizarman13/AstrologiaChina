@@ -251,7 +251,7 @@ async function _handleKiaTse() {
     //console.log('Yang: ' + kiatSe_yang)
     document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
 
-    document.getElementById('kiatse-top-1').innerHTML = ciclo[KiaTse_anyo-1]
+    document.getElementById('kiatse-top-1').innerHTML = datosKiaTse_anyo[2]
     document.getElementById('kiatse-top-2').innerHTML = birthdate
 
     

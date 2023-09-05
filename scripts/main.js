@@ -228,6 +228,14 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-animal-img').setAttribute('src', path_animal)
     //console.log('path_animal-img: '+ path_animal)
 
+    var sum = kiatSe_metal + kiatSe_agua + kiatSe_madera + kiatSe_fuego + kiatSe_tierra 
+
+    if (sum > 20) {
+        var resta = sum - 20
+        kiatSe_fuego = kiatSe_fuego - resta
+        console.log('fuego: ' + kiatSe_fuego)
+    }
+
     //console.log('Metal: ' + kiatSe_metal)
     document.getElementById('kiatse-metal').innerHTML = 'Metal: ' + kiatSe_metal
     //console.log('Agua: ' + kiatSe_agua)
@@ -242,6 +250,10 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-yin').innerHTML = 'Yin: ' + kiatSe_yin
     //console.log('Yang: ' + kiatSe_yang)
     document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
+
+    document.getElementById('kiatse-top-1').innerHTML = ciclo[KiaTse_anyo-1]
+    document.getElementById('kiatse-top-2').innerHTML = birthdate
+
     
     page('KiaTse-data')
 

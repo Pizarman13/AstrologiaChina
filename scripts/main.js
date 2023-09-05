@@ -6,17 +6,30 @@ var kiatSe_tierra = 0
 var kiatSe_yin = 0
 var kiatSe_yang = 0
 
-
+var active_page = 'KiaTse-form'
 
 function page(page) {
-    //? Turn all pages
+    //? Turn all pages off
     document.getElementById('KiaTse-form').classList.remove("active");
     document.getElementById('KiaTse-data').classList.remove("active");
     document.getElementById('Hexagram-form').classList.remove("active");
     document.getElementById('Hexagram-dataN').classList.remove("active");
     document.getElementById('Hexagram-dataV').classList.remove("active");
-    
-    //? Data Colection
+
+    if (page == 'Hexagrams-form') {
+        if (active_page == 'Hexagram-dataN'){
+            active_page = 'Hexagram-dataV'
+            handleHexagrams('vital');
+            return false
+        }
+        else if (active_page == 'Hexagram-dataV'){
+            active_page = 'Hexagram-dataN'
+            handleHexagrams('birth');
+            return false
+        }
+    }
+
+    //? Data Colection pages
     if (page == 'KiaTse-form') {
         updateNavBTN('nav-btn-Hexagrams', false);
         updateNavBTN('nav-btn-KiaTse', true);
@@ -29,7 +42,7 @@ function page(page) {
 
         show('Hexagram-form','KiaTse-form');
     }
-    //? Data Display
+    //? Data Display pages
     else if (page == 'KiaTse-data'){
         show('KiaTse-data','KiaTse-form');
     }
@@ -39,11 +52,13 @@ function page(page) {
     else if (page == 'Hexagram-dataV'){
         show('Hexagram-dataV','Hexagram-form');
     }
-    //? ERR
+    //! ERR
     else {
         console.error('Page not indexed')
     }
     
+    //console.log('Old page: ' + active_page);
+    active_page = page;
     console.log('Page changed to: ' + page)
     return false;
     
@@ -62,48 +77,13 @@ function updateNavBTN(element, status) {
 }
 
 function show(shown, hidden) {
-    //document.getElementById(shown).style.display='block';
     document.getElementById(shown).classList.add("active");
-    //document.getElementById(hidden).style.display='none';
     document.getElementById(hidden).classList.remove("active");
 
     return false;
 }
 
-function countOccurrences(inputString, wordToCount) {
-    // Create a regular expression to match the wordToCount with word boundaries (\b)
-    const regex = new RegExp(`\\b${wordToCount}\\b`, 'gi');
-  
-    // Use the match() function with the regex to find all occurrences of the word in the input string
-    const matches = String(inputString).match(regex);
-  
-    // If no matches are found, return 0
-    if (!matches) {
-      return 0;
-    }
-  
-    // Return the number of matches found
-    return matches.length;
-  }
-
-function countRealms(text) {
-
-    kiatSe_metal += countOccurrences(text, 'Metal');
-    kiatSe_agua += countOccurrences(text, 'Agua')
-    kiatSe_madera += countOccurrences(text, 'Madera')
-    kiatSe_fuego += countOccurrences(text, 'Fuego')
-    kiatSe_tierra += countOccurrences(text, 'Tierra')
-    kiatSe_yin += countOccurrences(text, 'Yīn')
-    kiatSe_yang += countOccurrences(text, 'Yáng')
-
-    return text
-}
-
-
-
-
-
-
+//! TEMPORAL
 function handleKiaTse() {
     console.warn('Development mode Enabled')
     try {
@@ -114,7 +94,8 @@ function handleKiaTse() {
     }
 }
 
-function _handleKiaTse() {
+async function _handleKiaTse() {
+    //? Reset Counters
     kiatSe_metal = 0
     kiatSe_agua = 0
     kiatSe_madera = 0
@@ -123,12 +104,16 @@ function _handleKiaTse() {
     kiatSe_yin = 0
     kiatSe_yang = 0
 
+    //? Load dataFiles
+    ciclo = await readFile(`/data/KiaTse/ciclo.json`)
+    leyenda = await readFile(`/data/KiaTse/leyenda.json`)
+    
     //? Extract data from HTML
     var birthdate = document.getElementById('KiaTse_birthdate').value;
     var birthtime = document.getElementById('KiaTse_birthtime').value;
     
     var timeZone = document.getElementById('KiaTse_country').value;
-    var GMT = '+0' //!ADD IT IN data.js
+    var GMT = franjasHorarias[timeZone]
 
     var birthdatetime = new Date(birthdate + ' ' + birthtime + ' GMT' + GMT);
     var timeZoneStr = franjasHorarias[timeZone]
@@ -136,63 +121,145 @@ function _handleKiaTse() {
 
     //? Process data
 
-    var KiaTse_anyo = getRefAnyo(birthdatetime)
-    var KiaTse_mes = getRefMes(birthdatetime) //! REQUIERE CORRECCION
-    var KiaTse_dia = getRefDia(birthdatetime, timeZone) //!REQUIERE CORRECCION
-    var KiaTse_hora = getRefHora(birthdatetime) //!Comprobar
+    var KiaTse_anyo = await getKiaTse_anyo(birthdatetime)
+    var KiaTse_mes = await getKiaTse_mes(birthdatetime)
+    var KiaTse_dia = await getKiaTse_dia(birthdatetime, timeZone)
+    var KiaTse_hora = await getKiaTse_hora(birthdatetime)
 
-    var datosKiaTse_anyo = datosTabla(KiaTse_anyo)
-    var datosKiaTse_mes = datosTabla(KiaTse_mes)
-    var datosKiaTse_dia = datosTabla(KiaTse_dia)
-    var datosKiaTse_hora = datosTabla(KiaTse_hora)
+    var datosKiaTse_anyo = await datosTabla(KiaTse_anyo)
+    var datosKiaTse_mes = await datosTabla(KiaTse_mes)
+    var datosKiaTse_dia = await datosTabla(KiaTse_dia)
+    var datosKiaTse_hora = await datosTabla(KiaTse_hora)
 
     //? Update data in HTML
-    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + '<br>' + ciclo[KiaTse_anyo])
-    document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo])
-    document.getElementById('kiatse-results-anyo_tronco').innerHTML = countRealms(datosKiaTse_anyo[0])
-    document.getElementById('kiatse-results-anyo_rama').innerHTML = countRealms(datosKiaTse_anyo[1])
+    document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + ' ' + ciclo[KiaTse_anyo-1])
+    document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo-1])
+    document.getElementById('kiatse-results-anyo_tronco_t').innerHTML = countRealms(datosKiaTse_anyo[0]['Tronco'])
+    document.getElementById('kiatse-results-anyo_tronco_y').innerHTML = countRealms(datosKiaTse_anyo[0]['Yin/Yang'])
+    document.getElementById('kiatse-results-anyo_tronco_rm').innerHTML = countRealms(datosKiaTse_anyo[0]['Ciclo Normativo']['RM'])
+    document.getElementById('kiatse-results-anyo_tronco_o').innerHTML = countRealms(datosKiaTse_anyo[0]['Ciclo Normativo']['Organo'])
+    document.getElementById('kiatse-results-anyo_tronco_e').innerHTML = countRealms(datosKiaTse_anyo[0]['Ciclo Normativo']['Energía'])
+    document.getElementById('kiatse-results-anyo_tronco_r').innerHTML = countRealms(datosKiaTse_anyo[0]['Ciclo Cósmico']['RM'])
+    document.getElementById('kiatse-results-anyo_tronco_en').innerHTML = countRealms(datosKiaTse_anyo[0]['Ciclo Cósmico']['Energía'])
+    document.getElementById('kiatse-results-anyo_rama').innerHTML = countRealms(datosKiaTse_anyo[1]['Rama'])
+    document.getElementById('kiatse-results-anyo_rama_r').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Terrestre']['RM'])
+    document.getElementById('kiatse-results-anyo_rama_y').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Terrestre']['Yin/Yang'])
+    document.getElementById('kiatse-results-anyo_rama_o').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Terrestre']['Organo'])
+    document.getElementById('kiatse-results-anyo_rama_e').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Terrestre']['Energía'])
+    document.getElementById('kiatse-results-anyo_rama_h').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Humano']['Hora'])
+    document.getElementById('kiatse-results-anyo_rama_pe').innerHTML =  countRealms(datosKiaTse_anyo[1]['Nivel Humano']['Pto. Estatico'])
+    document.getElementById('kiatse-results-anyo_rama_or').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Humano']['Organo'])
+    document.getElementById('kiatse-results-anyo_rama_en').innerHTML = countRealms(datosKiaTse_anyo[1]['Nivel Humano']['Energía'])
+    document.getElementById('kiatse-results-anyo_tronco_cu').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['C. Unitario'])
+    document.getElementById('kiatse-results-anyo_tronco_org').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Organo'])
+    document.getElementById('kiatse-results-anyo_tronco_ene').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
 
-    document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + '<br>' + ciclo[KiaTse_mes])
-    document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes])
-    document.getElementById('kiatse-results-mes_tronco').innerHTML = countRealms(datosKiaTse_mes[0])
-    document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1])
+    document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + ' ' + ciclo[KiaTse_mes-1])
+    document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes-1])
+    document.getElementById('kiatse-results-mes_tronco_t').innerHTML = countRealms(datosKiaTse_mes[0]['Tronco'])
+    document.getElementById('kiatse-results-mes_tronco_y').innerHTML = countRealms(datosKiaTse_mes[0]['Yin/Yang'])
+    document.getElementById('kiatse-results-mes_tronco_rm').innerHTML = countRealms(datosKiaTse_mes[0]['Ciclo Normativo']['RM'])
+    document.getElementById('kiatse-results-mes_tronco_o').innerHTML = countRealms(datosKiaTse_mes[0]['Ciclo Normativo']['Organo'])
+    document.getElementById('kiatse-results-mes_tronco_e').innerHTML = countRealms(datosKiaTse_mes[0]['Ciclo Normativo']['Energía'])
+    document.getElementById('kiatse-results-mes_tronco_r').innerHTML = countRealms(datosKiaTse_mes[0]['Ciclo Cósmico']['RM'])
+    document.getElementById('kiatse-results-mes_tronco_en').innerHTML = countRealms(datosKiaTse_mes[0]['Ciclo Cósmico']['Energía'])
+    document.getElementById('kiatse-results-mes_rama').innerHTML = countRealms(datosKiaTse_mes[1]['Rama'])
+    document.getElementById('kiatse-results-mes_rama_r').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Terrestre']['RM'])
+    document.getElementById('kiatse-results-mes_rama_y').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Terrestre']['Yin/Yang'])
+    document.getElementById('kiatse-results-mes_rama_o').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Terrestre']['Organo'])
+    document.getElementById('kiatse-results-mes_rama_e').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Terrestre']['Energía'])
+    document.getElementById('kiatse-results-mes_rama_h').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Humano']['Hora'])
+    document.getElementById('kiatse-results-mes_rama_pe').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Humano']['Pto. Estatico'])
+    document.getElementById('kiatse-results-mes_rama_or').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Humano']['Organo'])
+    document.getElementById('kiatse-results-mes_rama_en').innerHTML = countRealms(datosKiaTse_mes[1]['Nivel Humano']['Energía'])
+    document.getElementById('kiatse-results-mes_tronco_cu').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['C. Unitario'])
+    document.getElementById('kiatse-results-mes_tronco_org').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Organo'])
+    document.getElementById('kiatse-results-mes_tronco_ene').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
-    
-    console.log('KiaTse_dia: ' + KiaTse_dia)
-    document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + '<br>' + ciclo[KiaTse_dia])
-    document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia])
-    document.getElementById('kiatse-results-dia_tronco').innerHTML = countRealms(datosKiaTse_dia[0])
-    document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1])
+
+    document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + ' ' + ciclo[KiaTse_dia-1])
+    document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia-1])
+    document.getElementById('kiatse-results-dia_tronco_t').innerHTML = countRealms(datosKiaTse_dia[0]['Tronco'])
+    document.getElementById('kiatse-results-dia_tronco_y').innerHTML = countRealms(datosKiaTse_dia[0]['Yin/Yang'])
+    document.getElementById('kiatse-results-dia_tronco_rm').innerHTML = countRealms(datosKiaTse_dia[0]['Ciclo Normativo']['RM'])
+    document.getElementById('kiatse-results-dia_tronco_o').innerHTML = countRealms(datosKiaTse_dia[0]['Ciclo Normativo']['Organo'])
+    document.getElementById('kiatse-results-dia_tronco_e').innerHTML = countRealms(datosKiaTse_dia[0]['Ciclo Normativo']['Energía'])
+    document.getElementById('kiatse-results-dia_tronco_r').innerHTML = countRealms(datosKiaTse_dia[0]['Ciclo Cósmico']['RM'])
+    document.getElementById('kiatse-results-dia_tronco_en').innerHTML = countRealms(datosKiaTse_dia[0]['Ciclo Cósmico']['Energía'])
+    document.getElementById('kiatse-results-dia_rama').innerHTML = countRealms(datosKiaTse_dia[1]['Rama'])
+    document.getElementById('kiatse-results-dia_rama_r').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Terrestre']['RM'])
+    document.getElementById('kiatse-results-dia_rama_y').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Terrestre']['Yin/Yang'])
+    document.getElementById('kiatse-results-dia_rama_o').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Terrestre']['Organo'])
+    document.getElementById('kiatse-results-dia_rama_e').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Terrestre']['Energía'])
+    document.getElementById('kiatse-results-dia_rama_h').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Humano']['Hora'])
+    document.getElementById('kiatse-results-dia_rama_pe').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Humano']['Pto. Estatico'])
+    document.getElementById('kiatse-results-dia_rama_or').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Humano']['Organo'])
+    document.getElementById('kiatse-results-dia_rama_en').innerHTML = countRealms(datosKiaTse_dia[1]['Nivel Humano']['Energía'])
+    document.getElementById('kiatse-results-dia_tronco_cu').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['C. Unitario'])
+    document.getElementById('kiatse-results-dia_tronco_org').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Organo'])
+    document.getElementById('kiatse-results-dia_tronco_ene').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
 
-    document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + '<br>' + ciclo[KiaTse_hora])
-    document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora])
-    document.getElementById('kiatse-results-hora_tronco').innerHTML = countRealms(datosKiaTse_hora[0])
-    document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1])
+    document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + ' ' + ciclo[KiaTse_hora-1])
+    document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora-1])
+    document.getElementById('kiatse-results-hora_tronco_t').innerHTML = countRealms(datosKiaTse_hora[0]['Tronco'])
+    document.getElementById('kiatse-results-hora_tronco_y').innerHTML = countRealms(datosKiaTse_hora[0]['Yin/Yang'])
+    document.getElementById('kiatse-results-hora_tronco_rm').innerHTML = countRealms(datosKiaTse_hora[0]['Ciclo Normativo']['RM'])
+    document.getElementById('kiatse-results-hora_tronco_o').innerHTML = countRealms(datosKiaTse_hora[0]['Ciclo Normativo']['Organo'])
+    document.getElementById('kiatse-results-hora_tronco_e').innerHTML = countRealms(datosKiaTse_hora[0]['Ciclo Normativo']['Energía'])
+    document.getElementById('kiatse-results-hora_tronco_r').innerHTML = countRealms(datosKiaTse_hora[0]['Ciclo Cósmico']['RM'])
+    document.getElementById('kiatse-results-hora_tronco_en').innerHTML = countRealms(datosKiaTse_hora[0]['Ciclo Cósmico']['Energía'])
+    document.getElementById('kiatse-results-hora_rama').innerHTML = countRealms(datosKiaTse_hora[1]['Rama'])
+    document.getElementById('kiatse-results-hora_rama_r').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Terrestre']['RM'])
+    document.getElementById('kiatse-results-hora_rama_y').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Terrestre']['Yin/Yang'])
+    document.getElementById('kiatse-results-hora_rama_o').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Terrestre']['Organo'])
+    document.getElementById('kiatse-results-hora_rama_e').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Terrestre']['Energía'])
+    document.getElementById('kiatse-results-hora_rama_h').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Humano']['Hora'])
+    document.getElementById('kiatse-results-hora_rama_pe').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Humano']['Pto. Estatico'])
+    document.getElementById('kiatse-results-hora_rama_or').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Humano']['Organo'])
+    document.getElementById('kiatse-results-hora_rama_en').innerHTML = countRealms(datosKiaTse_hora[1]['Nivel Humano']['Energía'])
+    document.getElementById('kiatse-results-hora_tronco_cu').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['C. Unitario'])
+    document.getElementById('kiatse-results-hora_tronco_org').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Organo'])
+    document.getElementById('kiatse-results-hora_tronco_ene').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
 
-    //! HOT IMPLEMENTATION
-    console.log('Metal: ' + kiatSe_metal)
-    document.getElementById('metal').innerHTML = 'Metal: ' + kiatSe_metal
-    console.log('Agua: ' + kiatSe_agua)
-    document.getElementById('agua').innerHTML = 'Agua: ' + kiatSe_agua
-    console.log('Madera: ' + kiatSe_madera)
-    document.getElementById('madera').innerHTML = 'Madera: ' + kiatSe_madera
-    console.log('Fuego: ' + kiatSe_fuego)
-    document.getElementById('fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
-    console.log('Tierra: ' + kiatSe_tierra)
-    document.getElementById('tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
-    console.log('Yin: ' + kiatSe_yin)
-    document.getElementById('yin').innerHTML = 'Yin: ' + kiatSe_yin
-    console.log('Yang: ' + kiatSe_yang)
-    document.getElementById('yang').innerHTML = 'Yang: ' + kiatSe_yang
-    //! HOT IMPLEMENTATION
+    var path_animal = 'img/animales/' + await getAnimal(birthdatetime) + '.png'
+    document.getElementById('kiatse-animal-img').setAttribute('src', path_animal)
+    //console.log('path_animal-img: '+ path_animal)
+
+    var sum = kiatSe_metal + kiatSe_agua + kiatSe_madera + kiatSe_fuego + kiatSe_tierra 
+
+    if (sum > 20) {
+        var resta = sum - 20
+        kiatSe_fuego = kiatSe_fuego - resta
+        console.log('fuego: ' + kiatSe_fuego)
+    }
+
+    //console.log('Metal: ' + kiatSe_metal)
+    document.getElementById('kiatse-metal').innerHTML = 'Metal: ' + kiatSe_metal
+    //console.log('Agua: ' + kiatSe_agua)
+    document.getElementById('kiatse-agua').innerHTML = 'Agua: ' + kiatSe_agua
+    //console.log('Madera: ' + kiatSe_madera)
+    document.getElementById('kiatse-madera').innerHTML = 'Madera: ' + kiatSe_madera
+    //console.log('Fuego: ' + kiatSe_fuego)
+    document.getElementById('kiatse-fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
+    //console.log('Tierra: ' + kiatSe_tierra)
+    document.getElementById('kiatse-tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
+    //console.log('Yin: ' + kiatSe_yin)
+    document.getElementById('kiatse-yin').innerHTML = 'Yin: ' + kiatSe_yin
+    //console.log('Yang: ' + kiatSe_yang)
+    document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
+
+    document.getElementById('kiatse-top-1').innerHTML = ciclo[KiaTse_anyo-1]
+    document.getElementById('kiatse-top-2').innerHTML = birthdate
+
     
     page('KiaTse-data')
 
 }
 
+//! TEMPORAL
 function handleHexagrams(type) {
     console.warn('Development mode Enabled')
 
@@ -204,36 +271,40 @@ function handleHexagrams(type) {
     }
 }
 
-function _handleHexagrams(type) {
+async function _handleHexagrams(type) {
     
     //? Extract data from HTML
     var birthdate = document.getElementById('Hexagrams_birthdate').value
     var genre = document.getElementById('Hexagrams_genre').value
-    console.log('data colected from html')
-    //? Process data
-    console.log(type)
-    if (type == 'birth') {
-        console.log('birth')
 
-        var trigramaNacimiento = infoTriNa(birthdate)
+    var birthdatetime = new Date(birthdate + ' 00:00');
+
+    //? Get data
+    
+    //? Process data
+    if (type == 'birth') {
+
+        var trigramaNacimiento = await getInfoTrigramaNacimiento(birthdatetime)
         //console.log('trigramaNacimiento: ' + trigramaNacimiento)
-        var hexagramaNacimiento = infoHexNa(birthdate)
+        var hexagramaNacimiento = await getInfoHexagramaNacimiento(birthdatetime)
         //console.log('hexagramaNacimiento: ' + hexagramaNacimiento)
-        var hexNaIchin = infoHexNaIchin(birthdate)
-        //console.log('hexNaIchin: ' + hexNaIchin)
+        var hexagramaNacimientoIchin = await getInfoHexagramaNacimientoIchin(birthdatetime)
+        //console.log('hexagramaNacimiento: ' + hexagramaNacimientoIchin)
 
         page('Hexagram-dataN')
     }
     else if (type == 'vital') {
-        console.log('vital')
 
-        var hexViIchin = infoHexViIchin(birthdate, genre)
-        //console.log('hexViIchin: ' + hexViIchin)
-        var trigramaVital = infoTriVi(birthdate, genre)
+        var trigramaVital = await getInfoTrigramaVital(birthdatetime, genre)
         //console.log('trigramaVital: ' + trigramaVital)
         
-        var hexgramaVital = infoHexVi(birthdate, genre)
+        var hexgramaVital = await getInfoHexagramaVital(birthdatetime, genre)
         //console.log('hexgramaVital: ' + hexgramaVital)
+
+        var hexViIchin = await getInfoHexagramaVitalIchin(birthdatetime, genre)
+        //console.log('hexViIchin: ' + hexViIchin)
+        
+        
 
         page('Hexagram-dataV')
     }
@@ -242,37 +313,36 @@ function _handleHexagrams(type) {
     }
 
     //? Update data in HTML
-    //document.getElementById('kiatse-results-anyo_ciclo').innerHTML = KiaTse_anyo
 
     document.getElementById('Hexagram-results-trigrama_nacimiento').innerHTML = trigramaNacimiento
     document.getElementById('Hexagram-results-hexagrama_nacimiento_oracular').innerHTML = hexagramaNacimiento
-    document.getElementById('Hexagram-results-hexagrama_nacimiento_ichin').innerHTML = hexNaIchin
+    document.getElementById('Hexagram-results-hexagrama_nacimiento_ichin').innerHTML = hexagramaNacimientoIchin
     document.getElementById('Hexagram-results-trigrama_vital').innerHTML = trigramaVital
     document.getElementById('Hexagram-results-hexagrama_vital_oracular').innerHTML = hexgramaVital
     document.getElementById('Hexagram-results-hexagrama_vital_ichin').innerHTML = hexViIchin
 
-    var path_trigrama_nacimiento = 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdate) + '.png'
+    var path_trigrama_nacimiento = 'img/trigramasNacimiento/' + getTrigramaNacimiento(birthdatetime     ) + '.png'
     document.getElementById('Hexagram-results-img-trigrama_nacimiento').setAttribute('src', path_trigrama_nacimiento)
-    console.log('path_trigrama_nacimiento: '+ path_trigrama_nacimiento)
+    //console.log('path_trigrama_nacimiento: '+ path_trigrama_nacimiento)
     
-    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getHexagramaNacimiento(birthdate) + '.png'
+    var path_hexagrama_nacimiento = 'img/hexagramaNacimiento/' + getHexagramaNacimiento(birthdatetime) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_nacimiento').setAttribute('src', path_hexagrama_nacimiento)
-    console.log('path_hexagrama_nacimiento: path_hexagrama_nacimiento' + path_hexagrama_nacimiento)
+    //console.log('path_hexagrama_nacimiento: path_hexagrama_nacimiento' + path_hexagrama_nacimiento)
 
-    var path_hexagrama_nacimiento_ichin = 'img/Hexagrama/hex_' + getHexagramaNacimiento(birthdate) + '.png'
+    var path_hexagrama_nacimiento_ichin = 'img/Hexagrama/hex_' + getHexagramaNacimiento(birthdatetime) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_nacimiento_ichin').setAttribute('src', path_hexagrama_nacimiento_ichin)
-    console.log('path_hexagrama_nacimiento_ichin: ' + path_hexagrama_nacimiento_ichin)
+    //console.log('path_hexagrama_nacimiento_ichin: ' + path_hexagrama_nacimiento_ichin)
     
-    var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdate, genre) + '.png'
+    var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdatetime, genre) + '.png'
     document.getElementById('Hexagram-results-img-trigrama_vital').setAttribute('src', path_trigrama_vital)
-    console.log('path_trigrama_vital: ' + path_trigrama_vital)
+    //console.log('path_trigrama_vital: ' + path_trigrama_vital)
     
-    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdate, genre)] + '.png'
+    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital').setAttribute('src', path_hexagrama_vital)
-    console.log('path_hexagrama_vital: '+ path_hexagrama_vital)
+    //console.log('path_hexagrama_vital: '+ path_hexagrama_vital)
 
-    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + conversion[getHexagramaVital(birthdate, genre)] + '.png'
+    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital_ichin').setAttribute('src', path_hexagrama_vital_ichin)
-    console.log('path_hexagrama_vital_ichin: '+ path_hexagrama_vital_ichin)
+    //console.log('path_hexagrama_vital_ichin: '+ path_hexagrama_vital_ichin)
     
 }

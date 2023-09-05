@@ -21,8 +21,9 @@
 
   <!-- Internal Scipts -->
   <script src="scripts/main.js"></script>
-  <script src="scripts/calculate.js"></script>
   <script src="scripts/data.js"></script>
+  <script src="scripts/formulas.js"></script>
+  <script src="scripts/functions.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
@@ -32,7 +33,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Astrologia China</a>
+      <a class="navbar-brand" href="index.html">Astrologia China</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -60,14 +61,14 @@
           <form>
             <label for="KiaTse_birthdate" class="form-label">Fecha de Nacimiento</label>
             <input type="date" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthdate"
-              value="1900-01-01" min="1924-01-01" max="2040-12-31">
+              value="2000-01-01" min="1924-01-01" max="2040-12-31">
 
             <label for="KiaTse_birthtime" class="form-label">Hora de Nacimiento</label>
             <input type="time" class="form-control bg-transparent text-white mb-3" id="KiaTse_birthtime" value="00:00">
 
             <label for="KiaTse_country" class="form-label">Pais de Nacimiento</label>
             <select class="form-select bg-dark bg-transparent text-white dropdown-menu-dark" id="KiaTse_country">
-              <option selected disabled value>Paises</option>
+              <option disabled value="None">Paises</option>
               <option value="Alemania">Alemania</option>
               <option value="Argentina">Argentina</option>
               <option value="Belgica">Belgica</option>
@@ -77,7 +78,7 @@
               <option value="Colombia">Colombia</option>
               <option value="Dinamarca">Dinamarca</option>
               <option value="Ecuador">Ecuador</option>
-              <option value="España">España</option>
+              <option selected value="España">España</option>
               <option value="EEUU(Los Angeles)">EEUU(Los Angeles)</option>
               <option value="EEUU(Chicago)">EEUU(Chicago)</option>
               <option value="EEUU(NY)">EEUU(NY)</option>
@@ -126,132 +127,318 @@
       </div>
       <!-- Data Presentation -->
       <div class="page" id="KiaTse-data">
-        <div class="card bg-dark text-white p-3">
-          <table class="table table-dark table-KiaTse">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">Ciclo</th>
-                <th scope="col">Leyenda</th>
-                <th scope="col">Tronco</th>
-                <th scope="col">Rama</th>
-                <th scope="col">Animal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Año</th>
-                <td id="kiatse-results-anyo_ciclo"></td>
-                <td id="kiatse-results-anyo_leyenda"></td>
-                <td id="kiatse-results-anyo_tronco"></td>
-                <td id="kiatse-results-anyo_rama"></td>
-                <td id="kiatse-results-anyo_animal"></td>
-              </tr>
-              <tr>
-                <th scope="row">Mes</th>
-                <td id="kiatse-results-mes_ciclo"></td>
-                <td id="kiatse-results-mes_leyenda"></td>
-                <td id="kiatse-results-mes_tronco"></td>
-                <td id="kiatse-results-mes_rama"></td>
-                <td id="kiatse-results-mes_animal"></td>
-              </tr>
-              <tr>
-                <th scope="row">Dia</th>
-                <td id="kiatse-results-dia_ciclo"></td>
-                <td id="kiatse-results-dia_leyenda"></td>
-                <td id="kiatse-results-dia_tronco"></td>
-                <td id="kiatse-results-dia_rama"></td>
-                <td id="kiatse-results-dia_animal"></td>
-              </tr>
-              <tr>
-                <th scope="row">Hora</th>
-                <td id="kiatse-results-hora_ciclo"></td>
-                <td id="kiatse-results-hora_leyenda"></td>
-                <td id="kiatse-results-hora_tronco"></td>
-                <td id="kiatse-results-hora_rama"></td>
-                <td id="kiatse-results-hora_animal"></td>
-              </tr>
-              <!-- Hot Implementation -->
-              <tr>
-                <th scope="col" id="yin">Yin</th>
-                <th scope="col" id="yang">Yang</th>
-                <th scope="col" id="agua">Agua</th>
-                <th scope="col" id="fuego">Fuego</a></th>
-                <th scope="col" id="madera">Madera</th>
-                <th scope="col" id="metal">Metal</th>
-                <th scope="col" id="tierra">Tierra</th>
-              </tr>
-              <!-- Hot Implementation -->
-            </tbody>
-          </table>
+        <div class="card bg-dark text-white p-3" style="margin-top: 7vh; overflow-y: auto; height: 85vh; min-width: 50%;">
+          <div class="container">
+            <h1 class="text-warning"><span id="kiatse-top-1"></span> - <span id="kiatse-top-2"></span></h1>
+            <div class="card bg-dark text-white">
+              <div class="row flex-lg-row">
+                <div class="col-lg-4">
+                  <img class="card-img-top img-fluid" id ="kiatse-animal-img" alt="Card image cap">
+                </div>
+                <div class="col-lg-8">
+                  <div class="card-body">
+                    <ul class="list-group">
+                      <li class="list-group-item bg-dark text-white" id="kiatse-yin"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-yang"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-metal"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-agua"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-madera"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-fuego"></li>
+                      <li class="list-group-item bg-dark text-white" id="kiatse-tierra"></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>   
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 1 -->
+                <h1 class="text-warning">Año: <span id="kiatse-results-anyo_animal"></span></h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li id="kiatse-results-anyo_ciclo"></li>
+                      <li id="kiatse-results-anyo_leyenda"></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: <strong id="kiatse-results-anyo_tronco_t"></strong></li>
+                      <li>Yin/Yang: <strong id="kiatse-results-anyo_tronco_y"></strong></li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-anyo_tronco_rm"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-anyo_tronco_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-anyo_tronco_e"></strong></li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-anyo_tronco_r"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-anyo_tronco_en"></strong></li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: <strong id="kiatse-results-anyo_rama"></strong></li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: <strong id="kiatse-results-anyo_rama_r"></strong></li>
+                          <li>Yin/Yang: <strong  id="kiatse-results-anyo_rama_y"></strong></li>
+                          <li>Organo: <strong  id="kiatse-results-anyo_rama_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-anyo_rama_e"></strong></li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: <strong id="kiatse-results-anyo_rama_h"></strong></li>
+                          <li>Pto. Estatico: <strong id="kiatse-results-anyo_rama_pe"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-anyo_rama_or"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-anyo_rama_en"></strong></li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: <strong id="kiatse-results-anyo_tronco_cu"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-anyo_tronco_org"></strong></li>
+                          <li>Energía:  <strong id="kiatse-results-anyo_tronco_ene"></strong></li>
+                        </ul>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 2 -->
+                <h1 class="text-warning">Mes: <span id="kiatse-results-mes_animal"></span></h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li id="kiatse-results-mes_ciclo"></li>
+                      <li id="kiatse-results-mes_leyenda"></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: <strong id="kiatse-results-mes_tronco_t"></strong></li>
+                      <li>Yin/Yang: <strong id="kiatse-results-mes_tronco_y"></strong></li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-mes_tronco_rm"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-mes_tronco_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-mes_tronco_e"></strong></li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-mes_tronco_r"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-mes_tronco_en"></strong></li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                    <ul>
+                      <li>Rama: <strong id="kiatse-results-mes_rama"></strong></li>
+                      <li>Nivel Terrestre</li>
+                      <ul>
+                        <li>RM: <strong id="kiatse-results-mes_rama_r"></strong></li>
+                        <li>Yin/Yang: <strong  id="kiatse-results-mes_rama_y"></strong></li>
+                        <li>Organo: <strong  id="kiatse-results-mes_rama_o"></strong></li>
+                        <li>Energía: <strong id="kiatse-results-mes_rama_e"></strong></li>
+                      </ul>
+                      <li>Nivel Humano</li>
+                      <ul>
+                        <li>Hora: <strong id="kiatse-results-mes_rama_h"></strong></li>
+                        <li>Pto. Estatico: <strong id="kiatse-results-mes_rama_pe"></strong></li>
+                        <li>Organo: <strong id="kiatse-results-mes_rama_or"></strong></li>
+                        <li>Energía: <strong id="kiatse-results-mes_rama_en"></strong></li>
+                      </ul>
+                      <li>Ciclo Cosmico</li>
+                      <ul>
+                        <li>C. Unitario: <strong id="kiatse-results-mes_tronco_cu"></strong></li>
+                        <li>Organo: <strong id="kiatse-results-mes_tronco_org"></strong></li>
+                        <li>Energía:  <strong id="kiatse-results-mes_tronco_ene"></strong></li>
+                      </ul>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 3 -->
+                <h1 class="text-warning">Día: <span id="kiatse-results-dia_animal"></span></h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li id="kiatse-results-dia_ciclo"></li>
+                      <li id="kiatse-results-dia_leyenda"></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: <strong id="kiatse-results-dia_tronco_t"></strong></li>
+                      <li>Yin/Yang: <strong id="kiatse-results-dia_tronco_y"></strong></li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-dia_tronco_rm"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-dia_tronco_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-dia_tronco_e"></strong></li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-dia_tronco_r"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-dia_tronco_en"></strong></li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: <strong id="kiatse-results-dia_rama"></strong></li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: <strong id="kiatse-results-dia_rama_r"></strong></li>
+                          <li>Yin/Yang: <strong  id="kiatse-results-dia_rama_y"></strong></li>
+                          <li>Organo: <strong  id="kiatse-results-dia_rama_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-dia_rama_e"></strong></li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: <strong id="kiatse-results-dia_rama_h"></strong></li>
+                          <li>Pto. Estatico: <strong id="kiatse-results-dia_rama_pe"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-dia_rama_or"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-dia_rama_en"></strong></li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: <strong id="kiatse-results-dia_tronco_cu"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-dia_tronco_org"></strong></li>
+                          <li>Energía:  <strong id="kiatse-results-dia_tronco_ene"></strong></li>
+                        </ul>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <!-- Element 4 -->
+                <h1 class="text-warning">Hora: <span id="kiatse-results-hora_animal"></span></h1>
+                <ul>
+                  <li>
+                    <h2>Ciclo</h2>
+                    <ul>
+                      <li id="kiatse-results-hora_ciclo"></li>
+                      <li id="kiatse-results-hora_leyenda"></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Tronco</h2>
+                    <ul>
+                      <li>Tronco: <strong id="kiatse-results-hora_tronco_t"></strong></li>
+                      <li>Yin/Yang: <strong id="kiatse-results-hora_tronco_y"></strong></li>
+                      <li>Ciclo Normativo:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-hora_tronco_rm"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-hora_tronco_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-hora_tronco_e"></strong></li>
+                      </ul>
+                      <li>Ciclo Cósmico:</li>
+                      <ul>
+                          <li>RM: <strong id="kiatse-results-hora_tronco_r"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-hora_tronco_en"></strong></li>
+                      </ul>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Rama</h2>
+                      <ul>
+                        <li>Rama: <strong id="kiatse-results-hora_rama"></strong></li>
+                        <li>Nivel Terrestre</li>
+                        <ul>
+                          <li>RM: <strong id="kiatse-results-hora_rama_r"></strong></li>
+                          <li>Yin/Yang: <strong  id="kiatse-results-hora_rama_y"></strong></li>
+                          <li>Organo: <strong  id="kiatse-results-hora_rama_o"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-hora_rama_e"></strong></li>
+                        </ul>
+                        <li>Nivel Humano</li>
+                        <ul>
+                          <li>Hora: <strong id="kiatse-results-hora_rama_h"></strong></li>
+                          <li>Pto. Estatico: <strong id="kiatse-results-hora_rama_pe"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-hora_rama_or"></strong></li>
+                          <li>Energía: <strong id="kiatse-results-hora_rama_en"></strong></li>
+                        </ul>
+                        <li>Ciclo Cosmico</li>
+                        <ul>
+                          <li>C. Unitario: <strong id="kiatse-results-hora_tronco_cu"></strong></li>
+                          <li>Organo: <strong id="kiatse-results-hora_tronco_org"></strong></li>
+                          <li>Energía:  <strong id="kiatse-results-hora_tronco_ene"></strong></li>
+                        </ul>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="page" id="Hexagram-dataN">
-        <div class="card bg-light text-white p-3">
-          <div class="container-fluid text-center hexagram-container">
-            <div class="row mb-3">
-              <div class="col-4">
-                <img id="Hexagram-results-img-trigrama_nacimiento">
-              </div>
-              <div class="col-8">
-                <p><h4>Nacimiento</h4></p>
+        <div class="card bg-light p-3" style="margin-top: 7vh; overflow-y: auto; height: 85vh; min-width: 50%;">
+          <div class="container">  
+            <div class="row">
+              <h1 style="text-align: center;">Nacimiento</h1>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>Trigrama</h2>
+                <div style="width: 100%;">
+                  <img id="Hexagram-results-img-trigrama_nacimiento" class="img-fluid" style="width: 60%;">
+                </div>
                 <p id="Hexagram-results-trigrama_nacimiento"></p>
               </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-8">
-                <h4>Ajedrez Oracular
-                  (Según Escuela Neijing)</h4>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>Hexagrama</h2>                
+                  <img id="Hexagram-results-img-hexagrama_nacimiento" class="img-fluid" style="width: 90%;" >                
                 <p id="Hexagram-results-hexagrama_nacimiento_oracular"></p>
               </div>
-              <div class="col-4">
-                <img id="Hexagram-results-img-hexagrama_nacimiento" style="height: 15vh;">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4" style="padding: 10vh;">
-                <img id="Hexagram-results-img-hexagrama_nacimiento_ichin">
-              </div>
-              <div class="col-8">
-                <h4>I Ching</h4>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>I Chin</h2>
+                <div style="margin: 5%;">
+                  <img id="Hexagram-results-img-hexagrama_nacimiento_ichin" class="img-fluid" style="width: 40%;">
+                </div>
                 <p id="Hexagram-results-hexagrama_nacimiento_ichin"></p>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <div class="page" id="Hexagram-dataV">
-        <div class="card bg-light text-white p-3">
-          <div class="container-fluid text-center hexagram-container">
-            <div class="row mb-3">
-              <div class="col-4">
-                <img id="Hexagram-results-img-trigrama_vital">
-              </div>
-              <div class="col-8">
-                <p><h4>Vida</h4></p>
+        <div class="card bg-light p-3" style="margin-top: 7vh; overflow-y: auto; height: 85vh; min-width: 50%;">
+          <div class="container">  
+            <div class="row">
+              <h1 style="text-align: center;">Vida</h1>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>Trigrama</h2>
+                <div style="width: 100%;">
+                  <img id="Hexagram-results-img-trigrama_vital" class="img-fluid" style="width: 60%;">
+                </div>
                 <p id="Hexagram-results-trigrama_vital"></p>
               </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-8">
-                <h4>Ajedrez Oracular
-                  (Según Escuela Neijing)</h4>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>Hexagrama</h2>                
+                  <img id="Hexagram-results-img-hexagrama_vital" class="img-fluid" style="width: 90%;" >                
                 <p id="Hexagram-results-hexagrama_vital_oracular"></p>
               </div>
-              <div class="col-4">
-                <img id="Hexagram-results-img-hexagrama_vital" style="height: 15vh;">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4" style="padding: 10vh;">
-                <img id="Hexagram-results-img-hexagrama_vital_ichin">
-              </div>
-              <div class="col-8">
-                <h4>I Ching</h4>
+              <div class="col-md-4 col-sm-12" style="text-align: center;">
+                <h2>I Chin</h2>
+                <div style="margin: 5%;">
+                  <img id="Hexagram-results-img-hexagrama_vital_ichin" class="img-fluid" style="width: 40%;">
+                </div>
                 <p id="Hexagram-results-hexagrama_vital_ichin"></p>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
   </main>

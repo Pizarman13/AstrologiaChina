@@ -1,0 +1,20 @@
+{
+    "Rama": "RVII 午 Wǔ",
+    "Nivel Terrestre": {
+        "RM":"Fuego",
+        "Yin/Yang":"Yáng",
+        "Organo": "ID",
+        "Energía": "Calor"
+    },
+    "Nivel Humano": {
+        "Hora": "11h-13h",
+        "Pto. Estatico": "4C",
+        "Organo": "C",
+        "Energía": "Calor"
+    },
+    "Ciclo Cósmico": {
+        "C. Unitario": "Shāo Yīn",
+        "Organo": "C",
+        "Energía": "Calor"
+    }
+}

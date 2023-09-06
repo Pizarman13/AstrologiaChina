@@ -83,6 +83,7 @@ const franjasHorarias = {
     'Lituania':'+2',
     'Noruega':'+1',
     'Suecia':'+1',
+    'Suiza':'+2',
     'Peru':'-5',
     'Colombia':'-5',
     'Venezuela':'-4',

@@ -251,8 +251,11 @@ async function _handleKiaTse() {
     //console.log('Yang: ' + kiatSe_yang)
     document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
 
+    var fecha = birthdate.toString()
+    var fechasplit = fecha.split("-")
+    var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' +fechasplit[0]
 
-    document.getElementById('kiatse-top-1').innerHTML = birthdate
+    document.getElementById('kiatse-top-1').innerHTML = fechaFinal
     document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
 
     

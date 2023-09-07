@@ -108,21 +108,25 @@ async function _handleKiaTse() {
     ciclo = await readFile(`/data/KiaTse/ciclo.json`)
     leyenda = await readFile(`/data/KiaTse/leyenda.json`)
     
-    //? Extract data from HTML
+    //#region Extract data from HTML
     var birthdate = document.getElementById('KiaTse_birthdate').value;
     var birthtime = document.getElementById('KiaTse_birthtime').value;
     
     var timeZone = document.getElementById('KiaTse_country').value;
     var GMT = franjasHorarias[timeZone]
 
+    //#endregion
+
+    //#region Process data
+    //? Change date vartype and apply GMT
     var isoDateTimeString = `${birthdate}T${birthtime}:00.000+${GMT < 0 ? '-' : ''}${Math.abs(GMT).toString().padStart(2, '0')}:00`;
     var birthdatetime = new Date(isoDateTimeString);
     var timeZoneStr = franjasHorarias[timeZone]
     birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 
-    //? Process data
-    var estrella1 = esencia(birthdatetime)
-    var estrella2 = ascendente(birthdatetime)
+    var KiaTse_esencia = esencia(birthdatetime)
+    var KiaTse_ascendente = ascendente(birthdatetime)
+    var KiaTse_tendencia = tendencia(birthdatetime)
 
     var KiaTse_anyo = await getKiaTse_anyo(birthdatetime)
     var KiaTse_mes = await getKiaTse_mes(birthdatetime)
@@ -133,8 +137,39 @@ async function _handleKiaTse() {
     var datosKiaTse_mes = await datosTabla(KiaTse_mes)
     var datosKiaTse_dia = await datosTabla(KiaTse_dia)
     var datosKiaTse_hora = await datosTabla(KiaTse_hora)
+    
+    //? Control overlimits
+    var sum = kiatSe_metal + kiatSe_agua + kiatSe_madera + kiatSe_fuego + kiatSe_tierra 
+    if (sum > 20) {
+        var resta = sum - 20
+        kiatSe_fuego = kiatSe_fuego - resta
+        console.log('fuego: ' + kiatSe_fuego)
+    }
 
-    //? Update data in HTML
+    //? Change date Format
+    var fecha = birthdate.toString()
+    var fechasplit = fecha.split("-")
+    var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' + fechasplit[0]
+
+    //#endregion
+
+    //#region HTML updates
+
+    //#region Estrellas
+    document.getElementById('kiatse-esencia').innerHTML = KiaTse_esencia
+    document.getElementById('kiatse-ascendente').innerHTML = KiaTse_ascendente
+    document.getElementById('kiatse-tendencia').innerHTML = KiaTse_tendencia
+    //#endregion
+    
+    //Summary Image
+    var path_animal = 'img/animales/' + await getAnimal(birthdatetime) + '.png'
+    document.getElementById('kiatse-animal-img').setAttribute('src', path_animal)
+    
+    //Summary Header
+    document.getElementById('kiatse-top-1').innerHTML = fechaFinal
+    document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
+    
+    //#region Anyo
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + ' ' + ciclo[KiaTse_anyo-1])
     document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo-1])
     document.getElementById('kiatse-results-anyo_tronco_t').innerHTML = countRealms(datosKiaTse_anyo[0]['Tronco'])
@@ -157,7 +192,9 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-anyo_tronco_org').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-anyo_tronco_ene').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
+    //#endregion
 
+    //#region  Mes
     document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + ' ' + ciclo[KiaTse_mes-1])
     document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes-1])
     document.getElementById('kiatse-results-mes_tronco_t').innerHTML = countRealms(datosKiaTse_mes[0]['Tronco'])
@@ -180,7 +217,9 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-mes_tronco_org').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-mes_tronco_ene').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
+    //#endregion
 
+    //#region Dia
     document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + ' ' + ciclo[KiaTse_dia-1])
     document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia-1])
     document.getElementById('kiatse-results-dia_tronco_t').innerHTML = countRealms(datosKiaTse_dia[0]['Tronco'])
@@ -203,7 +242,9 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-dia_tronco_org').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-dia_tronco_ene').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
+    //#endregion
 
+    //#region Hora
     document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + ' ' + ciclo[KiaTse_hora-1])
     document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora-1])
     document.getElementById('kiatse-results-hora_tronco_t').innerHTML = countRealms(datosKiaTse_hora[0]['Tronco'])
@@ -226,46 +267,27 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-hora_tronco_org').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-hora_tronco_ene').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
-
-    var path_animal = 'img/animales/' + await getAnimal(birthdatetime) + '.png'
-    document.getElementById('kiatse-animal-img').setAttribute('src', path_animal)
-    //console.log('path_animal-img: '+ path_animal)
-
-    var sum = kiatSe_metal + kiatSe_agua + kiatSe_madera + kiatSe_fuego + kiatSe_tierra 
-
-    if (sum > 20) {
-        var resta = sum - 20
-        kiatSe_fuego = kiatSe_fuego - resta
-        console.log('fuego: ' + kiatSe_fuego)
-    }
-
-    //console.log('Metal: ' + kiatSe_metal)
-    document.getElementById('kiatse-metal').innerHTML = 'Metal: ' + kiatSe_metal
-    //console.log('Agua: ' + kiatSe_agua)
-    document.getElementById('kiatse-agua').innerHTML = 'Agua: ' + kiatSe_agua
-    //console.log('Madera: ' + kiatSe_madera)
-    document.getElementById('kiatse-madera').innerHTML = 'Madera: ' + kiatSe_madera
-    //console.log('Fuego: ' + kiatSe_fuego)
-    document.getElementById('kiatse-fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
-    //console.log('Tierra: ' + kiatSe_tierra)
-    document.getElementById('kiatse-tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
-    //console.log('Yin: ' + kiatSe_yin)
-    document.getElementById('kiatse-yin').innerHTML = 'Yin: ' + kiatSe_yin
-    //console.log('Yang: ' + kiatSe_yang)
-    document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
-
-    var fecha = birthdate.toString()
-    var fechasplit = fecha.split("-")
-    var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' +fechasplit[0]
-
-    var fecha = birthdate.toString()
-    var fechasplit = fecha.split("-")
-    var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' + fechasplit[0]
-
-    document.getElementById('kiatse-top-1').innerHTML = fechaFinal
-    document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
-
+    //#endregion
     
+    //#region Contadores
+    document.getElementById('kiatse-metal').innerHTML = 'Metal: ' + kiatSe_metal
+    //console.log('Metal: ' + kiatSe_metal)
+    document.getElementById('kiatse-agua').innerHTML = 'Agua: ' + kiatSe_agua
+    //console.log('Agua: ' + kiatSe_agua)
+    document.getElementById('kiatse-madera').innerHTML = 'Madera: ' + kiatSe_madera
+    //console.log('Madera: ' + kiatSe_madera)
+    document.getElementById('kiatse-fuego').innerHTML = 'Fuego: ' + kiatSe_fuego
+    //console.log('Fuego: ' + kiatSe_fuego)
+    document.getElementById('kiatse-tierra').innerHTML = 'Tierra: ' + kiatSe_tierra
+    //console.log('Tierra: ' + kiatSe_tierra)
+    document.getElementById('kiatse-yin').innerHTML = 'Yin: ' + kiatSe_yin
+    //console.log('Yin: ' + kiatSe_yin)
+    document.getElementById('kiatse-yang').innerHTML = 'Yang: ' + kiatSe_yang
+    //console.log('Yang: ' + kiatSe_yang)
+    //#endregion
+
+    //#endregion
+
     page('KiaTse-data')
 
 }

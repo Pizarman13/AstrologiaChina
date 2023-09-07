@@ -115,7 +115,8 @@ async function _handleKiaTse() {
     var timeZone = document.getElementById('KiaTse_country').value;
     var GMT = franjasHorarias[timeZone]
 
-    var birthdatetime = new Date(birthdate + ' ' + birthtime + ' GMT' + GMT);
+    var isoDateTimeString = `${birthdate}T${birthtime}:00.000+${GMT < 0 ? '-' : ''}${Math.abs(GMT).toString().padStart(2, '0')}:00`;
+    var birthdatetime = new Date(isoDateTimeString);
     var timeZoneStr = franjasHorarias[timeZone]
     birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 

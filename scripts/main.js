@@ -121,6 +121,8 @@ async function _handleKiaTse() {
     birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 
     //? Process data
+    var estrella1 = esencia(birthdatetime)
+    var estrella2 = ascendente(birthdatetime)
 
     var KiaTse_anyo = await getKiaTse_anyo(birthdatetime)
     var KiaTse_mes = await getKiaTse_mes(birthdatetime)

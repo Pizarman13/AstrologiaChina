@@ -152,15 +152,15 @@ async function _handleKiaTse() {
     var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' + fechasplit[0]
 
     var hora = birthtime.toString()
-    //var horaSolar = birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
+    var horaSolar = horaSolar
 
-    if (birthdatetime.getHours() % 10 == 0 && birthdatetime.getMinutes() % 10 == 0) {
+    if (birthdatetime.getHours() < 10 && birthdatetime.getMinutes() < 10) {
         var horaSolar = '0' + birthdatetime.getHours() + ':0' + birthdatetime.getMinutes()
-    } else if (birthdatetime.getHours() % 10 == 0 && birthdatetime.getMinutes() % 10 != 0) {
+    } else if (birthdatetime.getHours() < 10 && birthdatetime.getMinutes() >= 10) {
         var horaSolar = '0' + birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
-    } else if (birthdatetime.getHours() % 10 != 0 && birthdatetime.getMinutes() % 10 == 0) {
+    } else if (birthdatetime.getHours() >= 10 && birthdatetime.getMinutes() < 10) {
         var horaSolar = birthdatetime.getHours() + ':0' + birthdatetime.getMinutes()
-    } else if (birthdatetime.getHours() % 10 != 0 && birthdatetime.getMinutes() % 10 != 0) {
+    } else if (birthdatetime.getHours() >= 10 != 0 && birthdatetime.getMinutes() >= 10) {
         var horaSolar = birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
     }
 

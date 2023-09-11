@@ -151,6 +151,19 @@ async function _handleKiaTse() {
     var fechasplit = fecha.split("-")
     var fechaFinal = fechasplit[2] + '/' + fechasplit[1] + '/' + fechasplit[0]
 
+    var hora = birthtime.toString()
+    //var horaSolar = birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
+
+    if (birthdatetime.getHours() % 10 == 0 && birthdatetime.getMinutes() % 10 == 0) {
+        var horaSolar = '0' + birthdatetime.getHours() + ':0' + birthdatetime.getMinutes()
+    } else if (birthdatetime.getHours() % 10 == 0 && birthdatetime.getMinutes() % 10 != 0) {
+        var horaSolar = '0' + birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
+    } else if (birthdatetime.getHours() % 10 != 0 && birthdatetime.getMinutes() % 10 == 0) {
+        var horaSolar = birthdatetime.getHours() + ':0' + birthdatetime.getMinutes()
+    } else if (birthdatetime.getHours() % 10 != 0 && birthdatetime.getMinutes() % 10 != 0) {
+        var horaSolar = birthdatetime.getHours() + ':' + birthdatetime.getMinutes()
+    }
+
     //#endregion
 
     //#region HTML updates
@@ -168,6 +181,8 @@ async function _handleKiaTse() {
     //Summary Header
     document.getElementById('kiatse-top-1').innerHTML = fechaFinal
     document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
+    document.getElementById('kiatse-hora').innerHTML = hora
+    document.getElementById('kiatse-hora-solar').innerHTML = horaSolar
     
     //#region Anyo
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + ' ' + ciclo[KiaTse_anyo-1])

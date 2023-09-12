@@ -72,6 +72,7 @@ const franjasHorarias = {
     'EEUU(NY)': '-4',
     'Reino Unido':'+0',
     'España':'+1',
+    'España (Verano)':'+2',
     'Portugal':'+0',
     'Alemania':'+1',
     'Francia':'+1',

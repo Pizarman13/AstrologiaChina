@@ -143,3 +143,61 @@ function getHexagramaVital(fechaNa, genero) {
 
     return getTrigramaNacimiento(fechaNa) + '.' + getTrigramaVital(fechaNa, genero)
 }
+
+//? Estrellas
+function esencia(dateTime) {
+
+    var tmp = 0
+    var tmp2 = 0
+
+    var digitos = dateTime.getFullYear().toString().split('')
+    for (let i = 0; i < digitos.length; i++) {
+        tmp += parseInt(digitos[i])
+    }
+
+    var digitos2 = tmp.toString().split('')
+    for(let i = 0; i < digitos2.length; i++) {
+        tmp2 += parseInt(digitos2[i]) 
+    }
+
+    var resta = 11 - tmp2
+    return resta
+}
+
+function ascendente(dateTime) {
+    const diaMes = [6,4,6,6,6,6,8,8,8,9,8,8]
+
+    var mes = dateTime.getMonth()
+
+    if (dateTime.getDate() < diaMes[mes]-1){mes--}
+
+    if (mes < 0) {mes += 12}
+
+    dateTime.setMonth
+
+    if(esencia(dateTime) == 1 || esencia(dateTime) == 4 ||esencia(dateTime) == 7 ) {
+        const tabla_ascendente = [6,8,7,6,5,4,3,2,1,9,8,7]
+        return tabla_ascendente[mes]
+    }
+    else if (esencia(dateTime) == 3 || esencia(dateTime) == 6 ||esencia(dateTime) == 9 ){
+        const tabla_ascendente = [3,5,4,3,2,1,9,8,7,6,5,4]
+        return tabla_ascendente[mes]
+    }
+    else if (esencia(dateTime) == 2 || esencia(dateTime) == 5 ||esencia(dateTime) == 8 ){
+        const tabla_ascendente = [9,2,1,9,8,7,6,5,4,3,2,1]
+        return tabla_ascendente[mes]
+    }
+    
+}
+
+function tendencia(dateTime) {
+    var num = 5 - ascendente(dateTime)
+
+    var res = esencia(dateTime) + num
+
+    if(res <= 0) {
+        res += 9
+    }
+
+    return res
+}

@@ -143,7 +143,6 @@ async function _handleKiaTse() {
     if (sum > 20) {
         var resta = sum - 20
         kiatSe_fuego = kiatSe_fuego - resta
-        console.log('fuego: ' + kiatSe_fuego)
     }
 
     //? Change date Format

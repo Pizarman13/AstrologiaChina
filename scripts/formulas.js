@@ -152,19 +152,15 @@ function esencia(dateTime) {
 
     var digitos = dateTime.getFullYear().toString().split('')
     for (let i = 0; i < digitos.length; i++) {
-        console.log('digitos:' +digitos)
         tmp += parseInt(digitos[i])
-        console.log('tmp: '+tmp)
     }
 
     var digitos2 = tmp.toString().split('')
     for(let i = 0; i < digitos2.length; i++) {
         tmp2 += parseInt(digitos2[i]) 
-        console.log('tmp2: '+tmp2)
     }
 
     var resta = 11 - tmp2
-    console.log('res: ' + resta)
     return resta
 }
 

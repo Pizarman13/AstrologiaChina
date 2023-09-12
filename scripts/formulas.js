@@ -180,17 +180,18 @@ function ascendente(dateTime) {
     dateTime.setMonth
 
     if(esencia(dateTime) == 1 || esencia(dateTime) == 4 ||esencia(dateTime) == 7 ) {
-        const tabla = [6,8,7,6,5,4,3,2,1,9,8,7]
-        return tabla[mes]
+        const tabla_ascendente = [6,8,7,6,5,4,3,2,1,9,8,7]
+        return tabla_ascendente[mes]
     }
     else if (esencia(dateTime) == 3 || esencia(dateTime) == 6 ||esencia(dateTime) == 9 ){
-        const tabla = [3,5,4,3,2,1,9,8,7,6,5,4]
-        return tabla[mes]
+        const tabla_ascendente = [3,5,4,3,2,1,9,8,7,6,5,4]
+        return tabla_ascendente[mes]
     }
     else if (esencia(dateTime) == 2 || esencia(dateTime) == 5 ||esencia(dateTime) == 8 ){
-        const tabla = [9,2,1,9,8,7,6,5,4,3,2,1]
-        return tabla[mes]
+        const tabla_ascendente = [9,2,1,9,8,7,6,5,4,3,2,1]
+        return tabla_ascendente[mes]
     }
+    
 }
 
 function tendencia(dateTime) {

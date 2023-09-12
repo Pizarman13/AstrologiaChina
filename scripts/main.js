@@ -384,12 +384,13 @@ async function _handleHexagrams(type) {
     var path_trigrama_vital = 'img/trigramasVital/' + getTrigramaVital(birthdatetime, genre) + '.png'
     document.getElementById('Hexagram-results-img-trigrama_vital').setAttribute('src', path_trigrama_vital)
     //console.log('path_trigrama_vital: ' + path_trigrama_vital)
-    
-    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
+
+    conversion.indexOf(getHexagramaVital(birthdatetime, genre))
+    var path_hexagrama_vital = 'img/hexagramaNacimiento/' + (conversion.indexOf(getHexagramaVital(birthdatetime, genre))+1) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital').setAttribute('src', path_hexagrama_vital)
     //console.log('path_hexagrama_vital: '+ path_hexagrama_vital)
 
-    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + conversion[getHexagramaVital(birthdatetime, genre)] + '.png'
+    var path_hexagrama_vital_ichin = 'img/Hexagrama/hex_' + (conversion.indexOf(getHexagramaVital(birthdatetime, genre))+1) + '.png'
     document.getElementById('Hexagram-results-img-hexagrama_vital_ichin').setAttribute('src', path_hexagrama_vital_ichin)
     //console.log('path_hexagrama_vital_ichin: '+ path_hexagrama_vital_ichin)
     

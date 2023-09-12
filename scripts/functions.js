@@ -73,17 +73,14 @@ function convertTZ(date, tzString) {
 
 async function datosTabla(num) {
 
-    tronco = await readFile(`/data/KiaTse/TroncoCeleste/${tabla[num][1]}.json`)
-    rama = await readFile(`/data/KiaTse/RamaTerrestre/${tabla[num][0]}.json`)
+    tronco = await readFile(`/data/KiaTse/TroncoCeleste/${TABLA[num-1][1]}.json`)
+    rama = await readFile(`/data/KiaTse/RamaTerrestre/${TABLA[num-1][0]}.json`)
     animalEmblematico = await readFile('/data/KiaTse/animalEmblematico.json')
 
     return [
         tronco,
         rama,
-        animalEmblematico[tabla[num][2]],
-        //tronco[tabla[num][1]],
-        //rama[tabla[num][0]],
-        //animalEnblematico[tabla[num][2]],
+        animalEmblematico[TABLA[num-1][2]],
     ]
 }
 
@@ -131,9 +128,15 @@ async function getInfoTrigramaVital(fechaNa, genero) {
 }
 async function getInfoHexagramaVital(fechaNa, genero) {
     var infoHexagramasNacimiento = await readFile('data/Hexagramas/HexagramaNacimiento.json')
-    return infoHexagramasNacimiento[conversion[getHexagramaVital(fechaNa, genero)]-1]
+
+    console.log('func: ' + getHexagramaVital(fechaNa, genero))
+
+    return infoHexagramasNacimiento[conversion.indexOf(getHexagramaVital(fechaNa, genero))]
+
 }
 async function getInfoHexagramaVitalIchin(fechaNa, genero) {
     var infoHexagramasIChing = await readFile('data/Hexagramas/infoHexagramasIChing.json')
+    
+    return infoHexagramasIChing[conversion.indexOf(getHexagramaVital(fechaNa, genero))+1]
     return infoHexagramasIChing[conversion[getHexagramaVital(fechaNa, genero)]]
 }

@@ -394,3 +394,7 @@ async function _handleHexagrams(type) {
     //console.log('path_hexagrama_vital_ichin: '+ path_hexagrama_vital_ichin)
     
 }
+
+function handleprintPDF() {
+    console.log('Printing PDF...')
+}

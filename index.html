@@ -19,6 +19,9 @@
     <script src="https://kit.fontawesome.com/98f7de6143.js"
       crossorigin="anonymous"></script>
 
+    <!-- HTML2PDF -->
+    <script src="scripts\html2pdf.bundle.min.js"></script>
+
     <!-- Internal Styles -->
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link href="styles/bs.css" rel="stylesheet" type="text/css">
@@ -172,10 +175,7 @@
                     id="kiatse-hora-solar"></span></h2>
                 </div>
             </div>
-
-        
-            
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white" id="KiaTse-pdf-header">
               <div class="row flex-lg-row">
                 <div class="col-lg-4">
                   <img class="card-img-top img-fluid" id="kiatse-animal-img"
@@ -212,7 +212,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id='KiaTse-pdf-body'>
               <div class="col-md-6 col-sm-12">
                 <!-- Element 1 -->
                 <h1 class="text-warning">Año: <span
@@ -528,6 +528,8 @@
         <p class="text-center text-white py-4">© 2023 Company, Inc</p>
       </footer>
 
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     </body>
 
   </html>

@@ -398,12 +398,13 @@ async function _handleHexagrams(type) {
 function handleprintPDF() {
     console.log('Printing PDF...')
 
-    //var element = document.getElementById('KiaTse-data');
-    //html2pdf(element);
+    var name = document.getElementById('print-name').value
 
-    var element1 = document.getElementById('KiaTse-pdf-header');
-    var element2 = document.getElementById('KiaTse-pdf-body');
-
+    if (name == ''){
+        console.warn('No name introduced')
+        return false
+    }
+    
     var opt = {
         margin: 1,
         filename: 'KiaTse.pdf',
@@ -412,9 +413,23 @@ function handleprintPDF() {
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    // Puts the first element into the PDF, goes to a new page, and puts a second element on.
-    html2pdf().set(opt).from(element1).toPdf().get('pdf').then(function (pdf) {
-        pdf.addPage();
-    }).from(element2).toContainer().toCanvas().toPdf().save();
+    var element1 = document.getElementById('KiaTse-pdf-header');
+    var element2 = document.getElementById('KiaTse-pdf-body');
+
+    var h1 = document.getElementById('pdf-header1')
+
+    const mergedContainer = document.createElement('div');
+    
+    const header = document.createElement('h1');
+    header.textContent = name;
+    header.classList.add('text-warning', 'text-center');
+    mergedContainer.appendChild(header);
+
+    mergedContainer.appendChild(h1)
+
+    mergedContainer.appendChild(element1.cloneNode(true)); // Clone the first div
+    mergedContainer.appendChild(element2.cloneNode(true)); // Clone the second div
+
+    html2pdf().set(opt).from(mergedContainer).toPdf().save()
 
 }

@@ -19,6 +19,9 @@
     <script src="https://kit.fontawesome.com/98f7de6143.js"
       crossorigin="anonymous"></script>
 
+    <!-- HTML2PDF -->
+    <script src="scripts\html2pdf.bundle.min.js"></script>
+
     <!-- Internal Styles -->
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link href="styles/bs.css" rel="stylesheet" type="text/css">
@@ -35,6 +38,25 @@
   </head>
 
   <body>
+  <!-- Modal -->
+  <div class="modal fade" id="Modal-print" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Imprimir</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input id="print-name" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="return handleprintPDF()">Imprimir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
@@ -161,21 +183,18 @@
           <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-outline-info btn-sm float-end" onclick="return handleprintPDF()" id="nav-btn-Hexagrams">Imprimir</button>
+                    <button type="button" class="btn btn-outline-info btn-sm float-end" data-bs-target="#Modal-print" data-bs-toggle="modal" id="nav-btn-Hexagrams">Imprimir</button>
                 </div>
                 <div class="col-md-12">
                     <h1 class="text-warning"><span id="kiatse-top-1"></span> - <span id="kiatse-top-2"></span></h1>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" id="pdf-header1">
                   <h2 class="text-warning"><span>Hora Nacimiento </span><span
                     id="kiatse-hora"></span> - <span>Hora Solar </span><span
                     id="kiatse-hora-solar"></span></h2>
                 </div>
             </div>
-
-        
-            
-            <div class="card bg-dark text-white">
+            <div class="card bg-dark text-white" id="KiaTse-pdf-header">
               <div class="row flex-lg-row">
                 <div class="col-lg-4">
                   <img class="card-img-top img-fluid" id="kiatse-animal-img"
@@ -212,7 +231,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id='KiaTse-pdf-body'>
               <div class="col-md-6 col-sm-12">
                 <!-- Element 1 -->
                 <h1 class="text-warning">Año: <span
@@ -528,6 +547,8 @@
         <p class="text-center text-white py-4">© 2023 Company, Inc</p>
       </footer>
 
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     </body>
 
   </html>

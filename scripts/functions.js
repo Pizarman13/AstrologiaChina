@@ -128,14 +128,10 @@ async function getInfoTrigramaVital(fechaNa, genero) {
 }
 async function getInfoHexagramaVital(fechaNa, genero) {
     var infoHexagramasNacimiento = await readFile('data/Hexagramas/HexagramaNacimiento.json')
-
-
     return infoHexagramasNacimiento[conversion.indexOf(getHexagramaVital(fechaNa, genero))]
 
 }
 async function getInfoHexagramaVitalIchin(fechaNa, genero) {
     var infoHexagramasIChing = await readFile('data/Hexagramas/infoHexagramasIChing.json')
-    
     return infoHexagramasIChing[conversion.indexOf(getHexagramaVital(fechaNa, genero))+1]
-    return infoHexagramasIChing[conversion[getHexagramaVital(fechaNa, genero)]]
 }

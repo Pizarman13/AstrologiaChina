@@ -106,6 +106,8 @@ async function _handleKiaTse() {
 
     //? Load dataFiles
     ciclo = await readFile(`/data/KiaTse/ciclo.json`)
+    cicloRe = await readFile(`/data/KiaTse/cicloRe.json`)
+    animalRe =  await readFile(`/data/KiaTse/animalRe.json`)
     leyenda = await readFile(`/data/KiaTse/leyenda.json`)
 
     //#region Extract data from HTML
@@ -179,11 +181,13 @@ async function _handleKiaTse() {
 
     //Summary Header
     document.getElementById('kiatse-top-1').innerHTML = fechaFinal
-    document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
     document.getElementById('kiatse-hora').innerHTML = hora
     document.getElementById('kiatse-hora-solar').innerHTML = horaSolar
 
     //#region Anyo
+    document.getElementById('kiatse-resume-anyo-ciclo').innerHTML = countRealms(KiaTse_anyo + ' ' + cicloRe[KiaTse_anyo - 1])
+    document.getElementById('kiatse-resume-anyo-tronco').innerHTML = countRealms(datosKiaTse_anyo[0]['ReT'])
+    document.getElementById('kiatse-resume-anyo-rama').innerHTML = countRealms(datosKiaTse_anyo[1]['ReR'])
     document.getElementById('kiatse-results-anyo_ciclo').innerHTML = countRealms(KiaTse_anyo + ' ' + ciclo[KiaTse_anyo - 1])
     document.getElementById('kiatse-results-anyo_leyenda').innerHTML = countRealms(leyenda[KiaTse_anyo - 1])
     document.getElementById('kiatse-results-anyo_tronco_t').innerHTML = countRealms(datosKiaTse_anyo[0]['Tronco'])
@@ -206,9 +210,13 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-anyo_tronco_org').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-anyo_tronco_ene').innerHTML = countRealms(datosKiaTse_anyo[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-anyo_animal').innerHTML = countRealms(datosKiaTse_anyo[2])
+    document.getElementById('kiatse-results-anyo_animal_2').innerHTML = countRealms(animalRe[KiaTse_anyo - 1])
     //#endregion
 
     //#region  Mes
+    document.getElementById('kiatse-resume-mes-ciclo').innerHTML = countRealms(KiaTse_mes + ' ' + cicloRe[KiaTse_mes - 1])
+    document.getElementById('kiatse-resume-mes-tronco').innerHTML = countRealms(datosKiaTse_mes[0]['ReT'])
+    document.getElementById('kiatse-resume-mes-rama').innerHTML = countRealms(datosKiaTse_mes[1]['ReR'])
     document.getElementById('kiatse-results-mes_ciclo').innerHTML = countRealms(KiaTse_mes + ' ' + ciclo[KiaTse_mes - 1])
     document.getElementById('kiatse-results-mes_leyenda').innerHTML = countRealms(leyenda[KiaTse_mes - 1])
     document.getElementById('kiatse-results-mes_tronco_t').innerHTML = countRealms(datosKiaTse_mes[0]['Tronco'])
@@ -231,9 +239,13 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-mes_tronco_org').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-mes_tronco_ene').innerHTML = countRealms(datosKiaTse_mes[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-mes_animal').innerHTML = countRealms(datosKiaTse_mes[2])
+    document.getElementById('kiatse-results-mes_animal_2').innerHTML = countRealms(animalRe[KiaTse_mes - 1])
     //#endregion
 
     //#region Dia
+    document.getElementById('kiatse-resume-dia-ciclo').innerHTML = countRealms(KiaTse_dia + ' ' + cicloRe[KiaTse_dia - 1])
+    document.getElementById('kiatse-resume-dia-tronco').innerHTML = countRealms(datosKiaTse_dia[0]['ReT'])
+    document.getElementById('kiatse-resume-dia-rama').innerHTML = countRealms(datosKiaTse_dia[1]['ReR'])
     document.getElementById('kiatse-results-dia_ciclo').innerHTML = countRealms(KiaTse_dia + ' ' + ciclo[KiaTse_dia - 1])
     document.getElementById('kiatse-results-dia_leyenda').innerHTML = countRealms(leyenda[KiaTse_dia - 1])
     document.getElementById('kiatse-results-dia_tronco_t').innerHTML = countRealms(datosKiaTse_dia[0]['Tronco'])
@@ -256,9 +268,13 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-dia_tronco_org').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-dia_tronco_ene').innerHTML = countRealms(datosKiaTse_dia[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-dia_animal').innerHTML = countRealms(datosKiaTse_dia[2])
+    document.getElementById('kiatse-results-dia_animal_2').innerHTML = countRealms(animalRe[KiaTse_dia - 1])
     //#endregion
 
     //#region Hora
+    document.getElementById('kiatse-resume-hora-ciclo').innerHTML = countRealms(KiaTse_hora + ' ' + cicloRe[KiaTse_hora - 1])
+    document.getElementById('kiatse-resume-hora-tronco').innerHTML = countRealms(datosKiaTse_hora[0]['ReT'])
+    document.getElementById('kiatse-resume-hora-rama').innerHTML = countRealms(datosKiaTse_hora[1]['ReR'])
     document.getElementById('kiatse-results-hora_ciclo').innerHTML = countRealms(KiaTse_hora + ' ' + ciclo[KiaTse_hora - 1])
     document.getElementById('kiatse-results-hora_leyenda').innerHTML = countRealms(leyenda[KiaTse_hora - 1])
     document.getElementById('kiatse-results-hora_tronco_t').innerHTML = countRealms(datosKiaTse_hora[0]['Tronco'])
@@ -281,6 +297,7 @@ async function _handleKiaTse() {
     document.getElementById('kiatse-results-hora_tronco_org').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Organo'])
     document.getElementById('kiatse-results-hora_tronco_ene').innerHTML = countRealms(datosKiaTse_hora[1]['Ciclo Cósmico']['Energía'])
     document.getElementById('kiatse-results-hora_animal').innerHTML = countRealms(datosKiaTse_hora[2])
+    document.getElementById('kiatse-results-hora_animal_2').innerHTML = countRealms(animalRe[KiaTse_hora - 1])
     //#endregion
 
     //#region Contadores

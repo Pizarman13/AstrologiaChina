@@ -185,13 +185,55 @@
                 <div class="col-md-12">
                     <button type="button" class="btn btn-outline-info btn-sm float-end" data-bs-target="#Modal-print" data-bs-toggle="modal" id="nav-btn-Hexagrams">Imprimir</button>
                 </div>
-                <div class="col-md-12">
-                    <h1 class="text-warning"><span id="kiatse-top-1"></span> - <span id="kiatse-top-2"></span></h1>
-                </div>
+
                 <div class="col-md-12" id="pdf-header1">
-                  <h2 class="text-warning"><span>Hora Nacimiento </span><span
-                    id="kiatse-hora"></span> - <span>Hora Solar </span><span
-                    id="kiatse-hora-solar"></span></h2>
+                  <p class="text-white"> <span>Fecha Nacimiento: </span> <span id="kiatse-top-1"></span> <br><span>Hora Nacimiento </span><span
+                    id="kiatse-hora"></span> - <span>Hora Solar </span><span id="kiatse-hora-solar"></span> <br>
+                    <span>Estrellas: </span> <span id="kiatse-esencia"></span> <span>- </span> <span id="kiatse-ascendente"></span> <span>- </span> <span id="kiatse-tendencia"></span>
+                    &emsp;<span id="kiatse-yin"></span> <span id="kiatse-yang"></span></p>
+                </div>
+                <div>
+                  <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Ciclo</th>
+                        <th scope="col">Troco</th>
+                        <th scope="col">Rama</th>
+                        <th scope="col">Animal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Año</th>
+                        <td><span id="kiatse-resume-anyo-ciclo"></span></td>
+                        <td><span id="kiatse-resume-anyo-tronco"></span></td>
+                        <td><span id="kiatse-resume-anyo-rama"></span></td>
+                        <td><span id="kiatse-results-anyo_animal_2"></span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Mes</th>
+                        <td><span id="kiatse-resume-mes-ciclo"></span></td>
+                        <td><span id="kiatse-resume-mes-tronco"></span></td>
+                        <td><span id="kiatse-resume-mes-rama"></span></td>
+                        <td><span id="kiatse-results-mes_animal_2"></span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Día</th>
+                        <td><span id="kiatse-resume-dia-ciclo"></span></td>
+                        <td><span id="kiatse-resume-dia-tronco"></span></td>
+                        <td><span id="kiatse-resume-dia-rama"></span></td>
+                        <td><span id="kiatse-results-dia_animal_2"></span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Hora</th>
+                        <td><span id="kiatse-resume-hora-ciclo"></span></td>
+                        <td><span id="kiatse-resume-hora-tronco"></span></td>
+                        <td><span id="kiatse-resume-hora-rama"></span></td>
+                        <td><span id="kiatse-results-hora_animal_2"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
             </div>
             <div class="card bg-dark text-white" id="KiaTse-pdf-header">
@@ -203,19 +245,6 @@
                 <div class="col-lg-8">
                   <div class="card-body">
                     <ul class="list-group">
-                      <li class="list-group-item bg-dark text-white"><i
-                          class="fa-solid fa-star"></i>&nbspEsencia:&nbsp<span
-                          id="kiatse-esencia"></span></li>
-                      <li class="list-group-item bg-dark text-white"><i
-                          class="fa-solid fa-star"></i>&nbspAscendente:&nbsp<span
-                          id="kiatse-ascendente"></span></li>
-                      <li class="list-group-item bg-dark text-white"><i
-                          class="fa-solid fa-star"></i>&nbspTendencia:&nbsp<span
-                          id="kiatse-tendencia"></span></li>
-                      <li class="list-group-item bg-dark text-white"
-                        id="kiatse-yin"></li>
-                      <li class="list-group-item bg-dark text-white"
-                        id="kiatse-yang"></li>
                       <li class="list-group-item bg-dark text-white"
                         id="kiatse-metal"></li>
                       <li class="list-group-item bg-dark text-white"
@@ -276,12 +305,12 @@
                       <li>Nivel Humano</li>
                       <ul>
                         <li>Hora: <strong id="kiatse-results-anyo_rama_h"></strong></li>
-                        <li>Pto. Estatico: <strong
-                            id="kiatse-results-anyo_rama_pe"></strong></li>
                         <li>Organo: <strong id="kiatse-results-anyo_rama_or"></strong></li>
                         <li>Energía: <strong id="kiatse-results-anyo_rama_en"></strong></li>
+                        <li>Pto. Estatico: <strong
+                            id="kiatse-results-anyo_rama_pe"></strong></li>
                       </ul>
-                      <li>Ciclo Cosmico</li>
+                      <li>Nivel Celeste</li>
                       <ul>
                         <li>C. Unitario: <strong
                             id="kiatse-results-anyo_tronco_cu"></strong></li>
@@ -336,12 +365,11 @@
                       <li>Nivel Humano</li>
                       <ul>
                         <li>Hora: <strong id="kiatse-results-mes_rama_h"></strong></li>
-                        <li>Pto. Estatico: <strong
-                            id="kiatse-results-mes_rama_pe"></strong></li>
                         <li>Organo: <strong id="kiatse-results-mes_rama_or"></strong></li>
                         <li>Energía: <strong id="kiatse-results-mes_rama_en"></strong></li>
+                        <li>Pto. Estatico: <strong id="kiatse-results-mes_rama_pe"></strong></li>
                       </ul>
-                      <li>Ciclo Cosmico</li>
+                      <li>Nivel Celeste</li>
                       <ul>
                         <li>C. Unitario: <strong
                             id="kiatse-results-mes_tronco_cu"></strong></li>
@@ -396,12 +424,11 @@
                       <li>Nivel Humano</li>
                       <ul>
                         <li>Hora: <strong id="kiatse-results-dia_rama_h"></strong></li>
-                        <li>Pto. Estatico: <strong
-                            id="kiatse-results-dia_rama_pe"></strong></li>
                         <li>Organo: <strong id="kiatse-results-dia_rama_or"></strong></li>
                         <li>Energía: <strong id="kiatse-results-dia_rama_en"></strong></li>
+                        <li>Pto. Estatico: <strong id="kiatse-results-dia_rama_pe"></strong></li>
                       </ul>
-                      <li>Ciclo Cosmico</li>
+                      <li>Nivel Celeste</li>
                       <ul>
                         <li>C. Unitario: <strong
                             id="kiatse-results-dia_tronco_cu"></strong></li>
@@ -456,12 +483,11 @@
                       <li>Nivel Humano</li>
                       <ul>
                         <li>Hora: <strong id="kiatse-results-hora_rama_h"></strong></li>
-                        <li>Pto. Estatico: <strong
-                            id="kiatse-results-hora_rama_pe"></strong></li>
                         <li>Organo: <strong id="kiatse-results-hora_rama_or"></strong></li>
                         <li>Energía: <strong id="kiatse-results-hora_rama_en"></strong></li>
+                        <li>Pto. Estatico: <strong id="kiatse-results-hora_rama_pe"></strong></li>
                       </ul>
-                      <li>Ciclo Cosmico</li>
+                      <li>Nivel Celeste</li>
                       <ul>
                         <li>C. Unitario: <strong
                             id="kiatse-results-hora_tronco_cu"></strong></li>

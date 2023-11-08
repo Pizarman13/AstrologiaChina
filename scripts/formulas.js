@@ -29,7 +29,7 @@ async function getKiaTse_dia(birthdatetime) {
         
     var diferenciaDias = Math.floor((new Date(birthdatetime.getFullYear(), birthdatetime.getMonth(), birthdatetime.getDate(), 0, 0, 0, 0) - new Date(fechaBase.getFullYear(), fechaBase.getMonth(), fechaBase.getDate(), 0, 0, 0, 0)) / (1000 * 60 * 60 * 24));
 
-    var num = ((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60)
+    var num = (((diferenciaDias + 11) - Math.floor((diferenciaDias + 11) / 60) * 60) + 1)
 
     if (birthdatetime.getHours() >= 23) {
         return num += 1

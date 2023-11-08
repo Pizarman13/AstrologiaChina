@@ -179,7 +179,6 @@ async function _handleKiaTse() {
 
     //Summary Header
     document.getElementById('kiatse-top-1').innerHTML = fechaFinal
-    document.getElementById('kiatse-top-2').innerHTML = datosKiaTse_anyo[2]
     document.getElementById('kiatse-hora').innerHTML = hora
     document.getElementById('kiatse-hora-solar').innerHTML = horaSolar
 

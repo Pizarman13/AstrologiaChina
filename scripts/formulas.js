@@ -199,5 +199,9 @@ function tendencia(dateTime) {
         res += 9
     }
 
+    if(res > 9) {
+        res-=9
+    }
+
     return res
 }

@@ -28,11 +28,11 @@ async function readFile(filepath) {
 
 function countRealms(text) {
 
-    kiatSe_metal += countOccurrences(text, 'Metal');
-    kiatSe_agua += countOccurrences(text, 'Agua')
-    kiatSe_madera += countOccurrences(text, 'Madera')
-    kiatSe_fuego += countOccurrences(text, 'Fuego')
-    kiatSe_tierra += countOccurrences(text, 'Tierra')
+    kiatSe_metal += countOccurrences(text, ' Me ');
+    kiatSe_agua += countOccurrences(text, ' A ')
+    kiatSe_madera += countOccurrences(text, ' Ma ')
+    kiatSe_fuego += countOccurrences(text, ' F ')
+    kiatSe_tierra += countOccurrences(text, ' T ')
     kiatSe_yin += countOccurrences(text, 'Yīn')
     kiatSe_yang += countOccurrences(text, 'Yáng')
 

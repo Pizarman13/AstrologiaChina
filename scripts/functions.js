@@ -30,7 +30,7 @@ function countRealms(text) {
 
     kiatSe_metal += countOccurrences(text, ' Me ');
     kiatSe_agua += countOccurrences(text, ' A ')
-    kiatSe_madera += countOccurrences(text, ' Ma ')
+    kiatSe_madera += countOccurrences(text, ' Md ')
     kiatSe_fuego += countOccurrences(text, ' F ')
     kiatSe_tierra += countOccurrences(text, ' T ')
     kiatSe_yin += countOccurrences(text, 'Yīn')

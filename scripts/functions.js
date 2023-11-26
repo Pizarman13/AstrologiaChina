@@ -72,7 +72,6 @@ function convertTZ(date, tzString) {
 }
 
 async function datosTabla(num) {
-
     tronco = await readFile(`/data/KiaTse/TroncoCeleste/${TABLA[num-1][1]}.json`)
     rama = await readFile(`/data/KiaTse/RamaTerrestre/${TABLA[num-1][0]}.json`)
     animalEmblematico = await readFile('/data/KiaTse/animalEmblematico.json')

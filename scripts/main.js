@@ -118,13 +118,17 @@ async function _handleKiaTse() {
     var timeZone = document.getElementById('KiaTse_country').value;
     var GMT = franjasHorarias[timeZone]
 
+    console.log('GMT: ' + GMT)
+    console.log('timeZone: ' + timeZone)
+
     //#endregion
 
     //#region Process data
     //? Change date vartype and apply GMT
-    var isoDateTimeString = `${birthdate}T${birthtime}:00.000+${GMT < 0 ? '-' : ''}${Math.abs(GMT).toString().padStart(2, '0')}:00`;
+    var isoDateTimeString = `${birthdate}T${birthtime}:00.000${GMT < 0 ? '-' : '+'}${Math.abs(GMT).toString().padStart(2, '0')}:00`;
     var birthdatetime = new Date(isoDateTimeString);
     var timeZoneStr = franjasHorarias[timeZone]
+
     birthdatetime = convertTZ(birthdatetime, timeZoneStr)
 
     var KiaTse_esencia = esencia(birthdatetime)
@@ -435,22 +439,31 @@ function handleprintPDF() {
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    var element1 = document.getElementById('KiaTse-pdf-header');
-    var element2 = document.getElementById('KiaTse-pdf-body');
-
-    var h1 = document.getElementById('pdf-header1')
-
+    //? Element Creation
     const mergedContainer = document.createElement('div');
-    
     const header = document.createElement('h1');
     header.textContent = name;
+
+    //? Element Colection
+    var element1 = document.getElementById('KiaTse-pdf-header').cloneNode(true);
+    var element2 = document.getElementById('KiaTse-pdf-body').cloneNode(true);
+    var h1 = document.getElementById('pdf-header1').cloneNode(true);
+    var table = document.getElementById('KiaTse-pdf-table').cloneNode(true);
+        
+    //? Element Modification
     header.classList.add('text-warning', 'text-center');
+    header.style.marginBottom = '3vh'; // 3vh - 25vh
+    
+    h1.getElementsByTagName('p')[0].classList.remove('text-white');
+
+    table.classList.remove('table-dark');
+    
+    //? Element Append
     mergedContainer.appendChild(header);
-
     mergedContainer.appendChild(h1)
-
-    mergedContainer.appendChild(element1.cloneNode(true)); // Clone the first div
-    mergedContainer.appendChild(element2.cloneNode(true)); // Clone the second div
+    mergedContainer.appendChild(table)
+    mergedContainer.appendChild(element1);
+    mergedContainer.appendChild(element2);
 
     html2pdf().set(opt).from(mergedContainer).toPdf().save()
 

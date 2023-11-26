@@ -156,6 +156,7 @@ const franjasHorarias = {
     'Bolivia':'-4',
     'Paraguay':'-4',
     'Argentina':'-3',
+    'Uruguay':'-3',
     'Chile':'-4',
     'Ecuador':'-5'
 }

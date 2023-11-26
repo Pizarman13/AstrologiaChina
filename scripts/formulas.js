@@ -63,14 +63,25 @@ function getTrigramaNacimiento(dateTime) {
         } 
         else {
             var tmp = 0
+            var tmpFinal = 0
 
             var digitos = fechasplit[x].toString().split('')
             for (let i = 0; i < digitos.length; i++) {
                 tmp += parseInt(digitos[i])
             }
+            if (tmp > 11) {
+                tmp.toString().split('')
+                for (let j = 0; j < tmp.length; i++) {
+                    tmpFinal += parseInt(tmp[j])
+                }
+            } else {
+                tmpFinal = tmp
+            }
 
         }
-        if (tmp % 2 === 0) { res.push(0) }
+
+
+        if (tmpFinal % 2 === 0) { res.push(0) }
         else { res.push(1) }
 
     }

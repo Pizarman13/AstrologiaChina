@@ -64,19 +64,28 @@ function getTrigramaNacimiento(dateTime) {
         else {
             var tmp = 0
             var tmpFinal = 0
+            var num = 0
+            var suma = 0
 
             var digitos = fechasplit[x].toString().split('')
             for (let i = 0; i < digitos.length; i++) {
                 tmp += parseInt(digitos[i])
+                console.log('tmp: ' +tmp)
             }
+            
             if (tmp > 11) {
-                tmp.toString().split('')
-                for (let j = 0; j < tmp.length; i++) {
-                    tmpFinal += parseInt(tmp[j])
+                num = tmp
+                while (num > 0) {
+                    suma += num % 10
+                    num = Math.floor(num / 10)
                 }
+
+                tmpFinal = suma
+
             } else {
                 tmpFinal = tmp
             }
+            console.log('tmpf: ' +tmpFinal)
 
         }
 

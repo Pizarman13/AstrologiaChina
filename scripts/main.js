@@ -468,3 +468,9 @@ function handleprintPDF() {
     html2pdf().set(opt).from(mergedContainer).toPdf().save()
 
 }
+
+window.onload = function() {
+
+    document.getElementById('KiaTse_birthdate').valueAsDate = new Date()
+    document.getElementById('Hexagrams_birthdate').valueAsDate = new Date()
+}

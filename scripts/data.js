@@ -145,7 +145,7 @@ const franjasHorarias = {
     'Dinamarca':'+1',
     'Polonia':'+1',
     'Paises Bajos':'+1',
-    'Lituania':'+2',
+    'Lithuania':'+2',
     'Noruega':'+1',
     'Suecia':'+1',
     'Suiza':'+2',
@@ -172,4 +172,10 @@ const franjasHorarias = {
     'Jamaica':'-5',
     'Haiti':'-5',
     'Bahamas':'-4',
+    'Estonia':'+2',
+    'Letonia':'+2',
+    'Grecia':'+2',
+    'Luxemburgo':'+1',
+    'Finlandia':'+2',
+
 }

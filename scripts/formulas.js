@@ -103,6 +103,10 @@ function getTrigramaNacimiento(dateTime) {
 }
 
 function getTrigramaVital(fechaNa, genero) {
+
+    var triNa = getTrigramaNacimiento(fechaNa)
+    var converse = {"000" : 0, "001" : 1, "010" : 2, "011" : 3, "100" : 4, "101" : 5, "110" : 6, "111" : 7}
+    var trigramaInicial = converse[triNa]
      
     var anoNa = fechaNa.getFullYear()
     var fechaActual = new Date()
@@ -128,11 +132,13 @@ function getTrigramaVital(fechaNa, genero) {
         numero += 1
     }
 
-    if (numero > periodo) {
-        numero -= periodo
+    triVi = numero + trigramaInicial
+
+    if (trigramaInicial >= 8) {
+        trigramaInicial -= 8
     }
 
-    return numero
+    return trigramaInicial
   
 }
 
